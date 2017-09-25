@@ -15,5 +15,9 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	@include font-size($base-font-size);
+
+	.fonts-loaded & {
+		// font-family: $font-primary;
+	}
 }
 

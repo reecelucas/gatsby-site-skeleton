@@ -15,7 +15,7 @@ yarn develop
 Before pushing changes to production, make sure the following list has been completed:
 * Update name & description in `package.json`
 * Update the metadata in `gatsby-config.js` –> `gatsby-plugin-manifest`
-* Update the data in `metadata-config.js`
+* Update the site data in `site-config.ts`
 * Generate new Favicons in `static/favicons`
 * Update global & typographic settings in `styles/settings`
 

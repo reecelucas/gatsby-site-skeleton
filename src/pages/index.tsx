@@ -16,8 +16,8 @@ class IndexPage extends React.Component {
     super(props);
   }
 
+  // initialise page-specific modules that require the DOM
   componentDidMount() {
-    // initiliase modules that require the DOM
     controlOutline();
     this.lazyLoader = lazyLoad();
     this.lazyLoader.init();

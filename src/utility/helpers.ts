@@ -1,6 +1,12 @@
 let bodyBlocked: boolean = false;
 
+// check to see if Gatsby.js is rendering on the server
+export const serverRendered =
+  typeof window === 'undefined' || typeof document === 'undefined';
+
 const prefixedTransEndEvent = (): string => {
+  if (serverRendered) return;
+
   const transitions: { [key: string]: string } = {
     transition: 'transitionend',
     OTransition: 'otransitionend',
@@ -21,6 +27,8 @@ const prefixedTransEndEvent = (): string => {
 };
 
 const prefixedAnimEndEvent = (): string => {
+  if (serverRendered) return;
+
   const animations: { [key: string]: string } = {
     animation: 'animationend',
     OAnimation: 'oAnimationend',
@@ -45,6 +53,8 @@ export const setCookie = (
   cookieValue: string,
   days: number
 ): void => {
+  if (serverRendered) return;
+
   const today: Date = new Date();
   const expire: Date = new Date();
 
@@ -55,13 +65,7 @@ export const setCookie = (
 };
 
 export const blockScroll = (): void => {
-  if (
-    typeof window === 'undefined' ||
-    typeof document === 'undefined' ||
-    !document.body ||
-    !document.body.style ||
-    bodyBlocked
-  )
+  if (serverRendered || !document.body || !document.body.style || bodyBlocked)
     return;
 
   /**
@@ -77,13 +81,7 @@ export const blockScroll = (): void => {
 };
 
 export const allowScroll = (): void => {
-  if (
-    typeof window === 'undefined' ||
-    typeof document === 'undefined' ||
-    !document.body ||
-    !document.body.style ||
-    !bodyBlocked
-  )
+  if (serverRendered || !document.body || !document.body.style || !bodyBlocked)
     return;
 
   document.body.style.paddingRight = '';

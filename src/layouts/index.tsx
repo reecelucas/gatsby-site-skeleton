@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { LayoutProps } from '../types';
+import siteConfig from '../../site-config';
+import loadFonts from '../utility/loadFonts';
 import Footer from '../components/Footer/Footer';
 
 /**
@@ -9,11 +10,28 @@ import Footer from '../components/Footer/Footer';
  */
 require('../styles/global.scss');
 
-const TemplateWrapper = ({ children }: LayoutProps) => (
-  <div>
-    {children()}
-    <Footer />
-  </div>
-);
+class TemplateWrapper extends React.Component<any, void> {
+  constructor(props: any) {
+    super(props);
+  }
+
+  // initialise global modules that require the DOM
+  componentDidMount() {
+    const fonts = siteConfig.fonts;
+
+    if (fonts) {
+      loadFonts(fonts);
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.children()}
+        <Footer />
+      </div>
+    );
+  }
+}
 
 export default TemplateWrapper;

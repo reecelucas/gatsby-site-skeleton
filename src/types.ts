@@ -1,5 +1,8 @@
-export interface LayoutProps {
-  children: Function;
+export interface HtmlProps {
+  body: any;
+  preBodyComponents: any;
+  postBodyComponents: any;
+  headComponents: any;
 }
 
 export interface LazyLoadParams {
