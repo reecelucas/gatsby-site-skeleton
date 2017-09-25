@@ -1,0 +1,24 @@
+/* ==========================================================================
+   #SHARED
+   ========================================================================== */
+
+/**
+ * Where `margin-bottom` is concerned, this value will be the same as the
+ * base line-height. This allows us to keep a consistent vertical rhythm.
+ * As per: csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+h1, h2, h3, h4, h5, h6,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre {
+	margin-bottom: $base-spacing-unit;
+}
+
+img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+	vertical-align: baseline;
+}
+

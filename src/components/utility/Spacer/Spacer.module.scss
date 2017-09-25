@@ -1,0 +1,27 @@
+/* ==========================================================================
+   #Spacer
+   ========================================================================== */
+
+@import "../../../styles/settings/settings.global";
+@import "../../../styles/tools/tools.functions";
+
+.spacer {
+  margin-bottom: rem-calc($base-spacing-unit);
+}
+
+.spacerTiny {
+  margin-bottom: rem-calc($base-spacing-unit-tiny);
+}
+
+.spacerSmall {
+  margin-bottom: rem-calc($base-spacing-unit-small);
+}
+
+.spacerLarge {
+  margin-bottom: rem-calc($base-spacing-unit-large);
+}
+
+.spacerHuge {
+  margin-bottom: rem-calc($base-spacing-unit-huge);
+}
+

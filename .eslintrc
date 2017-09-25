@@ -1,0 +1,17 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-console": 0,
+    "comma-dangle": 0,
+    "no-plusplus": [
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ]
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}

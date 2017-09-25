@@ -1,0 +1,22 @@
+/* ==========================================================================
+   #SETTINGS: TYPOGRAPHY
+   ========================================================================== */
+
+// Typography - system font stack
+$font-fallback: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, sans-serif !default;
+$font-primary:  BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, sans-serif !default;
+
+// Responsive typography parameters (used in 'fluid-type' mixin)
+$min-vw: 320px !default;
+$max-vw: 1024px !default;
+
+// Typography sizing - major third typographic scale
+$font-size-1: 39px !default;
+$font-size-2: 31px !default;
+$font-size-3: 25px !default;
+$font-size-4: 20px !default;
+$font-size-5: 16px !default;
+$font-size-6: 12px !default;
+$font-size-7: 10px !default;
+$font-size-8: 8px  !default;
+

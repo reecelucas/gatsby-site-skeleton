@@ -1,0 +1,40 @@
+{
+  "name": "static-site-skeleton",
+  "description": "Static Site Skeleton",
+  "version": "1.0.0",
+  "author": "Reece Lucas <reecelucas@sky.com>",
+  "dependencies": {
+    "@types/node": "8.0.30",
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
+    "gatsby": "^1.9.43",
+    "gatsby-link": "^1.6.15",
+    "gatsby-plugin-manifest": "^1.0.8",
+    "gatsby-plugin-offline": "^1.0.9",
+    "gatsby-plugin-sass": "^1.0.12",
+    "gatsby-plugin-typescript": "^1.4.8",
+    "react": "^15.6.1",
+    "typescript": "^2.5.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "yarn format && gatsby build && gatsby serve",
+    "develop": "gatsby develop",
+    "format": "prettier es5 --single-quote --write 'src/**/*.{js,ts,tsx}'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel-eslint": "8.0.0",
+    "eslint": "4.7.2",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-extra-rules": "^0.8.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.4.0",
+    "prettier": "1.7.0"
+  }
+}

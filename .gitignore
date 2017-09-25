@@ -1,0 +1,28 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Sublime Text files
+*.sublime-project
+*.sublime-workspace
+.sublime-gulp.cache
+sublime-gulp.log
+
+# Map files
+*.map
+
+# Project dependencies
+node_modules
+.cache/
+
+# Build directory
+public/
+.DS_Store
+yarn-error.log
+yarn.lock

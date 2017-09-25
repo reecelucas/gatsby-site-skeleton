@@ -1,0 +1,56 @@
+/*------------------------------------
+	#GLOBAL
+-------------------------------------*/
+/**
+ *
+ * 	SETTINGS:
+ * 	Global...............Project-specific, globally available settings.
+ * 	Typography...........Project-specific, globally available typographic settings.
+ *
+ *
+ * 	TOOLS:
+ *  Functions............Global SASS functions
+ * 	Mixins...............Global SASS mixins.
+ *
+ *
+ * 	GENERIC:
+ * 	Normalize.css........Normalise browser defaults…
+ * 	Reset................…and zero them out.
+ * 	Box-sizing...........More manageable box-model.
+ *	shared...............Base styles shared across many/all elements.
+ *
+ *
+ * 	ELEMENTS:
+ * 	Headings.............H1–H6 base styles
+ *	Top-level............html & body styling
+ *
+ *  TRUMPS:
+ * 	Colour...............Utilities for altering BG and font colour
+ *	Display..............Utilities for controlling element display
+ *	Show-hide............Utiliteis for classes for showing or hiding content
+ *	Typography...........Utilities for manipulating type
+ *
+ */
+
+@import "settings/settings.global";
+@import "settings/settings.typography";
+
+
+@import "tools/tools.functions";
+@import "tools/tools.mixins";
+
+
+@import "generic/generic.normalize";
+@import "generic/generic.reset";
+@import "generic/generic.box-sizing";
+@import "generic/generic.shared";
+
+
+@import "elements/elements.headings";
+@import "elements/elements.top-level";
+
+
+@import "trumps/trumps.colour";
+@import "trumps/trumps.display";
+@import "trumps/trumps.show-hide";
+@import "trumps/trumps.typography";
