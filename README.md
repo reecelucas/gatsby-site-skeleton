@@ -2,7 +2,7 @@
 
 Using [Gatsby.js](https://www.gatsbyjs.org/), [Typescript](https://www.typescriptlang.org/index.html) and [CSS Modules](https://github.com/css-modules/css-modules).
 
-## Up And Running:
+## Up And Running
 First, [Install yarn](https://yarnpkg.com/lang/en/docs/install/), then
 ```
 git clone git@github.com:reecelucas/gatsby-site-skeleton.git
@@ -11,7 +11,7 @@ yarn
 yarn develop
 ```
 
-## Update:
+## Don't Forget
 Before pushing changes to production, make sure the following list has been completed:
 * Update name & description in `package.json`
 * Update the metadata in `gatsby-config.js` –> `gatsby-plugin-manifest`
