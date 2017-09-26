@@ -5,6 +5,24 @@ export interface HtmlProps {
   headComponents: any;
 }
 
+export interface layoutProps {
+  data: {
+    site: {
+      siteMetadata: {
+        siteName: string;
+        title: string;
+        description: string;
+        href: string;
+        imageUrl: string;
+        imageAlt: string;
+        themeColour: string;
+        fonts: string[];
+      };
+    };
+  };
+  children: any;
+}
+
 export interface LazyLoadParams {
   selector?: string;
   loadClass?: string;

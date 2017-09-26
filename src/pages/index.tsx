@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Helmet from 'react-helmet';
 import { LazyLoadAPI } from '../types';
 
 // utility
@@ -24,6 +25,11 @@ class IndexPage extends React.Component<any, void> {
   render() {
     return (
       <Spacer size="huge">
+        <Helmet>
+          <title>Index Page | Optional Title</title>
+          <meta name="description" content="Optional index page description" />
+        </Helmet>
+
         <Wrapper>
           <h1>Static Site Skeleton</h1>
         </Wrapper>
