@@ -3,22 +3,16 @@ import { LazyLoadAPI } from '../types';
 
 // utility
 import lazyLoad from '../utility/lazyLoad';
-import controlOutline from '../utility/controlOutline';
 
 // layout components
 import Wrapper from '../components/utility/Wrapper/Wrapper';
 import Spacer from '../components/utility/Spacer/Spacer';
 
-class IndexPage extends React.Component {
+class IndexPage extends React.Component<any, void> {
   lazyLoader: LazyLoadAPI;
-
-  constructor(props: any) {
-    super(props);
-  }
 
   // initialise page-specific modules that require the DOM
   componentDidMount() {
-    controlOutline();
     this.lazyLoader = lazyLoad();
     this.lazyLoader.init();
   }

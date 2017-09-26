@@ -37,15 +37,6 @@ export interface GridClassMap {
   [key: string]: string;
 }
 
-export interface AnchorProps {
-  href: string;
-  title?: string;
-  ariaLabel?: string;
-  customClass?: string;
-  children: any;
-  newTab?: boolean;
-}
-
 export interface SpacerProps {
   children?: any;
   size?: string;
@@ -53,4 +44,13 @@ export interface SpacerProps {
 
 export interface SpacerClassMap {
   [key: string]: string;
+}
+
+export interface AnchorProps {
+  href: string;
+  title?: string;
+  ariaLabel?: string;
+  customClass?: string;
+  children: any;
+  newTab?: boolean;
 }

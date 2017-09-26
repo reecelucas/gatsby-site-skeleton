@@ -16,7 +16,7 @@ if (productionEnv) {
   }
 }
 
-// Use `module.exports` to be compliante with `webpack-require` import method
+// use `module.exports` to be compliante with `webpack-require` import method
 module.exports = React.createClass<HtmlProps, void>({
   render() {
     if (productionEnv) {
