@@ -11,10 +11,10 @@ const Footer = () => (
       <p>
         View the source for this skeleton at{' '}
         <Anchor
-          href="https://github.com/reecelucas/static-site-skeleton"
+          href="https://github.com/reecelucas/gatsby-site-skeleton"
           newTab
         >
-          https://github.com/reecelucas/static-site-skeleton
+          https://github.com/reecelucas/gatsby-site-skeleton
         </Anchor>
       </p>
     </Wrapper>
