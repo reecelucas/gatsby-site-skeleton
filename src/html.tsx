@@ -46,5 +46,5 @@ class Html extends React.Component<HtmlProps, void> {
   }
 }
 
-// use `module.exports` to be compliante with `webpack-require` import method
+// use `module.exports` to be compliant with `webpack-require` import method
 module.exports = Html;
