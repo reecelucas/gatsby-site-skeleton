@@ -6,7 +6,7 @@ export interface HtmlProps {
 }
 
 export interface layoutProps {
-  data: {
+  data?: {
     site: {
       siteMetadata: {
         siteName: string;
@@ -20,16 +20,16 @@ export interface layoutProps {
       };
     };
   };
-  children: any;
+  children?: any;
 }
 
 export interface LazyLoadParams {
   selector?: string;
   loadClass?: string;
   errorClass?: string;
-  loadCallback?: Function | null;
-  errorCallback?: Function | null;
-  parentId?: string | null;
+  loadCallback?: Function;
+  errorCallback?: Function;
+  parentId?: string;
   rootMargin?: string;
   threshold?: number;
 }

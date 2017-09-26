@@ -84,6 +84,10 @@ class TemplateWrapper extends React.Component<layoutProps, void> {
   }
 }
 
+/**
+ * Query gatsby-config.js to retrieve the siteMetadata,
+ * passing it to TemplateWrapper in a prop called 'data'
+ */
 export const templateQuery = graphql`
   query templateQuery {
     site {
