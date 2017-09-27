@@ -11,7 +11,7 @@ const PurifyCSSPlugin = require('purifycss-webpack');
 exports.modifyWebpackConfig = ({ config, stage }) => {
   switch (stage) {
     case 'build-css':
-      config.plugin('purifycss-webpack', PurifyCSSPlugin, () => [
+      config.plugin('purify-css', PurifyCSSPlugin, () => [
         {
           paths: glob.sync(path.join(__dirname, 'src/**/*.{tsx, jsx}')),
           minimize: true,
