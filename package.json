@@ -18,6 +18,9 @@
     "gatsby-plugin-react-helmet": "^1.0.6",
     "gatsby-plugin-sass": "^1.0.12",
     "gatsby-plugin-typescript": "^1.4.8",
+    "glob": "^7.1.2",
+    "path": "^0.12.7",
+    "purifycss-webpack": "^0.6.2",
     "react": "^15.6.1",
     "typescript": "^2.5.2"
   },
