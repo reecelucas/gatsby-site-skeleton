@@ -72,3 +72,19 @@ export interface AnchorProps {
   children: any;
   newTab?: boolean;
 }
+
+export interface ResponsiveImageProps {
+  className?: string;
+  alt?: string;
+  srcset?: [
+    {
+      [key: string]: string;
+    }
+  ];
+  src: string;
+  sizes?: [
+    {
+      [key: string]: string;
+    }
+  ];
+}
