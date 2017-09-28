@@ -11,16 +11,16 @@ import Spacer from '../components/utility/Spacer/Spacer';
 import ResponsiveImage from '../components/utility/ResponsiveImage/ResponsiveImage';
 
 class IndexPage extends React.Component<any, void> {
-  lazyLoader: LazyLoadAPI;
+  lazyLoad: LazyLoadAPI;
 
   // initialise page-specific modules that require the DOM
   componentDidMount() {
-    this.lazyLoader = lazyLoad();
-    this.lazyLoader.init();
+    this.lazyLoad = lazyLoad();
+    this.lazyLoad.init();
   }
 
   componentWillUnmount() {
-    this.lazyLoader.destroy();
+    this.lazyLoad.destroy();
   }
 
   render() {
