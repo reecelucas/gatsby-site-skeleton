@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { GridProps, GridClassMap } from '../../../types';
+import { GridProps, ClassMap } from '../../../types';
 
 const styles = require('./Grid.module.scss');
 
-const gridClassMap: GridClassMap = {
-  small: 'grid--@small',
-  medium: 'grid--@medium',
-  large: 'grid--@large'
+const classMap: ClassMap = {
+  small: styles['grid--@small'],
+  medium: styles['grid--@medium'],
+  large: styles['grid--@large']
 };
 
 const GridItem = ({ children }: any) => (
@@ -14,9 +14,8 @@ const GridItem = ({ children }: any) => (
 );
 
 const Grid = ({ children, columnCount, breakpoint }: GridProps) => {
-  const columnModifier =
-    columnCount > 1 ? `${styles[`grid--${columnCount}`]}` : '';
-  const breakpointModifier = styles[gridClassMap[breakpoint]] || '';
+  const columnModifier = columnCount > 1 ? styles[`grid--${columnCount}`] : '';
+  const breakpointModifier = classMap[breakpoint] || '';
   const className = `${styles.grid} ${columnModifier} ${breakpointModifier}`;
 
   return (

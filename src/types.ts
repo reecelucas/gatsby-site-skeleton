@@ -40,6 +40,10 @@ export interface LazyLoadAPI {
   update: () => void;
 }
 
+export interface ClassMap {
+  [key: string]: string;
+}
+
 export interface SvgIconProps {
   height?: string;
   width?: string;
@@ -51,17 +55,9 @@ export interface GridProps {
   breakpoint?: string;
 }
 
-export interface GridClassMap {
-  [key: string]: string;
-}
-
 export interface SpacerProps {
   children?: any;
   size?: string;
-}
-
-export interface SpacerClassMap {
-  [key: string]: string;
 }
 
 export interface AnchorProps {
@@ -87,4 +83,10 @@ export interface ResponsiveImageProps {
       [key: string]: string;
     }
   ];
+  lazyLoad?: boolean;
+}
+
+export interface AspectRatioWrapperProps {
+  aspectRatio?: string;
+  children?: any;
 }
