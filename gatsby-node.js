@@ -5,6 +5,8 @@ const path = require('path');
 const PurifyCSSPlugin = require('purifycss-webpack');
 
 /**
+ * TODO: add 'group-css-media-queries-loader' to build CSS stage
+ *
  * Gatsby's 'API' for customising webpack configs,
  * using https://github.com/lewie9021/webpack-configurator
  */
