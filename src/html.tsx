@@ -27,6 +27,8 @@ class Html extends React.Component<HtmlProps, void> {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Static Site Skeleton</title>
 
+          <link rel="preload" href="/fonts/font-name-here.woff2" as="font" type="font/woff2" crossorigin />
+
           {this.props.headComponents}
           {css}
         </head>

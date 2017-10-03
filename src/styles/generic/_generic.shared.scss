@@ -3,6 +3,17 @@
    ========================================================================== */
 
 /**
+ * css-mqpacker (https://github.com/hail2u/node-css-mqpacker)
+ * is used in production builds to combine inline media queries:
+ * it uses the 'first win' algorithm to determine the order of
+ * combined media queries. This is often undesirable, so we specify
+ * the order here.
+ */
+@include phablet {}
+@include tablet {}
+@include desktop {}
+
+/**
  * Where `margin-bottom` is concerned, this value will be the same as the
  * base line-height. This allows us to keep a consistent vertical rhythm.
  * As per: csswizardry.com/2012/06/single-direction-margin-declarations
