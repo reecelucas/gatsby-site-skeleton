@@ -5,6 +5,7 @@ import { layoutProps } from '../types';
 // utility
 import loadFonts from '../utility/loadFonts';
 import controlOutline from '../utility/controlOutline';
+import { fetchFromLocalStorage } from '../utility/localStorage';
 
 // global ui
 import Footer from '../components/Footer/Footer';
@@ -12,11 +13,18 @@ import Footer from '../components/Footer/Footer';
 import '../styles/global.scss';
 
 class TemplateWrapper extends React.Component<layoutProps, void> {
-  // initialise global modules that require the DOM
-  componentDidMount() {
-    const fonts = this.props.data.site.siteMetadata.fonts;
+  htmlClassList: string = '';
 
-    if (fonts) loadFonts(fonts);
+  // initialise global modules that require the DOM API (prior to render)
+  componentWillMount() {
+    // check if the webfonts are cached...
+    if (fetchFromLocalStorage('fonts-loaded')) {
+      this.htmlClassList = 'fonts-loaded';
+    } else {
+      // fetch and load webfonts (if required)
+      const fonts = this.props.data.site.siteMetadata.fonts;
+      if (fonts) loadFonts(fonts);
+    }
     controlOutline();
   }
 
@@ -33,6 +41,7 @@ class TemplateWrapper extends React.Component<layoutProps, void> {
     return (
       <div>
         <Helmet>
+          <html className={this.htmlClassList} />
           <title>{title}</title>
           <meta name="description" content={description} />
           <link rel="canonical" href={href} />

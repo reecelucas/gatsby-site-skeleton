@@ -27,6 +27,7 @@
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
     "react": "^15.6.1",
+    "tslint-config-airbnb": "^5.3.0",
     "typescript": "^2.5.2"
   },
   "keywords": [
@@ -36,18 +37,12 @@
   "main": "n/a",
   "scripts": {
     "build": "yarn format && gatsby build && gatsby serve",
-    "develop": "gatsby develop",
+    "develop": "yarn format && gatsby develop",
     "format": "prettier es5 --single-quote --write 'src/**/*.{js,ts,tsx}'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "babel-eslint": "8.0.0",
-    "eslint": "4.7.2",
-    "eslint-config-airbnb": "^15.0.1",
-    "eslint-plugin-extra-rules": "^0.8.0",
-    "eslint-plugin-import": "^2.3.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "7.4.0",
     "prettier": "1.7.0"
   }
 }

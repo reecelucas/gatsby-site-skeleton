@@ -1,3 +1,4 @@
+import serverRendered from './serverRendered';
 import { LazyLoadParams, LazyLoadAPI } from '../types';
 
 /**
@@ -30,6 +31,8 @@ const lazyLoad = (
     threshold: threshold = 0
   }: LazyLoadParams = {}
 ): LazyLoadAPI => {
+  if (serverRendered) return;
+
   const d = document;
   let imageArray: Element[] = [];
   let imageCount: number;
@@ -193,9 +196,9 @@ const lazyLoad = (
       } else {
         imageCount = imageArray.length;
         const observerOptions = {
-          root: d.getElementById(parentId), // returns null if parentID is not passed at invocation
           rootMargin,
-          threshold
+          threshold,
+          root: d.getElementById(parentId) // returns null if parentID is not passed at invocation
         };
 
         // instantiate a new Intersection Observer

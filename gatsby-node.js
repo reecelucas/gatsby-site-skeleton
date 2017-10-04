@@ -29,7 +29,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
             // combine inline media queries
             require('css-mqpacker')(),
             // remove duplicate style rules (if any slip through)
-            require('css-mqpacker')()
+            require('postcss-discard-duplicates')()
           ]
         }
       ]);

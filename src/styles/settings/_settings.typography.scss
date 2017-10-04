@@ -2,9 +2,19 @@
    #SETTINGS: TYPOGRAPHY
    ========================================================================== */
 
+@font-face {
+  font: {
+    family: 'Lobster';
+    style: normal;
+    weight: 400;
+  }
+  src: url(/fonts/lobster-regular.woff2) format("woff2"),
+       url(/fonts/lobster-regular.woff) format("woff");
+}
+
 // Typography - system font stack
 $font-fallback: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, sans-serif !default;
-$font-primary:  BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, sans-serif !default;
+$font-primary:  'Lobster', Helvetica, sans-serif !default;
 
 // Responsive typography parameters (used in 'fluid-type' mixin)
 $min-vw: 320px !default;

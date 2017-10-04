@@ -6,7 +6,7 @@ module.exports = {
     imageUrl: '/',
     imageAlt: 'Lorem ispum dolor amet',
     themeColour: '#fff',
-    fonts: ['font-name-here', 'font-name-here']
+    fonts: ['Lobster']
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -35,5 +35,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline'
-  ]
+  ],
+  pathPrefix: '/'
 };

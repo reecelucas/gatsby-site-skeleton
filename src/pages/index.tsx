@@ -14,7 +14,7 @@ import ResponsiveImage from '../components/utility/ResponsiveImage/ResponsiveIma
 class IndexPage extends React.Component<any, void> {
   lazyLoad: LazyLoadAPI;
 
-  // initialise page-specific modules that require the DOM
+  // initialise page-specific modules that require the DOM (after render)
   componentDidMount() {
     this.lazyLoad = lazyLoad();
     this.lazyLoad.init();
