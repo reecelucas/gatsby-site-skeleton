@@ -10,6 +10,7 @@ import Wrapper from '../components/utility/Wrapper/Wrapper';
 import Spacer from '../components/utility/Spacer/Spacer';
 import AspectRatioWrapper from '../components/utility/AspectRatioWrapper/AspectRatioWrapper';
 import ResponsiveImage from '../components/utility/ResponsiveImage/ResponsiveImage';
+import BackToTop from '../components/utility/BackToTop/BackToTop';
 
 class IndexPage extends React.Component<any, void> {
   lazyLoad: LazyLoadAPI;
@@ -34,25 +35,33 @@ class IndexPage extends React.Component<any, void> {
 
         <Spacer size="large">
           <Wrapper>
+            <br />
+            <br />
             <h1>Static Site Skeleton</h1>
           </Wrapper>
         </Spacer>
 
         <Wrapper>
-          <AspectRatioWrapper>
-            <ResponsiveImage
-              alt="Placeholder"
-              src="http://via.placeholder.com/800x400"
-              sizes={[
-                { size: '100vw', mediaCondition: '(max-width: 940px)' },
-                { size: '940px', mediaCondition: '(min-width: 941px)' }
-              ]}
-              srcset={[
-                { width: '500w', url: 'http://via.placeholder.com/500x250' },
-                { width: '800w', url: 'http://via.placeholder.com/800x400' }
-              ]}
-            />
-          </AspectRatioWrapper>
+          <Spacer size="large">
+            <AspectRatioWrapper>
+              <ResponsiveImage
+                alt="Placeholder"
+                src="http://via.placeholder.com/800x400"
+                sizes={[
+                  { size: '100vw', mediaCondition: '(max-width: 940px)' },
+                  { size: '940px', mediaCondition: '(min-width: 941px)' }
+                ]}
+                srcset={[
+                  { width: '500w', url: 'http://via.placeholder.com/500x250' },
+                  { width: '800w', url: 'http://via.placeholder.com/800x400' }
+                ]}
+              />
+            </AspectRatioWrapper>
+          </Spacer>
+
+          <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+          <BackToTop />
         </Wrapper>
       </Spacer>
     );

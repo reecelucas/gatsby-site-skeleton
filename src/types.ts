@@ -90,3 +90,9 @@ export interface AspectRatioWrapperProps {
   aspectRatio?: string;
   children?: any;
 }
+
+export interface BackToTopProps {
+  offset?: number;
+  duration?: number;
+  easing?: string;
+}

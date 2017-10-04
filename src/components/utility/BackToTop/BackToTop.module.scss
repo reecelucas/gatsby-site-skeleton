@@ -1,0 +1,29 @@
+/* ==========================================================================
+   #BackToTop
+   ========================================================================== */
+
+@import "../../../styles/settings/settings.global";
+
+// Ensure these settings are configured before the @import of this file.
+$button-dimension: 40px !default;
+
+.button {
+  align-items: center;
+  background-color: $colour-four;
+  border-radius: 4px;
+  display: flex;
+  height: $button-dimension;
+  transition: background 0.4s ease;
+  width: $button-dimension;
+
+  &:hover,
+  &:focus {
+      background-color: darken($colour-four, 10%);
+  }
+}
+
+.icon {
+  fill: $colour-one;
+  margin: 0 auto;
+  width: 22px;
+}
