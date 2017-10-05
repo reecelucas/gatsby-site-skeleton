@@ -12,7 +12,12 @@ class BackToTop extends React.Component<BackToTopProps, JSX.Element> {
 
   handleClick() {
     const { offset, duration, easing } = this.props;
-    scrollTo(offset, duration, easing);
+
+    scrollTo({
+      offset,
+      duration,
+      easing
+    });
   }
 
   render() {

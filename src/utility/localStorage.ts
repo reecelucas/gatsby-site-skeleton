@@ -1,10 +1,11 @@
 import serverRendered from './serverRendered';
+import { SaveToLocalStorageParams } from '../types';
 
-export const saveToLocalStorage = (
-  key: string,
-  data: any,
-  expirationDays: number
-): boolean => {
+export const saveToLocalStorage = ({
+  key,
+  value,
+  expirationDays
+}: SaveToLocalStorageParams): boolean => {
   if (serverRendered) return;
 
   // try for localStorage support...
@@ -12,7 +13,7 @@ export const saveToLocalStorage = (
     // convert days to milliseconds (ms)
     const expirationMS = expirationDays * 24 * 60 * 60 * 1000;
     const record = {
-      value: JSON.stringify(data),
+      value: JSON.stringify(value),
       timestamp: new Date().getTime() + expirationMS
     };
 

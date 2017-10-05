@@ -40,6 +40,18 @@ export interface LazyLoadAPI {
   update: () => void;
 }
 
+export interface ScrollToParams {
+  offset?: number;
+  duration?: number;
+  easing?: string;
+}
+
+export interface SaveToLocalStorageParams {
+  key: string;
+  value: any;
+  expirationDays: number;
+}
+
 export interface ClassMap {
   [key: string]: string;
 }

@@ -1,3 +1,5 @@
+import { ScrollToParams } from '../types';
+
 /*
  * Scrolls the page to specified position.
  *
@@ -10,10 +12,12 @@
  *	- 'easeInOutQuint'
  */
 const scrollTo = (
-  offset: number = 0,
-  duration: number = 500,
-  easing: string = 'easeInOutQuint'
-) => {
+  {
+    offset: offset = 0,
+    duration: duration = 500,
+    easing: easing = 'easeInOutQuint'
+  }: ScrollToParams = {}
+): void => {
   const win = window;
   // using 'pageYOffset' over 'scrollY' for support in IE
   const scrollY = win.pageYOffset;

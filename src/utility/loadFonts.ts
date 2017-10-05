@@ -16,7 +16,11 @@ const loadFonts = (fontArray: string[]): void => {
        * expiration time to be just under this, so that we don't skip
        * font-loading for fonts that are no longer cached.
        */
-      saveToLocalStorage('fonts-loaded', true, 29);
+      saveToLocalStorage({
+        key: 'fonts-loaded',
+        value: true,
+        expirationDays: 29
+      });
     })
     .catch(err => console.log(`font loading error: ${err}`));
 };
