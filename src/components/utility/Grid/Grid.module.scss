@@ -11,15 +11,15 @@ $grid-column-number: 12 !default;
 $grid-column-gap: 80px !default;
 
 .grid {
-  margin-left: -(rem-calc($grid-gap));
+  margin-left: -(rem-calc($grid-column-gap));
   @include gridWithFallback;
 
   .gridItem {
-    padding-left: rem-calc($grid-gap);
+    padding-left: rem-calc($grid-column-gap);
   }
 
   @supports (display: grid) {
-    grid-gap: $grid-gap;
+    grid-gap: $grid-column-gap;
     margin-left: 0;
 
     .gridItem {
