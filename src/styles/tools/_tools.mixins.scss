@@ -3,9 +3,12 @@
    ========================================================================== */
 
 // Responsive media query mixins.
+
+@import 'node_modules/sass-mq/mq';
+
 @mixin phablet {
 
-  @media screen and (min-width: $phablet-width) {
+  @include mq($from: phablet) {
     @content;
   }
 
@@ -13,7 +16,7 @@
 
 @mixin tablet {
 
-  @media screen and (min-width: $tablet-width) {
+  @include mq($from: tablet) {
     @content;
   }
 
@@ -21,11 +24,12 @@
 
 @mixin desktop {
 
-  @media screen and (min-width: $desktop-width) {
+  @include mq($from: desktop) {
     @content;
   }
 
 }
+
 
 /**
  *	Font-size: create a fully formed type style (sizing and vertical rhythm) by passing in a

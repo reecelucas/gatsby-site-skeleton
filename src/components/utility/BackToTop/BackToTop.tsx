@@ -1,5 +1,5 @@
 import * as React from 'react';
-import scrollTo from '../../../utility/scrollTo';
+import scrollTo from '../../../utilities/scrollTo';
 import { BackToTopProps } from '../../../types';
 
 const styles = require('./BackToTop.module.scss');

@@ -1,15 +1,25 @@
 import * as React from 'react';
 import { HtmlProps } from './types';
 
-const productionEnv: boolean = process.env.NODE_ENV === 'production';
 let stylesStr: string;
 let css: JSX.Element;
+const productionEnv: boolean = process.env.NODE_ENV === 'production';
+const webfontScript: string = `
+  (function(){
+    try {
+      var record = JSON.parse(localStorage.getItem('fonts-loaded'));
+      if (record && new Date().getTime() < record.timestamp) {
+        window.document.documentElement.className += ' fonts-loaded';
+      }
+    } catch (e) {}
+  })(window);
+`;
 
 if (productionEnv) {
   try {
     stylesStr = require('!raw-loader!../public/styles.css');
-  } catch (e) {
-    console.log(e);
+  } catch (err) {
+    console.log(err);
   }
 }
 
@@ -26,14 +36,8 @@ class Html extends React.Component<HtmlProps, void> {
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Static Site Skeleton</title>
-
-          <link
-            rel="preload"
-            href="/fonts/lobster-regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossorigin
-          />
+          <script dangerouslySetInnerHTML={{ __html: webfontScript }} />
+          <link rel="preload" href="/fonts/lobster-regular.woff2" as="font" type="font/woff2" />
 
           {this.props.headComponents}
           {css}

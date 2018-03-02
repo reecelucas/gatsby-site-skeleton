@@ -2,10 +2,16 @@
    #SETTINGS: GLOBAL
    ========================================================================== */
 
-// Responsive breakpoints
-$phablet-width: 670px  !default;
-$tablet-width:  768px  !default;
-$desktop-width: 1025px !default;
+/**
+ * Specify breakpoints for use with `sass-mq`
+ * (https://github.com/sass-mq/sass-mq)
+ */
+
+ $mq-breakpoints: (
+  phablet: 640px,
+  tablet: 768px,
+  desktop: 1024px
+) !default;
 
 // Colour palette
 $colour-one:   #FFFFFF !default; // WHITE
@@ -32,4 +38,3 @@ $base-spacing-unit-huge:  64px !default;
 // Z-indexes
 $z-index-beneath: -1 !default;
 $z-index-base:     1 !default;
-

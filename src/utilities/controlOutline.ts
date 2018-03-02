@@ -8,26 +8,30 @@ const controlOutline = () => {
   if (serverRendered) return;
 
   const d = document;
+  const head = d.getElementsByTagName('HEAD')[0];
   const styleElem = d.createElement('STYLE');
 
-  // inserts style string in the injected <style></style>
+  // inserts style string in the injected `<style>` tag
   const setCss = (cssString: string): void => {
     styleElem.innerHTML = cssString;
   };
 
-  d.getElementsByTagName('HEAD')[0].appendChild(styleElem);
+  const removeFocusState = (): void => {
+    setCss(':focus{outline:0;}::-moz-focus-inner{border:0;}');
+  };
+
+  const restoreFocusState = (): void => {
+    setCss('');
+  };
+
+  head.appendChild(styleElem);
+
   /**
-   * Using mousedown instead of mouseover, so that previously focused
+   * use `mousedown` instead of `mouseover`, so that previously focused
    * elements don't lose focus ring on mouse move
    */
-  d.addEventListener(
-    'mousedown',
-    () => {
-      setCss(':focus{outline:0}::-moz-focus-inner{border:0;}');
-    },
-    false
-  );
-  d.addEventListener('keydown', () => setCss(''), false);
+  d.addEventListener('mousedown', removeFocusState, false);
+  d.addEventListener('keydown', restoreFocusState, false);
 };
 
 export default controlOutline;

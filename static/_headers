@@ -2,22 +2,22 @@
 
 # Set Cache Control & Expire headers
 /*.html
-  Cache-Control: public, must-revalidate, max-age=604800
+  Cache-Control: public, must-revalidate, max-age=604800 # 7 days
 
 /*.js
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=31557600 # 1 year
 
 /*.json
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=2592000 # 1 year
 
 /*.css
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=31557600 # 1 year
 
 /images/**/*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=31557600 # 1 year
 
 /favicons/**/*
-  Cache-Control: public, max-age=2592000
+  Cache-Control: public, max-age=31557600 # 1 year
 
 /fonts/*
-  Cache-Control: public, max-age=31557600
+  Cache-Control: public, max-age=31557600 # 1 year

@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import { LazyLoadAPI } from '../types';
 
 // utility
-import lazyLoad from '../utility/lazyLoad';
+import lazyLoad from '../utilities/lazyLoad';
 
 // layout components
 import Wrapper from '../components/utility/Wrapper/Wrapper';
