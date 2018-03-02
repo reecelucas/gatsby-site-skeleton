@@ -23,9 +23,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
           test: /\.css$/,
           log: true,
           plugins: [
-            require('autoprefixer')({
-              browsers: ['last 2 versions']
-            }),
+            require('autoprefixer')(),
             // combine inline media queries
             require('css-mqpacker')(),
             // remove duplicate style rules (if any slip through)

@@ -9,9 +9,7 @@ const classMap: ClassMap = {
   large: styles['grid--@large']
 };
 
-const GridItem = ({ children }: any) => (
-  <div className={styles.gridItem}>{children}</div>
-);
+const GridItem = ({ children }: any) => <div className={styles.gridItem}>{children}</div>;
 
 const Grid = ({ children, columnCount, breakpoint }: GridProps) => {
   const columnModifier = columnCount > 1 ? styles[`grid--${columnCount}`] : '';
@@ -20,9 +18,7 @@ const Grid = ({ children, columnCount, breakpoint }: GridProps) => {
 
   return (
     <div className={className}>
-      {children.map((child: any, i: number) => (
-        <GridItem key={i}>{child}</GridItem>
-      ))}
+      {children.map((child: any, i: number) => <GridItem key={i}>{child}</GridItem>)}
     </div>
   );
 };

@@ -7,11 +7,11 @@
 
 // Ensure these settings are configured before the @import of this file.
 $aspect-ratios: (
-  16\:9: 56.25%,
-  8\:5: 62.5%,
-  4\:3: 75%,
-  3\:2: 66.66%,
-  1\:1: 100%
+  "16:9": 56.25%,
+  "8:5": 62.5%,
+  "4:3": 75%,
+  "3:2": 66.66%,
+  "1:1": 100%
 );
 
 .wrapper {
@@ -19,11 +19,12 @@ $aspect-ratios: (
   display: block;
   height: 0;
   overflow: hidden;
-  padding-bottom: map-get($aspect-ratios, 16\:9);
+  padding-bottom: map-get($aspect-ratios, "16:9");
   position: relative;
   width: 100%;
 
   // Common child elements
+
   img,
   iframe,
   video,
@@ -33,20 +34,22 @@ $aspect-ratios: (
   }
 }
 
+
 /* Style variants
    ========================================================================== */
+
 .wrapper--8\:5 {
-  padding-bottom: map-get($aspect-ratios, 8\:5);
+  padding-bottom: map-get($aspect-ratios, "8:5");
 }
 
 .wrapper--4\:3 {
-  padding-bottom: map-get($aspect-ratios, 4\:3);
+  padding-bottom: map-get($aspect-ratios, "4:3");
 }
 
 .wrapper--3\:2 {
-  padding-bottom: map-get($aspect-ratios, 3\:2);
+  padding-bottom: map-get($aspect-ratios, "3:2");
 }
 
 .wrapper--1\:1 {
-  padding-bottom: map-get($aspect-ratios, 1\:1);
+  padding-bottom: map-get($aspect-ratios, "1:1");
 }

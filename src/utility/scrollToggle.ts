@@ -3,8 +3,7 @@ import serverRendered from './serverRendered';
 let bodyBlocked: boolean = false;
 
 export const blockScroll = (): void => {
-  if (serverRendered || !document.body || !document.body.style || bodyBlocked)
-    return;
+  if (serverRendered || !document.body || !document.body.style || bodyBlocked) return;
 
   /**
    * document.body.clientWidth returns the inner width of the
@@ -19,8 +18,7 @@ export const blockScroll = (): void => {
 };
 
 export const allowScroll = (): void => {
-  if (serverRendered || !document.body || !document.body.style || !bodyBlocked)
-    return;
+  if (serverRendered || !document.body || !document.body.style || !bodyBlocked) return;
 
   document.body.style.paddingRight = '';
   document.body.style.overflowY = '';

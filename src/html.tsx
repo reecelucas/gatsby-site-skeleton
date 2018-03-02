@@ -40,11 +40,7 @@ class Html extends React.Component<HtmlProps, void> {
         </head>
         <body>
           {this.props.preBodyComponents}
-          <div
-            key={'body'}
-            id="___gatsby"
-            dangerouslySetInnerHTML={{ __html: this.props.body }}
-          />
+          <div key={'body'} id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
         </body>
       </html>

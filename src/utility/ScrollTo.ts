@@ -11,20 +11,15 @@ import { ScrollToParams } from '../types';
  *	- 'easeInOutSine'
  *	- 'easeInOutQuint'
  */
-const scrollTo = (
-  {
-    offset: offset = 0,
-    duration: duration = 500,
-    easing: easing = 'easeInOutQuint'
-  }: ScrollToParams = {}
-): void => {
+const scrollTo = ({
+  offset: offset = 0,
+  duration: duration = 500,
+  easing: easing = 'easeInOutQuint'
+}: ScrollToParams = {}): void => {
   const win = window;
   // using 'pageYOffset' over 'scrollY' for support in IE
   const scrollY = win.pageYOffset;
-  const time = Math.max(
-    0.1,
-    Math.min(Math.abs(scrollY - offset) / duration, 0.8)
-  );
+  const time = Math.max(0.1, Math.min(Math.abs(scrollY - offset) / duration, 0.8));
   let start = 0;
 
   // return if we're already at the point we need to be

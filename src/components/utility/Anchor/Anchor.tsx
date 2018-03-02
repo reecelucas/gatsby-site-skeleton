@@ -3,14 +3,7 @@ import { AnchorProps } from '../../../types';
 
 const styles = require('./Anchor.module.scss');
 
-const Anchor = ({
-  href,
-  newTab,
-  title,
-  ariaLabel,
-  customClass,
-  children
-}: AnchorProps) => (
+const Anchor = ({ href, newTab, title, ariaLabel, customClass, children }: AnchorProps) => (
   <a
     className={customClass || styles.anchor}
     href={href}

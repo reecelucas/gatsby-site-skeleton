@@ -3,12 +3,34 @@
    Use '!important' deliberately here – we always want trump classes to take
    ========================================================================== */
 
-.u-colour-alpha   { color: $colour-one !important; }
-.u-colour-beta    { color: $colour-two !important; }
-.u-colour-gamma   { color: $colour-three !important; }
-.u-colour-delta   { color: $colour-four !important; }
+.u-colour-alpha {
+  color: $colour-one !important;
+}
 
-.u-bg-alpha   { background-color: $colour-one !important; }
-.u-bg-beta    { background-color: $colour-two !important; }
-.u-bg-gamma   { background-color: $colour-three !important; }
-.u-bg-delta   { background-color: $colour-four !important; }
+.u-colour-beta {
+  color: $colour-two !important;
+}
+
+.u-colour-gamma {
+  color: $colour-three !important;
+}
+
+.u-colour-delta {
+  color: $colour-four !important;
+}
+
+.u-bg-alpha {
+  background-color: $colour-one !important;
+}
+
+.u-bg-beta {
+  background-color: $colour-two !important;
+}
+
+.u-bg-gamma {
+  background-color: $colour-three !important;
+}
+
+.u-bg-delta {
+  background-color: $colour-four !important;
+}

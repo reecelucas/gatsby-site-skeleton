@@ -19,18 +19,16 @@ import { LazyLoadParams, LazyLoadAPI } from '../types';
  * detect when visibility passes the 50% mark (half of the element is visible within the
  * root element), you can use a value of 0.5.
  */
-const lazyLoad = (
-  {
-    selector: selector = '.js-lazy-image',
-    loadClass: loadClass = 'has-loaded',
-    errorClass: errorClass = 'has-error',
-    loadCallback: loadCallback = null,
-    errorCallback: errorCallback = null,
-    parentId: parentId = null,
-    rootMargin: rootMargin = '0px 0px 0px 0px',
-    threshold: threshold = 0
-  }: LazyLoadParams = {}
-): LazyLoadAPI => {
+const lazyLoad = ({
+  selector: selector = '.js-lazy-image',
+  loadClass: loadClass = 'has-loaded',
+  errorClass: errorClass = 'has-error',
+  loadCallback: loadCallback = null,
+  errorCallback: errorCallback = null,
+  parentId: parentId = null,
+  rootMargin: rootMargin = '0px 0px 0px 0px',
+  threshold: threshold = 0
+}: LazyLoadParams = {}): LazyLoadAPI => {
   if (serverRendered) return;
 
   const d = document;
@@ -113,10 +111,7 @@ const lazyLoad = (
    * @returns {Promise} – returns the img src and srcset URLs when resolved
    * @private
    */
-  function fetchImages(
-    srcUrl: string,
-    srcsetUrls: string
-  ): Promise<{ [key: string]: string }> {
+  function fetchImages(srcUrl: string, srcsetUrls: string): Promise<{ [key: string]: string }> {
     return new Promise((resolve, reject) => {
       if (!srcUrl) reject();
 
@@ -182,9 +177,7 @@ const lazyLoad = (
    */
   function init(): void {
     // retrieves an array of images that have not been lazy-loaded
-    imageArray = Array.from(d.querySelectorAll(selector)).filter(
-      hasNotBeenLoaded
-    );
+    imageArray = Array.from(d.querySelectorAll(selector)).filter(hasNotBeenLoaded);
 
     if (imageArray.length > 0) {
       /**

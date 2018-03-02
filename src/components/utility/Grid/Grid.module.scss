@@ -31,6 +31,7 @@ $grid-column-gap: 80px !default;
 /* Style variants
    ========================================================================== */
 @for $i from 2 through $grid-column-number {
+
   .grid--#{$i} {
 
     .gridItem {
@@ -42,6 +43,7 @@ $grid-column-gap: 80px !default;
     }
 
   }
+
 }
 
 .grid--\@small {

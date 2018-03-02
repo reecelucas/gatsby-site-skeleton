@@ -19,6 +19,7 @@ sublime-gulp.log
 # Project dependencies
 node_modules
 .cache/
+coverage
 
 # Build directory
 public/

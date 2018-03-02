@@ -1,3 +1,5 @@
+const themeColour = '#ffffff';
+
 module.exports = {
   siteMetadata: {
     title: 'Static Site Skeleton',
@@ -5,7 +7,7 @@ module.exports = {
     href: 'http://static-site-skeleton.com/',
     imageUrl: '/',
     imageAlt: 'Lorem ispum dolor amet',
-    themeColour: '#fff',
+    themeColour: themeColour,
     fonts: ['Lobster']
   },
   plugins: [
@@ -29,8 +31,8 @@ module.exports = {
             type: 'image/png'
           }
         ],
-        background_color: '#fff',
-        theme_color: '#fff',
+        background_color: themeColour,
+        theme_color: themeColour,
         display: 'standalone'
       },
     },

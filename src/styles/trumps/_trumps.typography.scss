@@ -4,8 +4,15 @@
    ========================================================================== */
 
 // Font weights
-.u-font-heavy { font-weight: bold !important; }
-.u-font-light { font-weight: normal !important; }
+
+.u-font-heavy {
+  font-weight: bold !important;
+}
+
+.u-font-light {
+  font-weight: normal !important;
+}
+
 
 /**
  * Adjustments.
@@ -16,12 +23,36 @@
  * <p class="u-text++">A little bit bigger.</p>
  *
  */
-.u-text\+\+ { font-size: larger  !important; }
-.u-text--   { font-size: smaller !important; }
 
-.u-h1 { @include font-size($font-size-1, inherit, "important"); }
-.u-h2 { @include font-size($font-size-2, inherit, "important"); }
-.u-h3 { @include font-size($font-size-3, inherit, "important"); }
-.u-h4 { @include font-size($font-size-4, inherit, "important"); }
-.u-h5 { @include font-size($font-size-5, inherit, "important"); }
-.u-h6 { @include font-size($font-size-6, inherit, "important"); }
+.u-text\+\+ {
+  font-size: larger  !important;
+}
+
+.u-text-- {
+  font-size: smaller !important;
+}
+
+
+.u-h1 {
+  @include font-size($font-size-1, inherit, "important");
+}
+
+.u-h2 {
+  @include font-size($font-size-2, inherit, "important");
+}
+
+.u-h3 {
+  @include font-size($font-size-3, inherit, "important");
+}
+
+.u-h4 {
+  @include font-size($font-size-4, inherit, "important");
+}
+
+.u-h5 {
+  @include font-size($font-size-5, inherit, "important");
+}
+
+.u-h6 {
+  @include font-size($font-size-6, inherit, "important");
+}

@@ -10,13 +10,8 @@ const classMap: ClassMap = {
   '1:1': styles['wrapper--1:1']
 };
 
-const AspectRatioWrapper = ({
-  aspectRatio,
-  children
-}: AspectRatioWrapperProps) => (
-  <div className={`${styles.wrapper} ${classMap[aspectRatio] || ''}`}>
-    {children}
-  </div>
+const AspectRatioWrapper = ({ aspectRatio, children }: AspectRatioWrapperProps) => (
+  <div className={`${styles.wrapper} ${classMap[aspectRatio] || ''}`}>{children}</div>
 );
 
 export default AspectRatioWrapper;

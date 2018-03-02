@@ -7,9 +7,7 @@ const setCookie = (key: string, value: string, days: number): void => {
   const expire: Date = new Date();
 
   expire.setTime(today.getTime() + 3600000 * 24 * days);
-  document.cookie = `${key}=${encodeURIComponent(
-    value
-  )};expires='${expire.toUTCString()}`;
+  document.cookie = `${key}=${encodeURIComponent(value)};expires='${expire.toUTCString()}`;
 };
 
 export default setCookie;

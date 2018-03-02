@@ -10,10 +10,7 @@ const Footer = () => (
     <Wrapper>
       <p>
         View the source for this skeleton at{' '}
-        <Anchor
-          href="https://github.com/reecelucas/gatsby-site-skeleton"
-          newTab
-        >
+        <Anchor href="https://github.com/reecelucas/gatsby-site-skeleton" newTab>
           https://github.com/reecelucas/gatsby-site-skeleton
         </Anchor>
       </p>

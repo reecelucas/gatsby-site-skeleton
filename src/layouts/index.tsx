@@ -45,35 +45,14 @@ class TemplateWrapper extends React.Component<layoutProps, void> {
           <title>{title}</title>
           <meta name="description" content={description} />
           <link rel="canonical" href={href} />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/favicons/apple-touch-icon.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            href="/favicons/favicon-32x32.png"
-            sizes="32x32"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            href="/favicons/favicon-16x16.png"
-            sizes="16x16"
-          />
-          <link
-            rel="mask-icon"
-            href="/favicons/safari-pinned-tab.svg"
-            color={themeColour}
-          />
+          <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32" />
+          <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16" />
+          <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color={themeColour} />
           <link rel="shortcut icon" href="/favicons/favicon.ico" />
           <meta name="apple-mobile-web-app-title" content={title} />
           <meta name="application-name" content={title} />
-          <meta
-            name="msapplication-config"
-            content="/favicons/browserconfig.xml"
-          />
+          <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
           <meta name="theme-color" content={themeColour} />
 
           <meta property="og:title" content={title} />

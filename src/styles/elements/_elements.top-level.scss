@@ -14,10 +14,9 @@ body {
 	overflow-x: hidden;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	@include font-size($base-font-size);
+	@include font-size($base-font-size, $base-line-height);
 
 	.fonts-loaded & {
 		font-family: $font-primary;
 	}
 }
-

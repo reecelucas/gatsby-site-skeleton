@@ -6,6 +6,7 @@
  * As well as using normalize.css, it is often advantageous to remove all
  * margins from certain elements.
  */
+
 body,
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
@@ -20,6 +21,7 @@ hr {
 
 
 // Give a help cursor to elements that give extra info on `:hover`.
+
 abbr[title],
 dfn[title] {
 	cursor: help;
@@ -27,6 +29,7 @@ dfn[title] {
 
 
 // Remove underlines from potentially troublesome elements.
+
 u,
 ins {
 	text-decoration: none;
@@ -34,12 +37,14 @@ ins {
 
 
 // Apply faux underlines to inserted text via `border-bottom`.
+
 ins {
 	border-bottom: 1px solid;
 }
 
 
 // Remove indenting and bullet styles form lists.
+
 ul,
 ol,
 dl {
@@ -50,6 +55,7 @@ dl {
 
 
 // Remove underline from links by default.
+
 a {
 	color: inherit;
 	text-decoration: none;
