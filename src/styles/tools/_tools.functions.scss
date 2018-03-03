@@ -9,6 +9,7 @@
  *   padding-right: rem-calc(40px);
  * }
  */
+
 @function rem-calc($size) {
   $remSize: $size / $base-font-size;
   @return #{$remSize}rem;

@@ -6,8 +6,8 @@ export const blockScroll = (): void => {
   if (serverRendered || !document.body || !document.body.style || bodyBlocked) return;
 
   /**
-   * document.body.clientWidth returns the inner width of the
-   * body, including any padding but not vertical scrollbars (if there are any)
+   * `document.body.clientWidth` returns the inner width of the
+   * body, including any padding but not vertical scrollbars (if there are any).
    */
   const scrollBarWidth: number = window.innerWidth - document.body.clientWidth;
 

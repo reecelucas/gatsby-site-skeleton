@@ -2,20 +2,21 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { LazyLoadAPI } from '../types';
 
-// utility
+// Utility
 import lazyLoad from '../utilities/lazyLoad';
+import jsEnabled from '../utilities/jsEnabled';
 
-// layout components
+// Layout components
 import Wrapper from '../components/utility/Wrapper/Wrapper';
 import Spacer from '../components/utility/Spacer/Spacer';
 import AspectRatioWrapper from '../components/utility/AspectRatioWrapper/AspectRatioWrapper';
-import ResponsiveImage from '../components/utility/ResponsiveImage/ResponsiveImage';
+import ResponsiveImage from '../components/utility/ResponsiveImage';
 import BackToTop from '../components/utility/BackToTop/BackToTop';
 
 class IndexPage extends React.Component<any, void> {
   lazyLoad: LazyLoadAPI;
 
-  // initialise page-specific modules that require the DOM (after render)
+  // Initialise page-specific modules that require the DOM (after render)
   componentDidMount() {
     this.lazyLoad = lazyLoad();
     this.lazyLoad.init();
@@ -59,7 +60,7 @@ class IndexPage extends React.Component<any, void> {
             </AspectRatioWrapper>
           </Spacer>
 
-          <BackToTop />
+          {jsEnabled() && <BackToTop />}
         </Wrapper>
       </Spacer>
     );

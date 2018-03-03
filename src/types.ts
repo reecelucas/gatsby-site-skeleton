@@ -1,3 +1,5 @@
+import { ReactElement } from 'react';
+
 export interface HtmlProps {
   body: any;
   preBodyComponents: any;
@@ -81,20 +83,22 @@ export interface AnchorProps {
   newTab?: boolean;
 }
 
+export interface srcsetObject {
+  width: string;
+  url: string;
+}
+
+export interface sizesObject {
+  size: string;
+  mediaCondition: string;
+}
+
 export interface ResponsiveImageProps {
   className?: string;
   alt?: string;
-  srcset?: [
-    {
-      [key: string]: string;
-    }
-  ];
+  srcset?: srcsetObject[];
   src: string;
-  sizes?: [
-    {
-      [key: string]: string;
-    }
-  ];
+  sizes?: sizesObject[];
   lazyLoad?: boolean;
 }
 
@@ -107,4 +111,9 @@ export interface BackToTopProps {
   offset?: number;
   duration?: number;
   easing?: string;
+}
+
+export interface ConditionallyRenderParams {
+  Component: any;
+  condition: () => boolean;
 }

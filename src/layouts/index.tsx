@@ -2,18 +2,18 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 import { layoutProps } from '../types';
 
-// utility
+// Utility
 import loadFonts from '../utilities/loadFonts';
 import controlOutline from '../utilities/controlOutline';
 
-// global ui
+// Global UI
 import Footer from '../components/Footer/Footer';
 import '../styles/global.scss';
 
 class TemplateWrapper extends React.Component<layoutProps, void> {
-  // initialise global modules that require the DOM
+  // Initialise global modules that require the DOM (after render)
   componentDidMount() {
-    // load webfonts if they aren't already cached...
+    // Load any webfonts (if they aren't already cached)
     loadFonts(this.props.data.site.siteMetadata.fonts);
     controlOutline();
   }
@@ -63,7 +63,7 @@ class TemplateWrapper extends React.Component<layoutProps, void> {
 
 /**
  * Query gatsby-config.js to retrieve the siteMetadata,
- * passing it to TemplateWrapper in a prop called 'data'
+ * passing it to TemplateWrapper in a prop called 'data'.
  */
 export const templateQuery = graphql`
   query templateQuery {

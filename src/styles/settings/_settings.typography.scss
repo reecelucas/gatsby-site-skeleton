@@ -12,15 +12,18 @@
        url(/fonts/lobster-regular.woff) format("woff");
 }
 
-// Typography - system font stack
+// Typography - fallback to system font stack
+
 $font-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $font-primary: 'Lobster', Helvetica, sans-serif !default;
 
 // Responsive typography parameters (used in 'fluid-type' mixin)
+
 $min-vw: 320px !default;
 $max-vw: 1024px !default;
 
 // Typography sizing - major third typographic scale
+
 $font-size-1: 39px !default;
 $font-size-2: 31px !default;
 $font-size-3: 25px !default;

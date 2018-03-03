@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { ResponsiveImageProps } from '../../../types';
+import { ResponsiveImageProps, srcsetObject, sizesObject } from '../../types';
 
-const buildSrcset = (srcset: [{ [key: string]: string }]): string =>
+const buildSrcset = (srcset: srcsetObject[]): string =>
   srcset.map(src => `${src.url} ${src.width}`).join(',');
 
-const buildSizes = (sizes: [{ [key: string]: string }]): string =>
+const buildSizes = (sizes: sizesObject[]): string =>
   sizes.map(size => `${size.mediaCondition} ${size.size}`).join(',');
 
 const ResponsiveImage = (props: ResponsiveImageProps) => {

@@ -4,14 +4,19 @@ import { HtmlProps } from './types';
 let stylesStr: string;
 let css: JSX.Element;
 const productionEnv: boolean = process.env.NODE_ENV === 'production';
-const webfontScript: string = `
+const inlineScript: string = `
   (function(){
+    var html = document.documentElement;
+    html.className += ' js';
+
     try {
       var record = JSON.parse(localStorage.getItem('fonts-loaded'));
       if (record && new Date().getTime() < record.timestamp) {
-        window.document.documentElement.className += ' fonts-loaded';
+        html.className += ' fonts-loaded';
       }
-    } catch (e) {}
+    } catch (err) {
+      console.log(err);
+    }
   })(window);
 `;
 
@@ -36,9 +41,8 @@ class Html extends React.Component<HtmlProps, void> {
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Static Site Skeleton</title>
-          <script dangerouslySetInnerHTML={{ __html: webfontScript }} />
-          <link rel="preload" href="/fonts/lobster-regular.woff2" as="font" type="font/woff2" />
 
+          <script dangerouslySetInnerHTML={{ __html: inlineScript }} />
           {this.props.headComponents}
           {css}
         </head>
@@ -52,5 +56,5 @@ class Html extends React.Component<HtmlProps, void> {
   }
 }
 
-// use `module.exports` to be compliant with `webpack-require` import method
+// Use `module.exports` to be compliant with `webpack-require` import method
 module.exports = Html;

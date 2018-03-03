@@ -30,7 +30,6 @@
 
 }
 
-
 /**
  *	Font-size: create a fully formed type style (sizing and vertical rhythm) by passing in a
  * 	single value, e.g.:
@@ -80,6 +79,7 @@
  * 	}
  *
  */
+
 @mixin font-size($font-size, $line-height: "auto", $important: false) {
 
   @if ($important == "important") {
@@ -122,6 +122,7 @@
  *   @include fluid-type($min_width, $max_width, $min_font, $max_font);
  *
  */
+
  @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size, $important: false) {
   $u1: unit($min-vw);
   $u2: unit($max-vw);
@@ -156,6 +157,7 @@
  * 	  @include clearfix;
  * 	}
  */
+
 @mixin clearfix {
 
   &:before,
@@ -181,6 +183,7 @@
  *      @include cover;
  *  }
  */
+
 @mixin cover {
   bottom: 0;
   height: 100%;

@@ -16,7 +16,7 @@ const loadFonts = (fontArray: string[] | undefined): void => {
 
   Promise.all(fontFaceObservers.map(observer => observer.load(null, 5000)))
     .then(() => {
-      document.documentElement.className += 'fonts-loaded';
+      document.documentElement.className += ' fonts-loaded';
       /**
        * Font files are cached for 1 year. To be safe we set the local storage
        * expiration time to be just under this, so that we don't skip

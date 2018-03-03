@@ -11,7 +11,7 @@ const controlOutline = () => {
   const head = d.getElementsByTagName('HEAD')[0];
   const styleElem = d.createElement('STYLE');
 
-  // inserts style string in the injected `<style>` tag
+  // Inserts style string in the injected `<style>` tag
   const setCss = (cssString: string): void => {
     styleElem.innerHTML = cssString;
   };
@@ -27,8 +27,8 @@ const controlOutline = () => {
   head.appendChild(styleElem);
 
   /**
-   * use `mousedown` instead of `mouseover`, so that previously focused
-   * elements don't lose focus ring on mouse move
+   * Use `mousedown` instead of `mouseover`, so that previously focused
+   * elements don't lose focus ring on mouse move.
    */
   d.addEventListener('mousedown', removeFocusState, false);
   d.addEventListener('keydown', restoreFocusState, false);
