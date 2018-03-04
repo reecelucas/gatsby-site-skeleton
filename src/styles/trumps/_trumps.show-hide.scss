@@ -24,7 +24,7 @@
   white-space: nowrap; /* [1] */
 }
 
-.u-show-\@sml {
+.u-show\@sml {
   display: none !important;
 
   @include phablet {
@@ -32,7 +32,7 @@
   }
 }
 
-.u-show-\@med {
+.u-show\@med {
   display: none !important;
 
   @include tablet {
@@ -40,7 +40,7 @@
   }
 }
 
-.u-show-\@lrg {
+.u-show\@lrg {
   display: none !important;
 
   @include desktop {

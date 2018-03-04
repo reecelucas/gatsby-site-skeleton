@@ -24,57 +24,57 @@
   display: inline-block !important;
 }
 
-.u-display-block-\@sml {
+.u-display-block\@sml {
   @include phablet {
     display: block !important;
   }
 }
 
-.u-display-inline-\@sml {
+.u-display-inline\@sml {
   @include phablet {
     display: inline !important;
   }
 }
 
-.u-display-ib-\@sml {
+.u-display-ib\@sml {
   @include phablet {
     display: inline-block !important;
   }
 }
 
 
-.u-display-block-\@med {
+.u-display-block\@med {
   @include tablet {
     display: block !important;
   }
 }
 
-.u-display-inline-\@med {
+.u-display-inline\@med {
   @include tablet {
     display: inline !important;
   }
 }
 
-.u-display-ib-\@med {
+.u-display-ib\@med {
   @include tablet {
     display: inline-block !important;
   }
 }
 
 
-.u-display-block-\@lrg {
+.u-display-block\@lrg {
   @include desktop {
     display: block !important;
   }
 }
 
-.u-display-inline-\@lrg {
+.u-display-inline\@lrg {
   @include desktop {
     display: inline !important;
   }
 }
 
-.u-display-ib-\@lrg {
+.u-display-ib\@lrg {
   @include desktop {
     display: inline-block !important;
   }

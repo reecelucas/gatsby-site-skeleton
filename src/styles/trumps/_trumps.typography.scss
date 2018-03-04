@@ -25,7 +25,7 @@
  */
 
 .u-text\+\+ {
-  font-size: larger  !important;
+  font-size: larger !important;
 }
 
 .u-text-- {
@@ -34,25 +34,25 @@
 
 
 .u-h1 {
-  @include font-size($font-size-1, inherit, "important");
+  @include font-size($font-size-1, none, "important");
 }
 
 .u-h2 {
-  @include font-size($font-size-2, inherit, "important");
+  @include font-size($font-size-2, none, "important");
 }
 
 .u-h3 {
-  @include font-size($font-size-3, inherit, "important");
+  @include font-size($font-size-3, none, "important");
 }
 
 .u-h4 {
-  @include font-size($font-size-4, inherit, "important");
+  @include font-size($font-size-4, none, "important");
 }
 
 .u-h5 {
-  @include font-size($font-size-5, inherit, "important");
+  @include font-size($font-size-5, none, "important");
 }
 
 .u-h6 {
-  @include font-size($font-size-6, inherit, "important");
+  @include font-size($font-size-6, none, "important");
 }
