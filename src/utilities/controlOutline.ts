@@ -7,26 +7,26 @@ const styleElem = d.createElement('STYLE');
 
 // inserts style string in the injected `<style>` tag
 function setCss(cssString: string): void {
-    styleElem.innerHTML = cssString;
+  styleElem.innerHTML = cssString;
 }
 
 function removeFocusState(): void {
-    setCss(':focus{outline:0;}::-moz-focus-inner{border:0;}');
+  setCss(':focus{outline:0;}::-moz-focus-inner{border:0;}');
 }
 
 function restoreFocusState(): void {
-    setCss('');
+  setCss('');
 }
 
 export default function controlOutline(): void {
-    if (serverRendered) return;
+  if (serverRendered) return;
 
-    head.appendChild(styleElem);
+  head.appendChild(styleElem);
 
-    /**
-     * use `mousedown` instead of `mouseover`, so that previously focused
-     * elements don't lose focus ring on mouse move
-     */
-    d.addEventListener('mousedown', removeFocusState);
-    d.addEventListener('keydown', restoreFocusState);
+  /**
+   * use `mousedown` instead of `mouseover`, so that previously focused
+   * elements don't lose focus ring on mouse move
+   */
+  d.addEventListener('mousedown', removeFocusState);
+  d.addEventListener('keydown', restoreFocusState);
 }

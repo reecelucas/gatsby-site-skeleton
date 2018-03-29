@@ -3,11 +3,7 @@ import serverRendered from './serverRendered';
 import { saveToLocalStorage, fetchFromLocalStorage } from './localStorage';
 
 const loadFonts = (fontArray: string[] | undefined): void => {
-  if (
-    serverRendered ||
-    !fontArray ||
-    fetchFromLocalStorage('fonts-loaded')
-  ) {
+  if (serverRendered || !fontArray || fetchFromLocalStorage('fonts-loaded')) {
     return;
   }
 
