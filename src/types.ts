@@ -42,10 +42,24 @@ export interface LazyLoadAPI {
   update: () => void;
 }
 
-export interface ScrollToParams {
-  offset?: number;
-  duration?: number;
-  easing?: string;
+export interface ScrollItParams {
+  destination: number;
+  duration: number;
+  easing:
+      | 'linear'
+      | 'easeInQuad'
+      | 'easeOutQuad'
+      | 'easeInOutQuad'
+      | 'easeInCubic'
+      | 'easeOutCubic'
+      | 'easeInOutCubic'
+      | 'easeInQuart'
+      | 'easeOutQuart'
+      | 'easeInOutQuart'
+      | 'easeInQuint'
+      | 'easeOutQuint'
+      | 'easeInOutQuint';
+  callback?: () => any;
 }
 
 export interface SaveToLocalStorageParams {

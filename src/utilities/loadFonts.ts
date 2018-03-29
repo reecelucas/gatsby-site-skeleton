@@ -6,7 +6,6 @@ const loadFonts = (fontArray: string[] | undefined): void => {
   if (
     serverRendered ||
     !fontArray ||
-    fontArray.length === 0 ||
     fetchFromLocalStorage('fonts-loaded')
   ) {
     return;

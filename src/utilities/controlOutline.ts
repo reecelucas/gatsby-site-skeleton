@@ -1,37 +1,32 @@
 import serverRendered from './serverRendered';
 
-/**
- * Modified Outline.js:
- * based on http://www.paciellogroup.com/blog/2012/04/how-to-remove-css-outlines-in-an-accessible-manner/
- */
-const controlOutline = () => {
-  if (serverRendered) return;
+// modified Outline.js: https://github.com/lindsayevans/outline.js
+const d = document;
+const head = d.getElementsByTagName('HEAD')[0];
+const styleElem = d.createElement('STYLE');
 
-  const d = document;
-  const head = d.getElementsByTagName('HEAD')[0];
-  const styleElem = d.createElement('STYLE');
-
-  // Inserts style string in the injected `<style>` tag
-  const setCss = (cssString: string): void => {
+// inserts style string in the injected `<style>` tag
+function setCss(cssString: string): void {
     styleElem.innerHTML = cssString;
-  };
+}
 
-  const removeFocusState = (): void => {
+function removeFocusState(): void {
     setCss(':focus{outline:0;}::-moz-focus-inner{border:0;}');
-  };
+}
 
-  const restoreFocusState = (): void => {
+function restoreFocusState(): void {
     setCss('');
-  };
+}
 
-  head.appendChild(styleElem);
+export default function controlOutline(): void {
+    if (serverRendered) return;
 
-  /**
-   * Use `mousedown` instead of `mouseover`, so that previously focused
-   * elements don't lose focus ring on mouse move.
-   */
-  d.addEventListener('mousedown', removeFocusState, false);
-  d.addEventListener('keydown', restoreFocusState, false);
-};
+    head.appendChild(styleElem);
 
-export default controlOutline;
+    /**
+     * use `mousedown` instead of `mouseover`, so that previously focused
+     * elements don't lose focus ring on mouse move
+     */
+    d.addEventListener('mousedown', removeFocusState);
+    d.addEventListener('keydown', restoreFocusState);
+}

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SvgIconProps } from '../../../types';
+import { SvgIconProps } from '../../types';
 
 export const LinkedInIcon = ({ height, width }: SvgIconProps) => (
   <svg
