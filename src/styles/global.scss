@@ -10,7 +10,7 @@
  *
  *
  * 	TOOLS:
- *  Functions............Global SASS functions
+ *  Functions............Global SASS functions.
  * 	Mixins...............Global SASS mixins.
  *
  *
@@ -22,14 +22,18 @@
  *
  *
  * 	ELEMENTS:
- * 	Headings.............H1–H6 base styles
- *	Top-level............html & body styling
+ * 	Headings.............H1–H6 base styles.
+ *  Images...............Default responsive image styles.
+ *	Page.................html & body styling.
  *
- *  TRUMPS:
- * 	Colour...............Utilities for altering BG and font colour
- *	Display..............Utilities for controlling element display
- *	Show-hide............Utiliteis for classes for showing or hiding content
- *	Typography...........Utilities for manipulating type
+ *
+ *  UTILITIES:
+ * 	Colour...............Utilities for controlling background and font colour.
+ *	Display..............Utilities for manipulating element display.
+ *	Show-hide............Utilities for hiding content across resolutions.
+ *	Typography...........Utilities for controlling font size and style.
+ *  Widths...............Utilities for controlling element width. Can be used in
+ *                       conjunction with o-layout to create a simple responsive grid.
  *
  */
 
@@ -48,10 +52,12 @@
 
 
 @import "elements/elements.headings";
-@import "elements/elements.top-level";
+@import "elements/elements.images";
+@import "elements/elements.page";
 
 
-@import "trumps/trumps.colour";
-@import "trumps/trumps.display";
-@import "trumps/trumps.show-hide";
-@import "trumps/trumps.typography";
+@import "utilities/utilities.colour";
+@import "utilities/utilities.display";
+@import "utilities/utilities.show-hide";
+@import "utilities/utilities.typography";
+@import "utilities/utilities.widths";

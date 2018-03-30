@@ -6,7 +6,7 @@ const d = document;
 const html = d.documentElement;
 const body = d.body;
 
-// modified from: https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
+// Modified from: https://pawelgrzybek.com/page-scroll-in-vanilla-javascript/
 export default function scrollIt({
   destination,
   duration = 400,

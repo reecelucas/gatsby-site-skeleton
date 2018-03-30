@@ -77,7 +77,6 @@
  * 	    font-size: 12px;
  * 	    font-size: 0.75rem;
  * 	}
- *
  */
 
 @mixin font-size($font-size, $line-height: "auto", $important: false) {
@@ -120,7 +119,7 @@
  *
  * .usage {
  *   @include fluid-type($min_width, $max_width, $min_font, $max_font);
- *
+ * }
  */
 
  @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size, $important: false) {

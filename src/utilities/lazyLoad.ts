@@ -54,7 +54,7 @@ const lazyLoad = ({
   }
 
   /**
-   * @returns {Boolean} - true if img has the 'data-src' attribute,
+   * @returns {Boolean} - True if img has the 'data-src' attribute,
    * which is stripped when the img is loaded.
    * @private
    */
@@ -92,7 +92,7 @@ const lazyLoad = ({
   function handleImageError(img: Element): void {
     const image = img;
 
-    // remove 'data-' attributes to prevent multiple attempts at lazy-loading
+    // Remove 'data-' attributes to prevent multiple attempts at lazy-loading
     stripDataAttributes(image);
 
     if (!image.classList.contains(errorClass)) {
@@ -108,7 +108,7 @@ const lazyLoad = ({
    * Fetches the images for the given src and srcset URLs.
    * Returns a Promise that resolves if the images are successfuly downloaded.
    *
-   * @returns {Promise} – returns the img src and srcset URLs when resolved
+   * @returns {Promise} – Returns the img src and srcset URLs when resolved
    * @private
    */
   function fetchImages(srcUrl: string, srcsetUrls: string): Promise<{ [key: string]: string }> {
@@ -152,7 +152,7 @@ const lazyLoad = ({
    * @private
    */
   function onEntry(entries: IntersectionObserverEntry[]): void {
-    // disconnect the observer when all images have been loaded
+    // Disconnect the observer when all images have been loaded
     if (imageCount === 0) disconnectObserver();
 
     entries.forEach(entry => {
@@ -160,7 +160,7 @@ const lazyLoad = ({
         imageCount -= 1;
         const image: Element = entry.target;
 
-        // stop watching the image and load it
+        // Stop watching the image and load it
         observer.unobserve(image);
         loadImage(image);
       }

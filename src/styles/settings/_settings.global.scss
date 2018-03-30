@@ -2,9 +2,12 @@
    #SETTINGS: GLOBAL
    ========================================================================== */
 
+/* Responsive breakpoints
+   ========================================================================== */
+
 /**
  * Specify breakpoints for use with `sass-mq`
- * (https://github.com/sass-mq/sass-mq)
+ * (https://github.com/sass-mq/sass-mq).
  */
 
  $mq-breakpoints: (
@@ -13,23 +16,31 @@
   desktop: 1024px
 ) !default;
 
-// Colour palette
+
+/* Colour palette
+   ========================================================================== */
 
 $colour-one:   #FFFFFF !default; // WHITE
 $colour-two:   #2B2B2B !default; // DARK GREY
 $colour-three: #767676 !default; // LIGHT GREY
 $colour-four:  #426591 !default; // BLUE
 
-// High-level base settings
+
+/* High-level base settings
+   ========================================================================== */
 
 $base-font-size:    16px !default;
 $base-line-height:  24px !default;
 $base-text-colour:  $colour-two;
 
+
+/* Spacing
+   ========================================================================== */
+
 /**
  * These are framework variables.
  * You can use them throughout the project,
- * but do not modify or reassign them
+ * but do not modify or reassign them.
  */
 
 $base-spacing-unit:       24px !default;
@@ -38,7 +49,9 @@ $base-spacing-unit-small: 16px !default;
 $base-spacing-unit-large: 48px !default;
 $base-spacing-unit-huge:  64px !default;
 
-// Z-indexes
+
+/* Z-indexes
+   ========================================================================== */
 
 $z-index-beneath: -1 !default;
 $z-index-base:     1 !default;

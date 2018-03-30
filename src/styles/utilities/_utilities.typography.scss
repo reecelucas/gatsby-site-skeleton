@@ -1,9 +1,11 @@
 /* ==========================================================================
    #TYPOGRAPHY
-   Use '!important' deliberately here – we always want trump classes to take
    ========================================================================== */
 
-// Font weights
+// Use '!important' deliberately here – we always want trump classes to take.
+
+/* Font weights
+   ========================================================================== */
 
 .u-font-heavy {
   font-weight: bold !important;
@@ -14,14 +16,14 @@
 }
 
 
+/* Adjustments
+   ========================================================================== */
+
 /**
- * Adjustments.
- *
  * ‘Can you just make that text a little bigger?’
  *
  * Example usage:
  * <p class="u-text++">A little bit bigger.</p>
- *
  */
 
 .u-text\+\+ {
@@ -32,6 +34,9 @@
   font-size: smaller !important;
 }
 
+
+/* Headings
+   ========================================================================== */
 
 .u-h1 {
   @include font-size($font-size-1, none, "important");

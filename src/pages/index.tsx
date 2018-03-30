@@ -11,7 +11,6 @@ import Wrapper from '../components/utility/Wrapper/Wrapper';
 import Spacer from '../components/utility/Spacer/Spacer';
 import AspectRatioWrapper from '../components/utility/AspectRatioWrapper/AspectRatioWrapper';
 import ResponsiveImage from '../components/utility/ResponsiveImage';
-import BackToTop from '../components/utility/BackToTop/BackToTop';
 
 class IndexPage extends React.Component<any, void> {
   lazyLoad: LazyLoadAPI;
@@ -59,8 +58,6 @@ class IndexPage extends React.Component<any, void> {
               />
             </AspectRatioWrapper>
           </Spacer>
-
-          {jsEnabled() && <BackToTop />}
         </Wrapper>
       </Spacer>
     );
