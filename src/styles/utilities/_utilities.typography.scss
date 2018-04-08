@@ -8,11 +8,11 @@
    ========================================================================== */
 
 .u-font-heavy {
-  font-weight: bold !important;
+    font-weight: bold !important;
 }
 
 .u-font-light {
-  font-weight: normal !important;
+    font-weight: normal !important;
 }
 
 
@@ -27,11 +27,11 @@
  */
 
 .u-text\+\+ {
-  font-size: larger !important;
+    font-size: larger !important;
 }
 
 .u-text-- {
-  font-size: smaller !important;
+    font-size: smaller !important;
 }
 
 
@@ -39,25 +39,25 @@
    ========================================================================== */
 
 .u-h1 {
-  @include font-size($font-size-1, none, "important");
+    @include font-size($font-size-1, none, "important");
 }
 
 .u-h2 {
-  @include font-size($font-size-2, none, "important");
+    @include font-size($font-size-2, none, "important");
 }
 
 .u-h3 {
-  @include font-size($font-size-3, none, "important");
+    @include font-size($font-size-3, none, "important");
 }
 
 .u-h4 {
-  @include font-size($font-size-4, none, "important");
+    @include font-size($font-size-4, none, "important");
 }
 
 .u-h5 {
-  @include font-size($font-size-5, none, "important");
+    @include font-size($font-size-5, none, "important");
 }
 
 .u-h6 {
-  @include font-size($font-size-6, none, "important");
+    @include font-size($font-size-6, none, "important");
 }

@@ -12,12 +12,12 @@
  */
 
 .anchor {
-  color: $colour-four;
-  display: inline-block;
-  font-weight: 600;
-  text-decoration: underline;
-  overflow-wrap: break-word; /* [1] */
-  word-wrap: break-word; /* [1] */
-  word-break: break-word; /* [2] */
-  hyphens: auto; /* [3] */
+    color: $colour-four;
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: underline;
+    overflow-wrap: break-word; /* [1] */
+    word-wrap: break-word; /* [1] */
+    word-break: break-word; /* [2] */
+    hyphens: auto; /* [3] */
 }

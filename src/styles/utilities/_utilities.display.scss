@@ -14,15 +14,15 @@
  */
 
 .u-display-block {
-  display: block !important;
+    display: block !important;
 }
 
 .u-display-inline {
-  display: inline !important;
+    display: inline !important;
 }
 
 .u-display-ib {
-  display: inline-block !important;
+    display: inline-block !important;
 }
 
 
@@ -30,21 +30,21 @@
    ========================================================================== */
 
 .u-display-block\@sml {
-  @include phablet {
-    display: block !important;
-  }
+    @include phablet {
+        display: block !important;
+    }
 }
 
 .u-display-inline\@sml {
-  @include phablet {
-    display: inline !important;
-  }
+    @include phablet {
+        display: inline !important;
+    }
 }
 
 .u-display-ib\@sml {
-  @include phablet {
-    display: inline-block !important;
-  }
+    @include phablet {
+        display: inline-block !important;
+    }
 }
 
 
@@ -52,21 +52,21 @@
    ========================================================================== */
 
 .u-display-block\@med {
-  @include tablet {
-    display: block !important;
-  }
+    @include tablet {
+        display: block !important;
+    }
 }
 
 .u-display-inline\@med {
-  @include tablet {
-    display: inline !important;
-  }
+    @include tablet {
+        display: inline !important;
+    }
 }
 
 .u-display-ib\@med {
-  @include tablet {
-    display: inline-block !important;
-  }
+    @include tablet {
+        display: inline-block !important;
+    }
 }
 
 
@@ -74,19 +74,19 @@
    ========================================================================== */
 
 .u-display-block\@lrg {
-  @include desktop {
-    display: block !important;
-  }
+    @include desktop {
+        display: block !important;
+    }
 }
 
 .u-display-inline\@lrg {
-  @include desktop {
-    display: inline !important;
-  }
+    @include desktop {
+        display: inline !important;
+    }
 }
 
 .u-display-ib\@lrg {
-  @include desktop {
-    display: inline-block !important;
-  }
+    @include desktop {
+        display: inline-block !important;
+    }
 }

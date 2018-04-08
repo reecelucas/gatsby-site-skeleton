@@ -6,13 +6,13 @@
    ========================================================================== */
 
 @font-face {
-  font: {
-    family: 'Lobster';
-    style: normal;
-    weight: 400;
-  }
-  src: url(/fonts/lobster-regular.woff2) format("woff2"),
-       url(/fonts/lobster-regular.woff) format("woff");
+    font: {
+        family: 'Lobster';
+        style: normal;
+        weight: 400;
+    }
+    src: url(/fonts/lobster-regular.woff2) format("woff2"),
+         url(/fonts/lobster-regular.woff) format("woff");
 }
 
 // Fallback to system font stack.

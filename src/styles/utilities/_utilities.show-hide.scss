@@ -14,39 +14,39 @@
  */
 
 .u-visually-hidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-  white-space: nowrap; /* [1] */
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    white-space: nowrap; /* [1] */
 }
 
 .u-show\@sml {
-  display: none !important;
+    display: none !important;
 
-  @include phablet {
-    display: inline-block !important;
-  }
+    @include phablet {
+        display: inline-block !important;
+    }
 }
 
 .u-show\@med {
-  display: none !important;
+    display: none !important;
 
-  @include tablet {
-    display: inline-block !important;
-  }
+    @include tablet {
+        display: inline-block !important;
+    }
 }
 
 .u-show\@lrg {
-  display: none !important;
+    display: none !important;
 
-  @include desktop {
-    display: inline-block !important;
-  }
+    @include desktop {
+        display: inline-block !important;
+    }
 }
 
 

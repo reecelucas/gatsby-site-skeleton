@@ -13,15 +13,16 @@
     "build": "yarn format && gatsby build && gatsby serve",
     "build:server": "gatsby build",
     "develop": "yarn format && gatsby develop",
-    "lint:scss": "stylelint 'src/**/*.scss'",
-    "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
+    "format": "prettier --write src/**/*.{js,ts,tsx}",
+    "lint": "tslint --project tsconfig.json src/**/*.{ts,tsx} && stylelint 'src/**/*.scss'",
     "test": "jest --no-cache",
     "test:coverage": "jest --coverage --no-cache",
-    "precommit": "npm run lint:scss && npm run format"
+    "precommit": "npm run lint && npm run format"
   },
   "browserslist": [
     "> 5%",
-    "last 2 versions"
+    "last 2 versions",
+    "IE 10"
   ],
   "dependencies": {
     "@types/jest": "^22.1.2",

@@ -13,55 +13,55 @@ import AspectRatioWrapper from '../components/utility/AspectRatioWrapper/AspectR
 import ResponsiveImage from '../components/utility/ResponsiveImage';
 
 class IndexPage extends React.Component<any, void> {
-  lazyLoad: LazyLoadAPI;
+    lazyLoad: LazyLoadAPI;
 
-  // Initialise page-specific modules that require the DOM (after render)
-  componentDidMount() {
-    this.lazyLoad = lazyLoad();
-    this.lazyLoad.init();
-  }
+    // Initialise page-specific modules that require the DOM (after render)
+    componentDidMount() {
+        this.lazyLoad = lazyLoad();
+        this.lazyLoad.init();
+    }
 
-  componentWillUnmount() {
-    this.lazyLoad.destroy();
-  }
+    componentWillUnmount() {
+        this.lazyLoad.destroy();
+    }
 
-  render() {
-    return (
-      <Spacer size="huge">
-        <Helmet>
-          <title>Index Page | Optional Title</title>
-          <meta name="description" content="Optional index page description" />
-        </Helmet>
+    render() {
+        return (
+            <Spacer size="huge">
+                <Helmet>
+                    <title>Index Page | Optional Title</title>
+                    <meta name="description" content="Optional index page description" />
+                </Helmet>
 
-        <Spacer size="large">
-          <Wrapper>
-            <br />
-            <br />
-            <h1>Static Site Skeleton</h1>
-          </Wrapper>
-        </Spacer>
+                <Spacer size="large">
+                    <Wrapper>
+                        <br />
+                        <br />
+                        <h1>Static Site Skeleton</h1>
+                    </Wrapper>
+                </Spacer>
 
-        <Wrapper>
-          <Spacer size="large">
-            <AspectRatioWrapper>
-              <ResponsiveImage
-                alt="Placeholder"
-                src="http://via.placeholder.com/800x400"
-                sizes={[
-                  { size: '100vw', mediaCondition: '(max-width: 940px)' },
-                  { size: '940px', mediaCondition: '(min-width: 941px)' }
-                ]}
-                srcset={[
-                  { width: '500w', url: 'http://via.placeholder.com/500x250' },
-                  { width: '800w', url: 'http://via.placeholder.com/800x400' }
-                ]}
-              />
-            </AspectRatioWrapper>
-          </Spacer>
-        </Wrapper>
-      </Spacer>
-    );
-  }
+                <Wrapper>
+                    <Spacer size="large">
+                        <AspectRatioWrapper>
+                            <ResponsiveImage
+                                alt="Placeholder"
+                                src="http://via.placeholder.com/800x400"
+                                sizes={[
+                                    { size: '100vw', mediaCondition: '(max-width: 940px)' },
+                                    { size: '940px', mediaCondition: '(min-width: 941px)' }
+                                ]}
+                                srcset={[
+                                    { width: '500w', url: 'http://via.placeholder.com/500x250' },
+                                    { width: '800w', url: 'http://via.placeholder.com/800x400' }
+                                ]}
+                            />
+                        </AspectRatioWrapper>
+                    </Spacer>
+                </Wrapper>
+            </Spacer>
+        );
+    }
 }
 
 export default IndexPage;

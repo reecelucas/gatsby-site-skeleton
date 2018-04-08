@@ -20,215 +20,215 @@ import { LazyLoadParams, LazyLoadAPI } from '../types';
  * root element), you can use a value of 0.5.
  */
 const lazyLoad = ({
-  selector: selector = '.js-lazy-image',
-  loadClass: loadClass = 'has-loaded',
-  errorClass: errorClass = 'has-error',
-  loadCallback: loadCallback = null,
-  errorCallback: errorCallback = null,
-  parentId: parentId = null,
-  rootMargin: rootMargin = '0px 0px 0px 0px',
-  threshold: threshold = 0
+    selector: selector = '.js-lazy-image',
+    loadClass: loadClass = 'has-loaded',
+    errorClass: errorClass = 'has-error',
+    loadCallback: loadCallback = null,
+    errorCallback: errorCallback = null,
+    parentId: parentId = null,
+    rootMargin: rootMargin = '0px 0px 0px 0px',
+    threshold: threshold = 0
 }: LazyLoadParams = {}): LazyLoadAPI => {
-  if (serverRendered) return;
+    if (serverRendered) return;
 
-  const d = document;
-  let imageArray: Element[] = [];
-  let imageCount: number;
-  let observer: any;
+    const d = document;
+    let imageArray: Element[] = [];
+    let imageCount: number;
+    let observer: any;
 
-  /**
-   * Disconnect the observer if it exists.
-   * @private
-   */
-  function disconnectObserver(): void {
-    if (observer) observer.disconnect();
-  }
-
-  /**
-   * Removes 'data-src' and 'data-srcset' attributes from img node.
-   * @private
-   */
-  function stripDataAttributes(img: Element): void {
-    img.removeAttribute('data-src');
-    img.removeAttribute('data-srcset');
-  }
-
-  /**
-   * @returns {Boolean} - True if img has the 'data-src' attribute,
-   * which is stripped when the img is loaded.
-   * @private
-   */
-  function hasNotBeenLoaded(img: HTMLImageElement): boolean {
-    return img.hasAttribute('data-src');
-  }
-
-  /**
-   * Sets image src and srcset.
-   * Adds loadClass and fires loadCallback, if provided.
-   *
-   * @private
-   */
-  function applyImage(img: Element, src: string, srcset: string): void {
-    const image = img;
-
-    // set src & srcset & remove 'data-' attributes
-    image.setAttribute('src', src);
-    if (srcset) image.setAttribute('srcset', srcset);
-    stripDataAttributes(image);
-
-    if (!image.classList.contains(loadClass)) {
-      image.classList.add(loadClass);
+    /**
+     * Disconnect the observer if it exists.
+     * @private
+     */
+    function disconnectObserver(): void {
+        if (observer) observer.disconnect();
     }
 
-    if (loadCallback && typeof loadCallback === 'function') {
-      loadCallback(image);
-    }
-  }
-
-  /**
-   * Adds errorClass and fires errorCallback, if provided.
-   * @private
-   */
-  function handleImageError(img: Element): void {
-    const image = img;
-
-    // Remove 'data-' attributes to prevent multiple attempts at lazy-loading
-    stripDataAttributes(image);
-
-    if (!image.classList.contains(errorClass)) {
-      image.classList.add(errorClass);
+    /**
+     * Removes 'data-src' and 'data-srcset' attributes from img node.
+     * @private
+     */
+    function stripDataAttributes(img: Element): void {
+        img.removeAttribute('data-src');
+        img.removeAttribute('data-srcset');
     }
 
-    if (errorCallback && typeof errorCallback === 'function') {
-      errorCallback(image);
+    /**
+     * @returns {Boolean} - True if img has the 'data-src' attribute,
+     * which is stripped when the img is loaded.
+     * @private
+     */
+    function hasNotBeenLoaded(img: HTMLImageElement): boolean {
+        return img.hasAttribute('data-src');
     }
-  }
 
-  /**
-   * Fetches the images for the given src and srcset URLs.
-   * Returns a Promise that resolves if the images are successfuly downloaded.
-   *
-   * @returns {Promise} – Returns the img src and srcset URLs when resolved
-   * @private
-   */
-  function fetchImages(srcUrl: string, srcsetUrls: string): Promise<{ [key: string]: string }> {
-    return new Promise((resolve, reject) => {
-      if (!srcUrl) reject();
+    /**
+     * Sets image src and srcset.
+     * Adds loadClass and fires loadCallback, if provided.
+     *
+     * @private
+     */
+    function applyImage(img: Element, src: string, srcset: string): void {
+        const image = img;
 
-      const image = new Image();
-      /**
-       * Bind load & error handlers before setting image src & srcset.
-       * Return an object as the resolve value since Promises must only return a
-       * single fullfilment value.
-       */
-      image.onload = () =>
-        resolve({
-          src: srcUrl,
-          srcset: srcsetUrls
+        // set src & srcset & remove 'data-' attributes
+        image.setAttribute('src', src);
+        if (srcset) image.setAttribute('srcset', srcset);
+        stripDataAttributes(image);
+
+        if (!image.classList.contains(loadClass)) {
+            image.classList.add(loadClass);
+        }
+
+        if (loadCallback && typeof loadCallback === 'function') {
+            loadCallback(image);
+        }
+    }
+
+    /**
+     * Adds errorClass and fires errorCallback, if provided.
+     * @private
+     */
+    function handleImageError(img: Element): void {
+        const image = img;
+
+        // Remove 'data-' attributes to prevent multiple attempts at lazy-loading
+        stripDataAttributes(image);
+
+        if (!image.classList.contains(errorClass)) {
+            image.classList.add(errorClass);
+        }
+
+        if (errorCallback && typeof errorCallback === 'function') {
+            errorCallback(image);
+        }
+    }
+
+    /**
+     * Fetches the images for the given src and srcset URLs.
+     * Returns a Promise that resolves if the images are successfuly downloaded.
+     *
+     * @returns {Promise} – Returns the img src and srcset URLs when resolved
+     * @private
+     */
+    function fetchImages(srcUrl: string, srcsetUrls: string): Promise<{ [key: string]: string }> {
+        return new Promise((resolve, reject) => {
+            if (!srcUrl) reject();
+
+            const image = new Image();
+            /**
+             * Bind load & error handlers before setting image src & srcset.
+             * Return an object as the resolve value since Promises must only return a
+             * single fullfilment value.
+             */
+            image.onload = () =>
+                resolve({
+                    src: srcUrl,
+                    srcset: srcsetUrls
+                });
+            image.onerror = () => reject();
+
+            image.src = srcUrl;
+            if (srcsetUrls) image.srcset = srcsetUrls;
         });
-      image.onerror = () => reject();
-
-      image.src = srcUrl;
-      if (srcsetUrls) image.srcset = srcsetUrls;
-    });
-  }
-
-  /**
-   * Retrieves the src and srcset URLs for a given image.
-   * Calls fetchImages and handles image load and error.
-   *
-   * @private
-   */
-  function loadImage(img: Element): void {
-    const srcUrl = img.getAttribute('data-src');
-    const srcsetUrls = img.getAttribute('data-srcset');
-
-    fetchImages(srcUrl, srcsetUrls)
-      .then(({ src, srcset }) => applyImage(img, src, srcset))
-      .catch(() => handleImageError(img));
-  }
-
-  /**
-   * @private
-   */
-  function onEntry(entries: IntersectionObserverEntry[]): void {
-    // Disconnect the observer when all images have been loaded
-    if (imageCount === 0) disconnectObserver();
-
-    entries.forEach(entry => {
-      if (entry.intersectionRatio > 0) {
-        imageCount -= 1;
-        const image: Element = entry.target;
-
-        // Stop watching the image and load it
-        observer.unobserve(image);
-        loadImage(image);
-      }
-    });
-  }
-
-  /**
-   * Retrieves an array of DOM elements matching the given selector.
-   * Creates a new instance of the IntersectionObserver (in supporting browsers),
-   * to watch each selected element for visibility changes. In unsupporting browsers
-   * the images are loaded immediately.
-   *
-   * @public
-   */
-  function init(): void {
-    // retrieves an array of images that have not been lazy-loaded
-    imageArray = Array.from(d.querySelectorAll(selector)).filter(hasNotBeenLoaded);
-
-    if (imageArray.length > 0) {
-      /**
-       * If the browser does not support the Intersection Observer API & the
-       * polyfill has not been included, load all images straight away.
-       */
-      if (!('IntersectionObserver' in window)) {
-        imageArray.forEach((image: HTMLImageElement) => loadImage(image));
-      } else {
-        imageCount = imageArray.length;
-        const observerOptions = {
-          rootMargin,
-          threshold,
-          root: d.getElementById(parentId) // returns null if parentID is not passed at invocation
-        };
-
-        // instantiate a new Intersection Observer
-        observer = new IntersectionObserver(onEntry, observerOptions);
-        imageArray.forEach(image => observer.observe(image));
-      }
     }
-  }
 
-  /**
-   * Stops the observer from watching all of its target elements for visibility changes.
-   * Empties the imageArray of DOM elements & resets the count variable.
-   *
-   * @public
-   */
-  function destroy(): void {
-    disconnectObserver();
-    imageArray = [];
-    imageCount = 0;
-  }
+    /**
+     * Retrieves the src and srcset URLs for a given image.
+     * Calls fetchImages and handles image load and error.
+     *
+     * @private
+     */
+    function loadImage(img: Element): void {
+        const srcUrl = img.getAttribute('data-src');
+        const srcsetUrls = img.getAttribute('data-srcset');
 
-  /**
-   * Tears down the observer before re-intitialising.
-   * Useful for responding to DOM insertions.
-   *
-   * @public
-   */
-  function update(): void {
-    destroy();
-    init();
-  }
+        fetchImages(srcUrl, srcsetUrls)
+            .then(({ src, srcset }) => applyImage(img, src, srcset))
+            .catch(() => handleImageError(img));
+    }
 
-  return {
-    init,
-    destroy,
-    update
-  };
+    /**
+     * @private
+     */
+    function onEntry(entries: IntersectionObserverEntry[]): void {
+        // Disconnect the observer when all images have been loaded
+        if (imageCount === 0) disconnectObserver();
+
+        entries.forEach(entry => {
+            if (entry.intersectionRatio > 0) {
+                imageCount -= 1;
+                const image: Element = entry.target;
+
+                // Stop watching the image and load it
+                observer.unobserve(image);
+                loadImage(image);
+            }
+        });
+    }
+
+    /**
+     * Retrieves an array of DOM elements matching the given selector.
+     * Creates a new instance of the IntersectionObserver (in supporting browsers),
+     * to watch each selected element for visibility changes. In unsupporting browsers
+     * the images are loaded immediately.
+     *
+     * @public
+     */
+    function init(): void {
+        // retrieves an array of images that have not been lazy-loaded
+        imageArray = Array.from(d.querySelectorAll(selector)).filter(hasNotBeenLoaded);
+
+        if (imageArray.length > 0) {
+            /**
+             * If the browser does not support the Intersection Observer API & the
+             * polyfill has not been included, load all images straight away.
+             */
+            if (!('IntersectionObserver' in window)) {
+                imageArray.forEach((image: HTMLImageElement) => loadImage(image));
+            } else {
+                imageCount = imageArray.length;
+                const observerOptions = {
+                    rootMargin,
+                    threshold,
+                    root: d.getElementById(parentId) // returns null if parentID is not passed at invocation
+                };
+
+                // instantiate a new Intersection Observer
+                observer = new IntersectionObserver(onEntry, observerOptions);
+                imageArray.forEach(image => observer.observe(image));
+            }
+        }
+    }
+
+    /**
+     * Stops the observer from watching all of its target elements for visibility changes.
+     * Empties the imageArray of DOM elements & resets the count variable.
+     *
+     * @public
+     */
+    function destroy(): void {
+        disconnectObserver();
+        imageArray = [];
+        imageCount = 0;
+    }
+
+    /**
+     * Tears down the observer before re-intitialising.
+     * Useful for responding to DOM insertions.
+     *
+     * @public
+     */
+    function update(): void {
+        destroy();
+        init();
+    }
+
+    return {
+        init,
+        destroy,
+        update
+    };
 };
 
 export default lazyLoad;

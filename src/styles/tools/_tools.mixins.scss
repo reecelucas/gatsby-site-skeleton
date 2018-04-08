@@ -8,25 +8,25 @@
 
 @mixin phablet {
 
-  @include mq($from: phablet) {
-    @content;
-  }
+    @include mq($from: phablet) {
+        @content;
+    }
 
 }
 
 @mixin tablet {
 
-  @include mq($from: tablet) {
-    @content;
-  }
+    @include mq($from: tablet) {
+        @content;
+    }
 
 }
 
 @mixin desktop {
 
-  @include mq($from: desktop) {
-    @content;
-  }
+    @include mq($from: desktop) {
+        @content;
+    }
 
 }
 
@@ -81,30 +81,30 @@
 
 @mixin font-size($font-size, $line-height: "auto", $important: false) {
 
-  @if ($important == "important") {
-    $important: unquote("!important");
-  } @else {
-    $important: null;
-  }
-
-  font-size: $font-size $important;
-  font-size: ($font-size / $base-font-size) * 1rem $important;
-
-  @if $line-height == "auto" {
-    line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
-  }
-
-  @else {
-
-    @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
-      line-height: $line-height $important;
+    @if ($important == "important") {
+        $important: unquote("!important");
+    } @else {
+        $important: null;
     }
 
-    @elseif ($line-height != none and $line-height != false) {
-      @warn "‘#{$line-height}’ is not a valid value for `line-height`.";
+    font-size: $font-size $important;
+    font-size: ($font-size / $base-font-size) * 1rem $important;
+
+    @if $line-height == "auto" {
+        line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
     }
 
-  }
+    @else {
+
+        @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+            line-height: $line-height $important;
+        }
+
+        @elseif ($line-height != none and $line-height != false) {
+            @warn "‘#{$line-height}’ is not a valid value for `line-height`.";
+        }
+
+    }
 
 }
 
@@ -122,31 +122,32 @@
  * }
  */
 
- @mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size, $important: false) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size, $important: false) {
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
 
-  @if ($important == "important") {
-    $important: unquote("!important");
-  } @else {
-    $important: null;
-  }
-
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-
-      font-size: $min-font-size $important;
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})) $important;
-      }
-
-      @media screen and (min-width: $max-vw) {
-        font-size: rem-calc($max-font-size) $important;
-      }
+    @if ($important == "important") {
+        $important: unquote("!important");
+    } @else {
+        $important: null;
     }
-  }
+
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+        & {
+
+            font-size: $min-font-size $important;
+
+            @media screen and (min-width: $min-vw) {
+                font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})) $important;
+            }
+
+            @media screen and (min-width: $max-vw) {
+                font-size: rem-calc($max-font-size) $important;
+            }
+        }
+    }
 }
 
 /**
@@ -159,15 +160,15 @@
 
 @mixin clearfix {
 
-  &:before,
-  &:after {
-    content: "";
-    display: table;
-  }
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
 
-  &:after {
-    clear:both;
-  }
+    &:after {
+        clear:both;
+    }
 
 }
 
@@ -184,20 +185,20 @@
  */
 
 @mixin cover {
-  bottom: 0;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
 }
 
 @mixin gridWithFallback {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 
-  @supports (display: grid) {
-    display: grid;
-  }
+    @supports (display: grid) {
+        display: grid;
+    }
 }

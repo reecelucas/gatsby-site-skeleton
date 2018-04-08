@@ -9,8 +9,8 @@
 $wrapper-max-width: 980px !default;
 
 .wrapper {
-  display: block;
-  margin: 0 auto;
-  max-width: $wrapper-max-width;
-  padding: 0 rem-calc($base-spacing-unit);
+    display: block;
+    margin: 0 auto;
+    max-width: $wrapper-max-width;
+    padding: 0 rem-calc($base-spacing-unit);
 }

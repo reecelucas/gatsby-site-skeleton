@@ -1,10 +1,10 @@
 # Static Site Skeleton
 
-A project skeleton (using [Gatsby.js](https://www.gatsbyjs.org/), [Typescript](https://www.typescriptlang.org/index.html) and [CSS Modules](https://github.com/css-modules/css-modules)) for building static PWAs. Webfont loading is achieved using the FOUT-with-preload technique.
+A project skeleton (using [Gatsby.js](https://www.gatsbyjs.org/), [Typescript](https://www.typescriptlang.org/index.html) and [CSS Modules](https://github.com/css-modules/css-modules))
+for building static PWAs. Webfont loading is achieved using the FOUT-with-preload technique.
 
 ## Up And Running
-First, [Install yarn](https://yarnpkg.com/lang/en/docs/install/), then
-```
+```bash
 git clone git@github.com:reecelucas/gatsby-site-skeleton.git
 cd gatsby-site-skeleton
 yarn
