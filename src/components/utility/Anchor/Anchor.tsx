@@ -1,9 +1,17 @@
 import * as React from 'react';
-import { AnchorProps } from '../../../types';
 
 const styles = require('./Anchor.module.scss');
 
-const Anchor = ({ href, newTab, title, ariaLabel, customClass, children }: AnchorProps) => (
+interface Props {
+    href: string;
+    title?: string;
+    ariaLabel?: string;
+    customClass?: string;
+    children: any;
+    newTab?: boolean;
+}
+
+const Anchor = ({ href, newTab, title, ariaLabel, customClass, children }: Props) => (
     <a
         className={customClass || styles.anchor}
         href={href}

@@ -5,6 +5,7 @@ import { LazyLoadAPI } from '../types';
 // Utility
 import lazyLoad from '../utilities/lazyLoad';
 import jsEnabled from '../utilities/jsEnabled';
+import ErrorBoundary from '../components/utility/ErrorBoundary/ErrorBoundary';
 
 // Layout components
 import Wrapper from '../components/utility/Wrapper/Wrapper';
@@ -44,18 +45,23 @@ class IndexPage extends React.Component<any, void> {
                 <Wrapper>
                     <Spacer size="large">
                         <AspectRatioWrapper>
-                            <ResponsiveImage
-                                alt="Placeholder"
-                                src="http://via.placeholder.com/800x400"
-                                sizes={[
-                                    { size: '100vw', mediaCondition: '(max-width: 940px)' },
-                                    { size: '940px', mediaCondition: '(min-width: 941px)' }
-                                ]}
-                                srcset={[
-                                    { width: '500w', url: 'http://via.placeholder.com/500x250' },
-                                    { width: '800w', url: 'http://via.placeholder.com/800x400' }
-                                ]}
-                            />
+                            <ErrorBoundary>
+                                <ResponsiveImage
+                                    alt="Placeholder"
+                                    src="http://via.placeholder.com/800x400"
+                                    sizes={[
+                                        { size: '100vw', mediaCondition: '(max-width: 940px)' },
+                                        { size: '940px', mediaCondition: '(min-width: 941px)' }
+                                    ]}
+                                    srcset={[
+                                        {
+                                            width: '500w',
+                                            url: 'http://via.placeholder.com/500x250'
+                                        },
+                                        { width: '800w', url: 'http://via.placeholder.com/800x400' }
+                                    ]}
+                                />
+                            </ErrorBoundary>
                         </AspectRatioWrapper>
                     </Spacer>
                 </Wrapper>

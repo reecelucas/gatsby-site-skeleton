@@ -1,5 +1,10 @@
 import serverRendered from './serverRendered';
-import { SaveToLocalStorageParams } from '../types';
+
+interface SaveToLocalStorageParams {
+    key: string;
+    value: any;
+    expirationDays: number;
+}
 
 export const saveToLocalStorage = ({
     key,

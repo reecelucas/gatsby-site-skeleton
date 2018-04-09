@@ -1,5 +1,24 @@
 import easingFunctions from './easingFunctions';
-import { ScrollItParams } from '../../types';
+
+interface ScrollItParams {
+    destination: number;
+    duration: number;
+    easing:
+    | 'linear'
+    | 'easeInQuad'
+    | 'easeOutQuad'
+    | 'easeInOutQuad'
+    | 'easeInCubic'
+    | 'easeOutCubic'
+    | 'easeInOutCubic'
+    | 'easeInQuart'
+    | 'easeOutQuart'
+    | 'easeInOutQuart'
+    | 'easeInQuint'
+    | 'easeOutQuint'
+    | 'easeInOutQuint';
+    callback?: () => any;
+}
 
 const w = window;
 const d = document;

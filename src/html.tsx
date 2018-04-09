@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { HtmlProps } from './types';
+
+interface Props {
+    body: any;
+    preBodyComponents: any;
+    postBodyComponents: any;
+    headComponents: any;
+}
 
 let stylesStr: string;
 let css: JSX.Element;
@@ -28,7 +34,7 @@ if (productionEnv) {
     }
 }
 
-class Html extends React.Component<HtmlProps, void> {
+class Html extends React.Component<Props, void> {
     render() {
         if (productionEnv) {
             css = <style dangerouslySetInnerHTML={{ __html: stylesStr }} />;

@@ -11,6 +11,12 @@ module.exports = {
     fonts: ['Lobster']
   },
   plugins: [
+    /**
+     * `gatsby-plugin-react-next` means we can use React v16
+     * in Gatsby v1. When Gatsby v2 is released it will ship
+     * with React v16 by default, and this plugin can be removed
+     */
+    'gatsby-plugin-react-next',
     'gatsby-plugin-sass',
     'gatsby-plugin-typescript',
     {

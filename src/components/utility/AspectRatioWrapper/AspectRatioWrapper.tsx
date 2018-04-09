@@ -1,7 +1,12 @@
 import * as React from 'react';
-import { AspectRatioWrapperProps, ClassMap } from '../../../types';
+import { ClassMap } from '../../../types';
 
 const styles = require('./AspectRatioWrapper.module.scss');
+
+interface Props {
+    aspectRatio?: '8:5' | '4:3' | '3:2' | '1:1';
+    children?: any;
+}
 
 const classMap: ClassMap = {
     '8:5': styles['wrapper--8:5'],
@@ -10,7 +15,7 @@ const classMap: ClassMap = {
     '1:1': styles['wrapper--1:1']
 };
 
-const AspectRatioWrapper = ({ aspectRatio, children }: AspectRatioWrapperProps) => (
+const AspectRatioWrapper = ({ aspectRatio, children }: Props) => (
     <div className={`${styles.wrapper} ${classMap[aspectRatio] || ''}`}>{children}</div>
 );
 
