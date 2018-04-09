@@ -1,5 +1,23 @@
 import * as React from 'react';
-import { ResponsiveImageProps, srcsetObject, sizesObject } from '../../types';
+
+interface srcsetObject {
+    width: string;
+    url: string;
+}
+
+interface sizesObject {
+    size: string;
+    mediaCondition: string;
+}
+
+interface Props {
+    className?: string;
+    alt?: string;
+    srcset?: srcsetObject[];
+    src: string;
+    sizes?: sizesObject[];
+    lazyLoad?: boolean;
+}
 
 const buildSrcset = (srcset: srcsetObject[]): string =>
     srcset.map((src: srcsetObject) => `${src.url} ${src.width}`).join(',');
@@ -7,7 +25,7 @@ const buildSrcset = (srcset: srcsetObject[]): string =>
 const buildSizes = (sizes: sizesObject[]): string =>
     sizes.map((size: sizesObject) => `${size.mediaCondition} ${size.size}`).join(',');
 
-const ResponsiveImage = (props: ResponsiveImageProps) => {
+const ResponsiveImage = (props: Props) => {
     const { className, alt, srcset, src, sizes, lazyLoad } = props;
     const placeholderSrc =
         'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';

@@ -1,7 +1,11 @@
-/* tslint:disable:no-increment-decrement no-parameter-reassignment */
+/* tslint:disable:no-increment-decrement no-param-reassign */
+
+interface EasingFunctions {
+    [key: string]: (t: number) => number
+}
 
 // Adapted from: https://gist.github.com/gre/1650294
-const easingFunctions: { [key: string]: (t: number) => number } = {
+const easingFunctions: EasingFunctions = {
     // No easing, no acceleration
     linear(t) {
         return t;

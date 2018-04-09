@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
-import { layoutProps } from '../types';
 
 // Utility
 import loadFonts from '../utilities/loadFonts';
@@ -10,10 +9,28 @@ import controlOutline from '../utilities/controlOutline';
 import Footer from '../components/Footer/Footer';
 import '../styles/global.scss';
 
-class TemplateWrapper extends React.Component<layoutProps, void> {
+interface Props {
+    data?: {
+        site: {
+            siteMetadata: {
+                siteName: string;
+                title: string;
+                description: string;
+                href: string;
+                imageUrl: string;
+                imageAlt: string;
+                themeColour: string;
+                fonts: string[];
+            };
+        };
+    };
+    children?: any;
+}
+
+class TemplateWrapper extends React.Component<Props, void> {
     // Initialise global modules that require the DOM (after render)
     componentDidMount() {
-        // Load any webfonts (if they aren't already cached)
+        // Load webfonts (if they aren't already cached)
         loadFonts(this.props.data.site.siteMetadata.fonts);
         controlOutline();
     }
