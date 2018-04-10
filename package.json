@@ -13,8 +13,8 @@
     "build": "yarn format && gatsby build && gatsby serve",
     "build:server": "gatsby build",
     "develop": "yarn format && gatsby develop",
-    "format": "prettier --write src/**/*.{js,ts,tsx}",
-    "lint": "tslint --project tsconfig.json src/**/*.{ts,tsx} && stylelint 'src/**/*.scss'",
+    "format": "prettier --write 'src/**/*.{js,ts,tsx}'",
+    "lint": "tslint --project tsconfig.json 'src/**/*.{ts,tsx}' && stylelint 'src/**/*.scss'",
     "test": "jest --no-cache",
     "test:coverage": "jest --coverage --no-cache",
     "precommit": "yarn lint && yarn format"
