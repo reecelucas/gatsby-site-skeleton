@@ -1,4 +1,6 @@
 import * as React from 'react';
+import FormErrorMessage from './FormErrorMessage';
+import Alert from '../utility/Alert/Alert';
 import validateEmail from '../../utilities/validateEmail';
 
 const initialState = {
@@ -25,12 +27,6 @@ const initialState = {
 
     validateNatively: true
 };
-
-const FormErrorMessage = ({ message }: { message?: string }) => (
-    <p role="alert" aria-live="assertive">
-        {message || 'Please fill in this field.'}
-    </p>
-);
 
 class Form extends React.Component<any, any> {
     constructor(props: any) {
@@ -240,8 +236,16 @@ class Form extends React.Component<any, any> {
                     </label>
                 </div>
 
-                {this.state.success && <p>Success!</p>}
-                {this.state.error && <p>{this.state.submissionErrorMessage || 'Error!'}</p>}
+                {this.state.success && (
+                    <Alert
+                        message="Your enquiry has been received! I'll be in touch very soon."
+                        theme="success"
+                    />
+                )}
+
+                {this.state.error && (
+                    <Alert message={this.state.submissionErrorMessage || 'Error!'} theme="error" />
+                )}
 
                 <button
                     type="submit"

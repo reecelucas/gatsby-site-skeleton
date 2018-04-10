@@ -5,13 +5,14 @@ import { LazyLoadAPI } from '../types';
 // Utility
 import lazyLoad from '../utilities/lazyLoad';
 import jsEnabled from '../utilities/jsEnabled';
-import ErrorBoundary from '../components/utility/ErrorBoundary/ErrorBoundary';
+import ErrorBoundary from '../components/utility/ErrorBoundary';
 
 // Layout components
 import Wrapper from '../components/utility/Wrapper/Wrapper';
 import Spacer from '../components/utility/Spacer/Spacer';
 import AspectRatioWrapper from '../components/utility/AspectRatioWrapper/AspectRatioWrapper';
 import ResponsiveImage from '../components/utility/ResponsiveImage';
+import Alert from '../components/utility/Alert/Alert';
 import Form from '../components/Form/Form';
 
 class IndexPage extends React.Component<any, void> {
@@ -29,7 +30,7 @@ class IndexPage extends React.Component<any, void> {
 
     render() {
         return (
-            <Spacer size="huge">
+            <>
                 <Helmet>
                     <title>Index Page | Optional Title</title>
                     <meta name="description" content="Optional index page description" />
@@ -39,6 +40,27 @@ class IndexPage extends React.Component<any, void> {
                     <Wrapper>
                         <br />
                         <br />
+                        <Spacer>
+                            <Alert
+                                message="This is an example success message"
+                                theme="success"
+                            />
+                        </Spacer>
+                        <Spacer>
+                            <Alert
+                                message="This is an example warning message"
+                                theme="warning"
+                            />
+                        </Spacer>
+                        <Alert
+                            message="This is an example error message"
+                            theme="error"
+                        />
+                    </Wrapper>
+                </Spacer>
+
+                <Spacer size="large">
+                    <Wrapper>
                         <h1>Static Site Skeleton</h1>
                     </Wrapper>
                 </Spacer>
@@ -72,7 +94,7 @@ class IndexPage extends React.Component<any, void> {
                         </AspectRatioWrapper>
                     </Spacer>
                 </Wrapper>
-            </Spacer>
+            </>
         );
     }
 }

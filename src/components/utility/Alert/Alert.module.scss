@@ -1,0 +1,84 @@
+/* ==========================================================================
+   #ALERT
+   ========================================================================== */
+
+@import "../../../styles/settings/settings.global";
+@import "../../../styles/settings/settings.typography";
+@import "../../../styles/tools/tools.functions";
+@import "../../../styles/tools/tools.mixins";
+
+// Ensure these settings are configured before the @import of this file.
+$alert-success-colour: #3c763d !default;
+$alert-success-colour-bg: #dff0d8 !default;
+$alert-success-colour-border: #d6e9c6 !default;
+
+$alert-warning-colour: #8a6d3b !default;
+$alert-warning-colour-bg: #fcf8e3 !default;
+$alert-warning-colour-border: #faebcc !default;
+
+$alert-error-colour: #a94442 !default;
+$alert-error-colour-bg: #f2dede !default;
+$alert-error-colour-border: #ebccd1 !default;
+
+$alert-icon-size: 20px !default;
+
+.alert {
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    display: flex;
+    font-family: $font-fallback;
+    padding: rem-calc($base-spacing-unit-small);
+    @include font-size($font-size-5, 1.4);
+
+    // Base icon styling, icon image is dependent on selected theme
+
+    &:before {
+        content: "";
+        background: {
+            color: transparent;
+            position: center center;
+            repeat: no-repeat;
+            size: 100% 100%;
+        }
+        display: inline-block;
+        flex-shrink: 0;
+        height: $alert-icon-size;
+        margin-right: rem-calc(12px);
+        width: $alert-icon-size;
+    }
+}
+
+
+/* Style variants
+   ========================================================================== */
+
+.alert--success {
+    border-color: $alert-success-colour-border;
+    background-color: $alert-success-colour-bg;
+    color: $alert-success-colour;
+
+    &:before {
+        background-image: url("../../../images/icons/alert-icon--success.svg");
+    }
+}
+
+.alert--warning {
+    border-color: $alert-warning-colour-border;
+    background-color: $alert-warning-colour-bg;
+    color: $alert-warning-colour;
+
+    &:before {
+        background-image: url("../../../images/icons/alert-icon--warning.svg");
+    }
+}
+
+.alert--error {
+    border-color: $alert-error-colour-border;
+    background-color: $alert-error-colour-bg;
+    color: $alert-error-colour;
+
+    &:before {
+        background-image: url("../../../images/icons/alert-icon--error.svg");
+    }
+}
