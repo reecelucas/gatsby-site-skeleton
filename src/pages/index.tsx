@@ -6,6 +6,7 @@ import { LazyLoadAPI } from '../types';
 import lazyLoad from '../utilities/lazyLoad';
 import jsEnabled from '../utilities/jsEnabled';
 import ErrorBoundary from '../components/utility/ErrorBoundary';
+import { Offline, Online } from '../components/utility/NetworkStatus';
 
 // Layout components
 import Wrapper from '../components/utility/Wrapper/Wrapper';
@@ -44,24 +45,40 @@ class IndexPage extends React.Component<any, void> {
                             <Alert
                                 message="This is an example success message"
                                 theme="success"
+                                dismissable
                             />
                         </Spacer>
                         <Spacer>
-                            <Alert
-                                message="This is an example warning message"
-                                theme="warning"
-                            />
+                            <Alert message="This is an example warning message" theme="warning" />
                         </Spacer>
-                        <Alert
-                            message="This is an example error message"
-                            theme="error"
-                        />
+                        <Alert message="This is an example error message" theme="error" />
+                    </Wrapper>
+                </Spacer>
+
+                <Spacer>
+                    <Wrapper>
+                        <h1>Static Site Skeleton</h1>
                     </Wrapper>
                 </Spacer>
 
                 <Spacer size="large">
                     <Wrapper>
-                        <h1>Static Site Skeleton</h1>
+                        <Spacer size="tiny">
+                            <strong>Offline check:</strong>
+                        </Spacer>
+
+                        <Offline>
+                            <Alert
+                                message="If you're seeing this message, you're offline!"
+                                theme="warning"
+                            />
+                        </Offline>
+                        <Online>
+                            <Alert
+                                message="If you're seeing this message, you're online!"
+                                theme="success"
+                            />
+                        </Online>
                     </Wrapper>
                 </Spacer>
 

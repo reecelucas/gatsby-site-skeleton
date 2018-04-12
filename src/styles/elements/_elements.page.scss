@@ -32,6 +32,10 @@ body {
 	@include font-size($base-font-size, $base-line-height);
 
 	.fonts-loaded & {
-		font-family: $font-primary;
+		font: {
+			family: $font-primary;
+			weight: 400;
+		}
+		letter-spacing: initial;
 	}
 }

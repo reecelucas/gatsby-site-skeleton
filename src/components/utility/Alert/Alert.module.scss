@@ -20,16 +20,17 @@ $alert-error-colour: #a94442 !default;
 $alert-error-colour-bg: #f2dede !default;
 $alert-error-colour-border: #ebccd1 !default;
 
-$alert-icon-size: 20px !default;
+$alert-icon-size: 24px !default;
+$alert-btn-size: 16px !default;
 
 .alert {
-    align-items: center;
+    align-items: flex-start;
     border: 1px solid transparent;
     border-radius: 2px;
     display: flex;
     font-family: $font-fallback;
     padding: rem-calc($base-spacing-unit-small);
-    @include font-size($font-size-5, 1.4);
+    @include font-size($font-size-5);
 
     // Base icon styling, icon image is dependent on selected theme
 
@@ -46,6 +47,37 @@ $alert-icon-size: 20px !default;
         height: $alert-icon-size;
         margin-right: rem-calc(12px);
         width: $alert-icon-size;
+    }
+}
+
+.close {
+    align-self: center;
+    color: currentColor;
+    height: $alert-btn-size;
+    margin-left: auto;
+    position: relative;
+    transform: rotate(45deg);
+    width: $alert-btn-size;
+
+    &:before,
+    &:after {
+        box-shadow: inset 0 0 0 #{$alert-btn-size * 2};
+        content: "";
+        display: inline-block;
+        position: absolute;
+            top: 50%;
+            left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &:before {
+        height: 2px;
+        width: 100%;
+    }
+
+    &:after {
+        height: 100%;
+        width: 2px;
     }
 }
 
