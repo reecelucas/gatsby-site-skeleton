@@ -4,19 +4,19 @@ interface ScrollItParams {
     destination: number;
     duration: number;
     easing:
-    | 'linear'
-    | 'easeInQuad'
-    | 'easeOutQuad'
-    | 'easeInOutQuad'
-    | 'easeInCubic'
-    | 'easeOutCubic'
-    | 'easeInOutCubic'
-    | 'easeInQuart'
-    | 'easeOutQuart'
-    | 'easeInOutQuart'
-    | 'easeInQuint'
-    | 'easeOutQuint'
-    | 'easeInOutQuint';
+        | 'linear'
+        | 'easeInQuad'
+        | 'easeOutQuad'
+        | 'easeInOutQuad'
+        | 'easeInCubic'
+        | 'easeOutCubic'
+        | 'easeInOutCubic'
+        | 'easeInQuart'
+        | 'easeOutQuart'
+        | 'easeInOutQuart'
+        | 'easeInQuint'
+        | 'easeOutQuint'
+        | 'easeInOutQuint';
     callback?: () => any;
 }
 

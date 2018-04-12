@@ -7,18 +7,38 @@
 
 @font-face {
     font: {
-        family: 'Lobster';
+        family: 'Work Sans';
+        style: normal;
+        weight: 300;
+    }
+    src: url("/fonts/work-sans-300.woff2") format("woff2"),
+         url("/fonts/work-sans-300.woff") format("woff");
+}
+
+@font-face {
+    font: {
+        family: 'Work Sans';
         style: normal;
         weight: 400;
     }
-    src: url(/fonts/lobster-regular.woff2) format("woff2"),
-         url(/fonts/lobster-regular.woff) format("woff");
+    src: url("/fonts/work-sans-400.woff2") format("woff2"),
+         url("/fonts/work-sans-400.woff") format("woff");
+}
+
+@font-face {
+    font: {
+        family: 'Work Sans';
+        style: normal;
+        weight: 600;
+    }
+    src: url("/fonts/work-sans-600.woff2") format("woff2"),
+         url("/fonts/work-sans-600.woff") format("woff");
 }
 
 // Fallback to system font stack.
 
 $font-fallback: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$font-primary: 'Lobster', Helvetica, sans-serif !default;
+$font-primary: 'Work Sans', Helvetica, sans-serif !default;
 
 
 /* Responsive typography parameters

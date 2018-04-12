@@ -1,7 +1,7 @@
-/* tslint:disable:no-increment-decrement no-param-reassign */
+/* tslint:disable:no-increment-decrement no-parameter-reassignment */
 
 interface EasingFunctions {
-    [key: string]: (t: number) => number
+    [key: string]: (t: number) => number;
 }
 
 // Adapted from: https://gist.github.com/gre/1650294
