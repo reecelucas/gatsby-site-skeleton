@@ -89,7 +89,7 @@ class Form extends React.Component<any, any> {
         return !Object.keys(errors).some(key => errors[key]);
     }
 
-    handleInputChange(event: any) {
+    handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -100,7 +100,7 @@ class Form extends React.Component<any, any> {
         });
     }
 
-    handleInputBlur(event: any) {
+    handleInputBlur(event: React.FocusEvent<HTMLInputElement>) {
         const name = event.target.name;
 
         this.setState({
@@ -164,12 +164,12 @@ class Form extends React.Component<any, any> {
             });
     }
 
-    handleSubmit(event: any) {
+    handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
         if (!this.canBeSubmitted()) return;
 
-        const target = event.target;
+        const target = event.target as HTMLFormElement;
         const actionUrl = target.action;
 
         const formData = new FormData(target);

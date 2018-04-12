@@ -13,7 +13,7 @@ class NetworkStatus extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
         this.state = {
-            online: typeof navigator.onLine === 'boolean' ? navigator.onLine : true
+            online: true
         };
 
         this.goOnline = this.goOnline.bind(this);
@@ -29,6 +29,10 @@ class NetworkStatus extends React.Component<Props, State> {
     }
 
     componentDidMount() {
+        this.setState({
+            online: typeof navigator.onLine === 'boolean' ? navigator.onLine : true
+        });
+
         window.addEventListener('online', this.goOnline);
         window.addEventListener('offline', this.goOffline);
     }
