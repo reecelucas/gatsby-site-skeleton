@@ -15,7 +15,12 @@ import AspectRatioWrapper from '../components/utility/AspectRatioWrapper/AspectR
 import ResponsiveImage from '../components/utility/ResponsiveImage';
 import Alert from '../components/utility/Alert/Alert';
 import Form from '../components/Form/Form';
-import { Accordion, AccordionItem, AccordionItemTitle, AccordionItemBody } from '../components/Accordion/Accordion';
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemTitle,
+    AccordionItemBody
+} from '../components/Accordion/Accordion';
 
 class IndexPage extends React.Component<any, void> {
     lazyLoad: LazyLoadAPI;
@@ -93,27 +98,27 @@ class IndexPage extends React.Component<any, void> {
                     <Wrapper>
                         <Accordion>
                             <AccordionItem expanded>
-                                <AccordionItemTitle>
-                                    Accordion header
-                                </AccordionItemTitle>
+                                <AccordionItemTitle>Accordion header</AccordionItemTitle>
                                 <AccordionItemBody>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim inventore velit sint quod blanditiis,
-                                        sapiente voluptatibus, molestiae, dolore ipsam labore quaerat veritatis fuga libero! Explicabo
-                                        aperiam sapiente optio consectetur placeat.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Enim inventore velit sint quod blanditiis, sapiente
+                                        voluptatibus, molestiae, dolore ipsam labore quaerat
+                                        veritatis fuga libero! Explicabo aperiam sapiente optio
+                                        consectetur placeat.
                                     </p>
                                 </AccordionItemBody>
                             </AccordionItem>
 
                             <AccordionItem>
-                                <AccordionItemTitle>
-                                    Accordion header two
-                                </AccordionItemTitle>
+                                <AccordionItemTitle>Accordion header two</AccordionItemTitle>
                                 <AccordionItemBody>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim inventore velit sint quod blanditiis,
-                                        sapiente voluptatibus, molestiae, dolore ipsam labore quaerat veritatis fuga libero! Explicabo
-                                        aperiam sapiente optio consectetur placeat.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                        Enim inventore velit sint quod blanditiis, sapiente
+                                        voluptatibus, molestiae, dolore ipsam labore quaerat
+                                        veritatis fuga libero! Explicabo aperiam sapiente optio
+                                        consectetur placeat.
                                     </p>
                                 </AccordionItemBody>
                             </AccordionItem>
