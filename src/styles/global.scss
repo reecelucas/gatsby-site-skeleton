@@ -22,6 +22,7 @@
  *
  *
  * 	ELEMENTS:
+ *  Forms................Form boilerplate & reset.
  * 	Headings.............H1–H6 base styles.
  *  Images...............Default responsive image styles.
  *	Page.................html & body styling.
@@ -51,6 +52,7 @@
 @import "generic/generic.shared";
 
 
+@import "elements/elements.forms";
 @import "elements/elements.headings";
 @import "elements/elements.images";
 @import "elements/elements.page";

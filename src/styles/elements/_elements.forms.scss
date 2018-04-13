@@ -1,0 +1,217 @@
+/* ==========================================================================
+   #FORMS
+   ========================================================================== */
+
+/* Modified FormHack v1.2.0 (formhack.io)
+   ========================================================================== */
+
+// Font
+$fh-font-family: inherit !default;
+$fh-font-size: 16px !default;
+$fh-font-color: $colour-five !default;
+
+// Borders
+$fh-border-radius: 2px !default;
+$fh-border-width: 1px !default;
+$fh-border-style: solid !default;
+$fh-border-color: $colour-two !default;
+
+// Inputs, Textareas, Select & Option
+$fh-input-height: 40px !default;
+$fh-input-width: 100% !default;
+$fh-input-max-width: 400px !default;
+$fh-input-bg-color: $colour-one !default;
+$fh-focus-bg-color: darken($colour-one, 2.5%) !default;
+$fh-focus-border-color: $fh-border-color !default;
+
+// `select` Vendor Styling
+$fh-allow-select-vendor-styling: false !default;
+
+// Layout
+$fh-display: block !default;
+
+
+/* Global Reset Styles
+   ========================================================================== */
+
+input,
+textarea,
+select,
+option,
+optgroup,
+button,
+legend,
+fieldset {
+    box-sizing: border-box;
+    color: $fh-font-color;
+    display: $fh-display;
+	font: {
+		family: $fh-font-family;
+		size: $fh-font-size;
+	}
+    outline: none;
+	vertical-align: top;
+}
+
+datalist {
+	font: {
+        family: $fh-font-family;
+        size: $fh-font-size;
+    }
+}
+
+label {
+	display: $fh-display;
+}
+
+
+/* Input & Textarea
+   ========================================================================== */
+
+// Fields with standard width
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[list],
+input[type="file"],
+select,
+textarea {
+    background-color: $fh-input-bg-color;
+    border: $fh-border-width $fh-border-style $fh-border-color;
+    border-radius: $fh-border-radius;
+	max-width: $fh-input-max-width;
+	padding: round($fh-input-height / 5);
+    width: $fh-input-width;
+}
+
+// Fields with standard height
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="color"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[list] {
+	height: $fh-input-height;
+	-webkit-appearance: none;
+}
+
+// Other
+
+textarea {
+    overflow: auto;
+	-webkit-appearance: none;
+}
+
+input[type="range"] {
+    height: $fh-input-height;
+    max-width: $fh-input-max-width;
+	width: $fh-input-width;
+}
+
+input[type="file"] {
+	min-height: $fh-input-height;
+}
+
+input[type="search"] {
+	height: $fh-input-height;
+	-webkit-appearance: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
+/* Select
+   ========================================================================== */
+
+select {
+	height: $fh-input-height;
+
+	@if ($fh-allow-select-vendor-styling == false) {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		-ms-appearance: none;
+        -o-appearance: none;
+
+		&::-ms-expand {
+			display: none;
+		}
+	}
+}
+
+select[multiple] {
+	height: auto;
+	min-height: $fh-input-height;
+	padding: 0;
+
+	option {
+		margin: 0;
+		padding: round($fh-input-height / 5);
+	}
+}
+
+
+/* Buttons, Input Type Submit/Reset
+   ========================================================================== */
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+input[type="image"] {
+    cursor: pointer;
+}
+
+
+/* States
+   ========================================================================== */
+
+input[disabled],
+textarea[disabled],
+select[disabled],
+option[disabled],
+button[disabled] {
+	cursor: not-allowed;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+option:focus,
+button:focus {
+	background-color: $fh-focus-bg-color;
+	border-color: $fh-focus-border-color;
+}
+
+input[type="checkbox"]:focus,
+input[type="radio"]:focus {
+	outline: $fh-focus-border-color solid 2px;
+}
