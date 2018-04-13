@@ -23,7 +23,7 @@ const loadFonts = (fontArray: string[] | undefined): void => {
                 expirationDays: 364
             });
         })
-        .catch(err => console.log(`font loading error: ${err}`));
+        .catch(console.warn);
 };
 
 export default loadFonts;

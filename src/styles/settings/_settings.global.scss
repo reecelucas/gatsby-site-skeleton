@@ -21,9 +21,11 @@ $mq-breakpoints: (
    ========================================================================== */
 
 $colour-one:   #FFFFFF !default; // WHITE
-$colour-two:   #2B2B2B !default; // DARK GREY
-$colour-three: #767676 !default; // LIGHT GREY
-$colour-four:  #426591 !default; // BLUE
+$colour-two:   #ECECEC !default; // LIGHT GREY
+$colour-three: #767676 !default; // MEDIUM GREY
+$colour-four:  #484848 !default; // DARK GREY
+$colour-five:  #2B2B2B !default; // NEAR BLACK
+$colour-six:   #426591 !default; // BLUE
 
 
 /* High-level base settings
@@ -31,7 +33,7 @@ $colour-four:  #426591 !default; // BLUE
 
 $base-font-size:    16px !default;
 $base-line-height:  24px !default;
-$base-text-colour:  $colour-two;
+$base-text-colour:  $colour-five;
 
 
 /* Spacing
