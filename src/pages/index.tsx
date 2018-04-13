@@ -43,10 +43,16 @@ class IndexPage extends React.Component<any, void> {
                     <meta name="description" content="Optional index page description" />
                 </Helmet>
 
-                <Spacer size="large">
+                <Spacer>
                     <Wrapper>
                         <br />
                         <br />
+                        <h1>Static Site Skeleton</h1>
+                    </Wrapper>
+                </Spacer>
+
+                <Spacer size="large">
+                    <Wrapper>
                         <Spacer>
                             <Alert
                                 message="This is an example success message"
@@ -58,12 +64,6 @@ class IndexPage extends React.Component<any, void> {
                             <Alert message="This is an example warning message" theme="warning" />
                         </Spacer>
                         <Alert message="This is an example error message" theme="error" />
-                    </Wrapper>
-                </Spacer>
-
-                <Spacer>
-                    <Wrapper>
-                        <h1>Static Site Skeleton</h1>
                     </Wrapper>
                 </Spacer>
 
@@ -97,18 +97,20 @@ class IndexPage extends React.Component<any, void> {
                 <Spacer size="large">
                     <Wrapper>
                         <Accordion>
-                            <AccordionItem expanded>
-                                <AccordionItemTitle>Accordion header</AccordionItemTitle>
-                                <AccordionItemBody>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Enim inventore velit sint quod blanditiis, sapiente
-                                        voluptatibus, molestiae, dolore ipsam labore quaerat
-                                        veritatis fuga libero! Explicabo aperiam sapiente optio
-                                        consectetur placeat.
-                                    </p>
-                                </AccordionItemBody>
-                            </AccordionItem>
+                            <Spacer size="small">
+                                <AccordionItem expanded>
+                                    <AccordionItemTitle>Accordion header</AccordionItemTitle>
+                                    <AccordionItemBody>
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit. Enim inventore velit sint quod blanditiis,
+                                            sapiente voluptatibus, molestiae, dolore ipsam labore
+                                            quaerat veritatis fuga libero! Explicabo aperiam
+                                            sapiente optio consectetur placeat.
+                                        </p>
+                                    </AccordionItemBody>
+                                </AccordionItem>
+                            </Spacer>
 
                             <AccordionItem>
                                 <AccordionItemTitle>Accordion header two</AccordionItemTitle>
