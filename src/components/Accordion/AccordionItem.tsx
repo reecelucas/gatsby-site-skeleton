@@ -1,4 +1,5 @@
 import * as React from 'react';
+import AccordionItemContext from './AccordionItemContext';
 
 interface State {
     expanded: boolean;
@@ -9,10 +10,6 @@ interface Props {
     expanded?: boolean;
 }
 
-/**
- * When available in Gatsby v2, `React.cloneElement` should be replaced
- * with the `context` API as a means of implicitly passing props into children
- */
 class AccordionItem extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
@@ -28,13 +25,15 @@ class AccordionItem extends React.Component<Props, State> {
     }
 
     render() {
-        const childProps = {
-            expanded: this.state.expanded,
-            toggleVisibility: this.toggleVisibility
-        };
-
-        return React.Children.map(this.props.children, child =>
-            React.cloneElement(child as React.ReactElement<any>, childProps)
+        return (
+            <AccordionItemContext.Provider
+                value={{
+                    expanded: this.state.expanded,
+                    onClick: this.toggleVisibility
+                }}
+            >
+                {this.props.children}
+            </AccordionItemContext.Provider>
         );
     }
 }
