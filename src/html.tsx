@@ -10,20 +10,49 @@ interface Props {
 let stylesStr: string;
 let css: JSX.Element;
 const productionEnv: boolean = process.env.NODE_ENV === 'production';
-const inlineScript: string = `
-    (function(){
-        var html = document.documentElement;
-        html.className += ' js';
+
+/**
+ * Load webfonts based on Zac Leatherman's "The Compromise"
+ * approach: https://www.zachleat.com/web/the-compromise/
+ */
+const loadFonts: string = `
+    (function() {
+        var d = document;
+        var html = d.documentElement;
+        var loadedClass = 'fonts-loaded';
+
+        var saveToLocalStorage = function(key, value, expirationDays) {
+            var expirationMS = expirationDays * 24 * 60 * 60 * 1000;
+            var record = {
+                value: JSON.stringify(value),
+                timestamp: new Date().getTime() + expirationMS
+            };
+            localStorage.setItem(key, JSON.stringify(record));
+        };
 
         try {
-            var record = JSON.parse(localStorage.getItem('fonts-loaded'));
+            var record = JSON.parse(localStorage.getItem(loadedClass));
             if (record && new Date().getTime() < record.timestamp) {
-            html.className += ' fonts-loaded';
+                html.className += ' ' + loadedClass;
+            } else if ('fonts' in d) {
+                Promise.all([
+                    d.fonts.load("300 1em 'Work Sans'"),
+                    d.fonts.load("400 1em 'Work Sans'"),
+                    d.fonts.load("600 1em 'Work Sans'")
+                ])
+                    .then(function() {
+                        html.className += ' ' + loadedClass;
+                        saveToLocalStorage(loadedClass, true, 364);
+                    })
+                    .catch(console.warn);
+            } else {
+                var script = d.createElement('script');
+                script.src = 'font-loading-fallback.js';
+                script.async = true;
+                d.head.appendChild(script);
             }
-        } catch (err) {
-            console.log(err);
-        }
-    })(window);
+        } catch (e) {}
+    })();
 `;
 
 if (productionEnv) {
@@ -48,7 +77,29 @@ class Html extends React.Component<Props, void> {
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <title>Static Site Skeleton</title>
 
-                    <script dangerouslySetInnerHTML={{ __html: inlineScript }} />
+                    <link
+                        rel="preload"
+                        href="fonts/work-sans-300.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossorigin
+                    />
+                    <link
+                        rel="preload"
+                        href="fonts/work-sans-400.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossorigin
+                    />
+                    <link
+                        rel="preload"
+                        href="fonts/work-sans-600.woff2"
+                        as="font"
+                        type="font/woff2"
+                        crossorigin
+                    />
+
+                    <script dangerouslySetInnerHTML={{ __html: loadFonts }} />
                     {this.props.headComponents}
                     {css}
                 </head>

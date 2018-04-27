@@ -2,7 +2,6 @@ import * as React from 'react';
 import Helmet from 'react-helmet';
 
 // Utility
-import loadFonts from '../utilities/loadFonts';
 import controlOutline from '../utilities/controlOutline';
 
 // Global UI
@@ -20,7 +19,6 @@ interface Props {
                 imageUrl: string;
                 imageAlt: string;
                 themeColour: string;
-                fonts: string[];
             };
         };
     };
@@ -30,8 +28,6 @@ interface Props {
 class TemplateWrapper extends React.Component<Props, void> {
     // Initialise global modules that require the DOM (after render)
     componentDidMount() {
-        // Load webfonts (if they aren't already cached)
-        loadFonts(this.props.data.site.siteMetadata.fonts);
         controlOutline();
     }
 
@@ -110,7 +106,6 @@ export const templateQuery = graphql`
                 imageUrl
                 imageAlt
                 themeColour
-                fonts
             }
         }
     }

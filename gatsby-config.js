@@ -7,8 +7,7 @@ module.exports = {
     href: 'http://static-site-skeleton.com/',
     imageUrl: '/',
     imageAlt: 'Lorem ispum dolor amet',
-    themeColour: themeColour,
-    fonts: ['Work Sans']
+    themeColour: themeColour
   },
   plugins: [
     /**
