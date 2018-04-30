@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-interface srcsetObject {
+interface SrcsetObject {
     width: string;
     url: string;
 }
 
-interface sizesObject {
+interface SizesObject {
     size: string;
     mediaCondition: string;
 }
@@ -13,17 +13,17 @@ interface sizesObject {
 interface Props {
     className?: string;
     alt?: string;
-    srcset?: srcsetObject[];
+    srcset?: SrcsetObject[];
     src: string;
-    sizes?: sizesObject[];
+    sizes?: SizesObject[];
     lazyLoad?: boolean;
 }
 
-const buildSrcset = (srcset: srcsetObject[]): string =>
-    srcset.map((src: srcsetObject) => `${src.url} ${src.width}`).join(',');
+const buildSrcset = (srcset: SrcsetObject[]): string =>
+    srcset.map((src: SrcsetObject) => `${src.url} ${src.width}`).join(',');
 
-const buildSizes = (sizes: sizesObject[]): string =>
-    sizes.map((size: sizesObject) => `${size.mediaCondition} ${size.size}`).join(',');
+const buildSizes = (sizes: SizesObject[]): string =>
+    sizes.map((size: SizesObject) => `${size.mediaCondition} ${size.size}`).join(',');
 
 const ResponsiveImage = (props: Props) => {
     const { className, alt, srcset, src, sizes, lazyLoad } = props;

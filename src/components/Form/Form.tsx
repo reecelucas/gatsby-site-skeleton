@@ -57,9 +57,6 @@ class Form extends React.Component<any, any> {
 
         switch (name) {
             case 'name':
-                valid = value && value.length > 0;
-                break;
-
             case 'message':
                 valid = value && value.length > 0;
                 break;
@@ -89,7 +86,7 @@ class Form extends React.Component<any, any> {
         return !Object.keys(errors).some(key => errors[key]);
     }
 
-    handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    handleInputChange(event: React.ChangeEvent<any>) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -100,7 +97,7 @@ class Form extends React.Component<any, any> {
         });
     }
 
-    handleInputBlur(event: React.FocusEvent<HTMLInputElement>) {
+    handleInputBlur(event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const name = event.target.name;
 
         this.setState({
