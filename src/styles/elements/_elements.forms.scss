@@ -18,8 +18,9 @@ $fh-border-color: $colour-two !default;
 
 // Inputs, Textareas, Select & Option
 $fh-input-height: 40px !default;
+$fh-input-height--textarea: 220px !default;
 $fh-input-width: 100% !default;
-$fh-input-max-width: 400px !default;
+$fh-input-max-width: 100% !default;
 $fh-input-bg-color: $colour-one !default;
 $fh-focus-bg-color: darken($colour-one, 2.5%) !default;
 $fh-focus-border-color: $fh-border-color !default;
@@ -118,6 +119,7 @@ input[list] {
 // Other
 
 textarea {
+	min-height: $fh-input-height--textarea;
     overflow: auto;
 	-webkit-appearance: none;
 }
@@ -214,4 +216,21 @@ button:focus {
 input[type="checkbox"]:focus,
 input[type="radio"]:focus {
 	outline: $fh-focus-border-color solid 2px;
+}
+
+
+/* Autocomplete Styles
+   ========================================================================== */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	-webkit-text-fill-color: inherit;
+	-webkit-box-shadow: 0 0 0 1000px $fh-input-bg-color inset;
 }

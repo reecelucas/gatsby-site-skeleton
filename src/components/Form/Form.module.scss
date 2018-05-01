@@ -1,0 +1,85 @@
+/* ==========================================================================
+   #FORM
+   ========================================================================== */
+
+@import "../../styles/settings/settings.global";
+@import "../../styles/settings/settings.typography";
+@import "../../styles/tools/tools.functions";
+@import "../../styles/tools/tools.mixins";
+
+// Ensure these settings are configured before the @import of this file.
+$form-error-colour: #a94442 !default;
+
+.container {
+    text-align: left;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    display: inline-block;
+    margin-bottom: rem-calc($base-spacing-unit-small);
+    width: 100%;
+}
+
+.itemHalf {
+
+    @include tablet {
+        width: 50%;
+
+        &:not(:first-child) {
+            padding-left: rem-calc($base-spacing-unit-small);
+        }
+    }
+
+}
+
+.label {
+    display: block;
+    margin-bottom: rem-calc($base-spacing-unit-tiny);
+}
+
+.submit {
+    align-items: center;
+    background-color: $colour-six;
+    border: none;
+    border-radius: 2px;
+    color: $colour-one;
+    display: flex;
+    font-weight: 600;
+    justify-content: center;
+    letter-spacing: 0.05em;
+    padding: rem-calc($base-spacing-unit-small) rem-calc($base-spacing-unit-large);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    width: 100%;
+    @include font-size($font-size-4, 1);
+
+    &:hover,
+    &:focus {
+        background-color: darken($colour-six, 10%);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}
+
+
+/* Error states
+   ========================================================================== */
+
+input.hasError,
+textarea.hasError {
+    border: 2px solid $form-error-colour;
+}
+
+.errorMessage {
+    color: $form-error-colour;
+    margin-bottom: 0;
+    padding-top: rem-calc($base-spacing-unit-tiny);
+}

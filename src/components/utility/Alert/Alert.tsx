@@ -10,6 +10,7 @@ interface State {
 interface Props {
     message: string;
     theme: 'success' | 'warning' | 'error';
+    className?: string;
     dismissable?: boolean;
 }
 
@@ -34,11 +35,11 @@ class Alert extends React.Component<Props, State> {
     }
 
     render() {
-        const { message, theme, dismissable } = this.props;
+        const { message, theme, className, dismissable } = this.props;
 
         return this.state.show ? (
             <div
-                className={`${styles.alert} ${classMap[theme]}`}
+                className={`${styles.alert} ${classMap[theme]} ${className || ''}`}
                 role="alert"
                 aria-live="assertive"
             >

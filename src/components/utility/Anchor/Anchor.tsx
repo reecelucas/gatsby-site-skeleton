@@ -6,14 +6,14 @@ interface Props {
     href: string;
     title?: string;
     ariaLabel?: string;
-    customClass?: string;
+    className?: string;
     children: any;
     newTab?: boolean;
 }
 
-const Anchor = ({ href, newTab, title, ariaLabel, customClass, children }: Props) => (
+const Anchor = ({ href, newTab, title, ariaLabel, className, children }: Props) => (
     <a
-        className={customClass || styles.anchor}
+        className={className || styles.anchor}
         href={href}
         title={title || null}
         aria-label={ariaLabel || null}
