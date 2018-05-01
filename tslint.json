@@ -1,43 +1,43 @@
 {
-  "defaultSeverity":"error",
-  "extends": [
-    "tslint-config-airbnb",
-    "tslint-config-prettier"
-  ],
-  "jsRules":{},
-  "rules":{
-     "interface-name":[
-        true,
-        "never-prefix"
-     ],
-     "import-name":[
-        false
-     ],
-     "max-line-length":[
-        false
-     ],
-     "member-access":[
-        false
-     ],
-     "no-console":[
-        false
-     ],
-     "no-var-requires":[
-        false
-     ],
-     "ordered-imports":[
-        false
-     ],
-     "ter-arrow-parens":[
-        false
-     ],
-     "trailing-comma":[
-        false
-     ],
-     "variable-name":[
-        true,
-        "allow-pascal-case"
-     ]
-  },
-  "rulesDirectory":[]
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint-config-airbnb",
+        "tslint-config-prettier"
+    ],
+    "jsRules": {},
+    "rules": {
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "import-name": [
+            false
+        ],
+        "max-line-length": [
+            false
+        ],
+        "member-access": [
+            false
+        ],
+        "no-console": [
+            false
+        ],
+        "no-var-requires": [
+            false
+        ],
+        "ordered-imports": [
+            false
+        ],
+        "ter-arrow-parens": [
+            false
+        ],
+        "trailing-comma": [
+            false
+        ],
+        "variable-name": [
+            true,
+            "allow-pascal-case"
+        ]
+    },
+    "rulesDirectory": []
 }
