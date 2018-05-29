@@ -57,7 +57,7 @@ class Form extends React.Component<any, any> {
     }
 
     /**
-     * If these lifecycle hooks runs, it means js is enabled in
+     * If these lifecycle hooks are called, it means js is enabled in
      * the client, so we can safely validate the form with js
      */
     componentDidMount() {
@@ -154,9 +154,8 @@ class Form extends React.Component<any, any> {
 
     handleSubmitError(message?: string) {
         const errorMsg = `
-            There was a problem sending the email. Please try refreshing your browser or resubmitting. ${
-                message ? `Error: ${message}.` : ''
-            }
+            There was a problem sending the email. Please try refreshing your browser or resubmitting.
+            ${message ? `Error: ${message}.` : ''}
         `;
 
         this.setState({
@@ -201,7 +200,7 @@ class Form extends React.Component<any, any> {
         const target = event.target as HTMLFormElement;
         const actionUrl = target.action;
 
-        // Encode form data in a format compatible with Basin's endpoint
+        // Encode form data in a format compatible with Basin's (https://usebasin.com) endpoint
         const formData = encodeFormData({ ...this.state.fields });
         this.handlePost(formData, actionUrl);
     }
