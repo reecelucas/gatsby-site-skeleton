@@ -1,7 +1,3 @@
-export interface ClassMap {
-    [key: string]: string;
-}
-
 export interface LazyLoadParams {
     selector?: string;
     loadClass?: string;

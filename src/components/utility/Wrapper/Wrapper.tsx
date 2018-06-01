@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as classNames from 'classnames';
 
 const styles = require('./Wrapper.module.scss');
 
@@ -8,7 +9,7 @@ interface Props {
 }
 
 const Wrapper = ({ children, className }: Props) => (
-    <div className={`${styles.wrapper} ${className || ''}`}>{children}</div>
+    <div className={classNames(styles.wrapper, className)}>{children}</div>
 );
 
 export default Wrapper;

@@ -9,19 +9,23 @@
     margin-bottom: rem-calc($base-spacing-unit);
 }
 
-.spacerTiny {
+
+/* Style variants
+   ========================================================================== */
+
+.spacer--tiny {
     margin-bottom: rem-calc($base-spacing-unit-tiny);
 }
 
-.spacerSmall {
+.spacer--small {
     margin-bottom: rem-calc($base-spacing-unit-small);
 }
 
-.spacerLarge {
+.spacer--large {
     margin-bottom: rem-calc($base-spacing-unit-large);
 }
 
-.spacerHuge {
+.spacer--huge {
     margin-bottom: rem-calc($base-spacing-unit-huge);
 }
 

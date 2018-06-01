@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ClassMap } from '../../../types';
+import * as classNames from 'classnames';
 
 const styles = require('./Alert.module.scss');
 
@@ -13,12 +13,6 @@ interface Props {
     className?: string;
     dismissable?: boolean;
 }
-
-const classMap: ClassMap = {
-    success: styles['alert--success'],
-    warning: styles['alert--warning'],
-    error: styles['alert--error']
-};
 
 class Alert extends React.Component<Props, State> {
     constructor(props: Props) {
@@ -36,13 +30,10 @@ class Alert extends React.Component<Props, State> {
 
     render() {
         const { message, theme, className, dismissable } = this.props;
+        const classList = classNames(styles.alert, styles[`alert--${theme}`], className);
 
         return this.state.show ? (
-            <div
-                className={`${styles.alert} ${classMap[theme]} ${className || ''}`}
-                role="alert"
-                aria-live="assertive"
-            >
+            <div className={classList} role="alert" aria-live="assertive">
                 {message}
                 {dismissable && (
                     <button className={styles.close} onClick={this.dismiss}>

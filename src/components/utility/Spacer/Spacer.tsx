@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ClassMap } from '../../../types';
+import * as classNames from 'classnames';
 
 const styles = require('./Spacer.module.scss');
 
@@ -8,15 +8,10 @@ interface Props {
     size?: 'tiny' | 'small' | 'large' | 'huge';
 }
 
-const classMap: ClassMap = {
-    tiny: styles['spacerTiny'],
-    small: styles['spacerSmall'],
-    large: styles['spacerLarge'],
-    huge: styles['spacerHuge']
-};
+const Spacer = ({ children, size }: Props) => {
+    const classList = classNames(styles.spacer, styles[`spacer--${size}`]);
 
-const Spacer = ({ children, size }: Props) => (
-    <div className={classMap[size] || styles.spacer}>{children}</div>
-);
+    return <div className={classList}>{children}</div>;
+};
 
 export default Spacer;

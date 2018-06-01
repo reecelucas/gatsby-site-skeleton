@@ -25,6 +25,7 @@
     "IE 10"
   ],
   "dependencies": {
+    "@types/classnames": "^2.2.3",
     "@types/fontfaceobserver": "^0.0.6",
     "@types/graphql": "^0.12.4",
     "@types/jest": "^22.1.2",
@@ -34,6 +35,7 @@
     "@types/react-helmet": "^5.0.3",
     "autoprefixer": "^8.0.0",
     "babel-jest": "^22.2.2",
+    "classnames": "^2.2.5",
     "css-mqpacker": "^6.0.1",
     "fontfaceobserver": "^2.0.13",
     "gatsby": "^1.9.221",
