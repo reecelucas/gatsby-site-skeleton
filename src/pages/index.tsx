@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { LazyLoadAPI } from '../types';
 
 // Utility
-import controlOutline from '../utilities/controlOutline';
 import lazyLoad from '../utilities/lazyLoad';
 import ErrorBoundary from '../components/utility/ErrorBoundary';
 import { Offline, Online } from '../components/utility/NetworkStatus';
@@ -27,7 +26,6 @@ class IndexPage extends React.Component<any, void> {
 
     // Initialise page-specific modules that require the DOM (after render)
     componentDidMount() {
-        controlOutline();
         this.lazyLoad = lazyLoad();
         this.lazyLoad.init();
     }
