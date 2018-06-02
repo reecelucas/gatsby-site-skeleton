@@ -12,9 +12,7 @@ interface Props {
 class NetworkStatus extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
-        this.state = {
-            online: true
-        };
+        this.state = { online: true };
 
         this.goOnline = this.goOnline.bind(this);
         this.goOffline = this.goOffline.bind(this);
@@ -45,12 +43,12 @@ class NetworkStatus extends React.Component<Props, State> {
 
 export class Online extends NetworkStatus {
     render() {
-        return this.state.online ? this.props.children : null;
+        return this.state.online && this.props.children;
     }
 }
 
 export class Offline extends NetworkStatus {
     render() {
-        return !this.state.online ? this.props.children : null;
+        return !this.state.online && this.props.children;
     }
 }

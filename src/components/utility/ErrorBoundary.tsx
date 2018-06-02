@@ -11,14 +11,15 @@ interface State {
 class ErrorBoundary extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
-        this.state = {
-            hasError: false
-        };
+        this.state = { hasError: false };
     }
 
     componentDidCatch(error: Error, info: React.ErrorInfo) {
         this.setState({ hasError: true });
-        console.warn(info.componentStack);
+        console.warn(`
+            ${error.message}.
+            ${info.componentStack}
+        `);
     }
 
     render() {

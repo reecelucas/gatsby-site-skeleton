@@ -10,7 +10,6 @@ interface Props {
 
 const Spacer = ({ children, size }: Props) => {
     const classList = classNames(styles.spacer, styles[`spacer--${size}`]);
-
     return <div className={classList}>{children}</div>;
 };
 

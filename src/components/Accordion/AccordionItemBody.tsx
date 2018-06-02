@@ -1,16 +1,16 @@
 import * as React from 'react';
-import AccordionItemContext from './AccordionItemContext';
+import { Consumer } from './AccordionItemContext';
 
 const styles = require('./Accordion.module.scss');
 
 const AccordionItemBody = ({ children }: any) => (
-    <AccordionItemContext.Consumer>
+    <Consumer>
         {({ expanded }) => (
             <div className={styles.body} hidden={!expanded}>
                 {children}
             </div>
         )}
-    </AccordionItemContext.Consumer>
+    </Consumer>
 );
 
 export default AccordionItemBody;

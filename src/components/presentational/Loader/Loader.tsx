@@ -16,9 +16,7 @@ class Loader extends React.Component<Props, State> {
 
     constructor(props: Props) {
         super(props);
-        this.state = {
-            show: false
-        };
+        this.state = { show: false };
 
         this.timer = null;
         this.delay = this.props.delay || 250;

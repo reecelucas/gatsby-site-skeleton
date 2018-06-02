@@ -1,10 +1,10 @@
 import * as React from 'react';
-import AccordionItemContext from './AccordionItemContext';
+import { Consumer } from './AccordionItemContext';
 
 const styles = require('./Accordion.module.scss');
 
 const AccordionItemTitle = ({ children }: any) => (
-    <AccordionItemContext.Consumer>
+    <Consumer>
         {({ expanded, onClick }) => (
             <h2 className={styles.title}>
                 <button
@@ -16,7 +16,7 @@ const AccordionItemTitle = ({ children }: any) => (
                 </button>
             </h2>
         )}
-    </AccordionItemContext.Consumer>
+    </Consumer>
 );
 
 export default AccordionItemTitle;

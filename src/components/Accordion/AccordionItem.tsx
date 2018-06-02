@@ -1,5 +1,5 @@
 import * as React from 'react';
-import AccordionItemContext from './AccordionItemContext';
+import { Provider } from './AccordionItemContext';
 
 interface State {
     expanded: boolean;
@@ -21,19 +21,21 @@ class AccordionItem extends React.Component<Props, State> {
     }
 
     toggleVisibility() {
-        this.setState({ expanded: !this.state.expanded });
+        this.setState(prevState => ({
+            expanded: !prevState.expanded
+        }));
     }
 
     render() {
         return (
-            <AccordionItemContext.Provider
+            <Provider
                 value={{
                     expanded: this.state.expanded,
                     onClick: this.toggleVisibility
                 }}
             >
                 {this.props.children}
-            </AccordionItemContext.Provider>
+            </Provider>
         );
     }
 }

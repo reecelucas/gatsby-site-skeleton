@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Wrapper from '../utility/Wrapper/Wrapper';
-import Spacer from '../utility/Spacer/Spacer';
 import Anchor from '../utility/Anchor/Anchor';
 
 const styles = require('./Footer.module.scss');

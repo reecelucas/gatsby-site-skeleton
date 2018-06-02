@@ -17,10 +17,7 @@ interface Props {
 class Alert extends React.Component<Props, State> {
     constructor(props: Props) {
         super(props);
-        this.state = {
-            show: true
-        };
-
+        this.state = { show: true };
         this.dismiss = this.dismiss.bind(this);
     }
 
