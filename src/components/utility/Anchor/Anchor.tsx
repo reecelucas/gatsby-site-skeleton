@@ -15,11 +15,11 @@ const Anchor = ({ href, newTab, title, ariaLabel, className, children }: Props) 
     <a
         className={className || styles.anchor}
         href={href}
-        title={title || null}
-        aria-label={ariaLabel || null}
-        target={newTab ? '_blank' : null}
+        title={title || undefined}
+        aria-label={ariaLabel || undefined}
+        target={newTab ? '_blank' : undefined}
         // https://www.jitbit.com/alexblog/256-targetblank---the-most-underestimated-vulnerability-ever/
-        rel={newTab ? 'noopener noreferrer' : null}
+        rel={newTab ? 'noopener noreferrer' : undefined}
     >
         {children}
     </a>

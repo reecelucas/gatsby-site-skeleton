@@ -10,7 +10,7 @@ export const saveToLocalStorage = ({
     key,
     value,
     expirationDays
-}: SaveToLocalStorageParams): boolean => {
+}: SaveToLocalStorageParams): void => {
     if (serverRendered) return;
 
     // Try for localStorage support...
@@ -24,7 +24,7 @@ export const saveToLocalStorage = ({
 
         localStorage.setItem(key, JSON.stringify(record));
     } catch (e) {
-        return false;
+        return;
     }
 };
 
@@ -33,7 +33,7 @@ export const fetchFromLocalStorage = (key: string): any => {
 
     // Try for localStorage support...
     try {
-        const record = JSON.parse(localStorage.getItem(key));
+        const record = JSON.parse(localStorage.getItem(key) || '');
 
         // Return the record if it exists & its timestamp has not expired
         if (record && new Date().getTime() < record.timestamp) {

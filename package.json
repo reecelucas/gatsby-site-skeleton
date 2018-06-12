@@ -48,6 +48,7 @@
     "gatsby-plugin-typescript": "^1.4.8",
     "glob": "^7.1.2",
     "jest": "^22.2.2",
+    "lazily.js": "^1.0.12",
     "optimize-js-plugin": "^0.0.4",
     "path": "^0.12.7",
     "postcss-assets-webpack-plugin": "^1.1.0",

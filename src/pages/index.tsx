@@ -1,9 +1,8 @@
 import * as React from 'react';
 import Helmet from 'react-helmet';
-import { LazyLoadAPI } from '../types';
+import * as lazily from 'lazily.js';
 
 // Utility
-import lazyLoad from '../utilities/lazyLoad';
 import ErrorBoundary from '../components/utility/ErrorBoundary';
 import { Offline, Online } from '../components/utility/NetworkStatus';
 
@@ -22,11 +21,11 @@ import {
 } from '../components/Accordion/Accordion';
 
 class IndexPage extends React.Component<any, void> {
-    lazyLoad: LazyLoadAPI;
+    lazyLoad: any;
 
     // Initialise page-specific modules that require the DOM (after render)
     componentDidMount() {
-        this.lazyLoad = lazyLoad();
+        this.lazyLoad = lazily({ threshold: 0.5 });
         this.lazyLoad.init();
     }
 
@@ -132,6 +131,31 @@ class IndexPage extends React.Component<any, void> {
                         <AspectRatioWrapper>
                             <ErrorBoundary>
                                 <ResponsiveImage
+                                    lazyLoad
+                                    className="js-lazily-image"
+                                    alt="Placeholder"
+                                    src="http://via.placeholder.com/800x400"
+                                    sizes={[
+                                        { size: '100vw', mediaCondition: '(max-width: 940px)' },
+                                        { size: '940px', mediaCondition: '(min-width: 941px)' }
+                                    ]}
+                                    srcset={[
+                                        {
+                                            width: '500w',
+                                            url: 'http://via.placeholder.com/500x250'
+                                        },
+                                        { width: '800w', url: 'http://via.placeholder.com/800x400' }
+                                    ]}
+                                />
+                            </ErrorBoundary>
+                        </AspectRatioWrapper>
+                    </Spacer>
+                    <Spacer size="large">
+                        <AspectRatioWrapper>
+                            <ErrorBoundary>
+                                <ResponsiveImage
+                                    lazyLoad
+                                    className="js-lazily-image"
                                     alt="Placeholder"
                                     src="http://via.placeholder.com/800x400"
                                     sizes={[

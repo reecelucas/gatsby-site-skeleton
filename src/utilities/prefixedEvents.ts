@@ -1,6 +1,6 @@
 import serverRendered from './serverRendered';
 
-const prefixedTransEndEvent = (): string => {
+const prefixedTransEndEvent = (): string | undefined => {
     if (serverRendered) return;
 
     const transitions: { [key: string]: string } = {
@@ -22,7 +22,7 @@ const prefixedTransEndEvent = (): string => {
     return transName;
 };
 
-const prefixedAnimEndEvent = (): string => {
+const prefixedAnimEndEvent = (): string | undefined => {
     if (serverRendered) return;
 
     const animations: { [key: string]: string } = {

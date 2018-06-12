@@ -32,13 +32,13 @@ const ResponsiveImage = (props: Props) => {
 
     return (
         <img
-            className={className || null}
-            alt={alt || null}
-            data-src={lazyLoad ? src : null}
+            className={className || undefined}
+            alt={alt || undefined}
+            data-src={lazyLoad ? src : undefined}
             src={lazyLoad ? placeholderSrc : src}
-            data-srcset={srcset && lazyLoad ? buildSrcset(srcset) : null}
-            srcSet={srcset && !lazyLoad ? buildSrcset(srcset) : null}
-            sizes={srcset && sizes ? buildSizes(sizes) : null}
+            data-srcset={srcset && lazyLoad ? buildSrcset(srcset) : undefined}
+            srcSet={srcset && !lazyLoad ? buildSrcset(srcset) : undefined}
+            sizes={srcset && sizes ? buildSizes(sizes) : undefined}
         />
     );
 };

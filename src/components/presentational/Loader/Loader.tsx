@@ -29,7 +29,9 @@ class Loader extends React.Component<Props, State> {
     }
 
     componentWillUnmount() {
-        window.clearTimeout(this.timer);
+        if (this.timer) {
+            window.clearTimeout(this.timer);
+        }
     }
 
     render() {
