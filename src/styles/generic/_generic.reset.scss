@@ -61,6 +61,15 @@ a {
 	text-decoration: none;
 }
 
+/**
+ * Display link text when the <a> element has no text value
+ * but the href attribute is specified.
+ */
+
+a[href^="http"]:empty:before {
+	content: attr(href);
+}
+
 button {
 	background: none;
 	border: none;
