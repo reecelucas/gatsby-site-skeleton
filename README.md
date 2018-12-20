@@ -10,3 +10,7 @@ cd gatsby-site-skeleton
 yarn
 yarn develop
 ```
+
+## TODO
+
+1. Font loading

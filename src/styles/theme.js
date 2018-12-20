@@ -1,8 +1,14 @@
+export const BREAKPOINTS = {
+  phablet: '640px',
+  tablet: '768px',
+  desktop: '1024px'
+};
+
 /*
  * NOTE: use a six-character hex code for all colors to allow alpha channel
  * adjustment without adding extra vars and/or a color manipulation lib.
  *
- *   color: ${colors.primary}40; // Use the primary color at 25% opacity
+ *   color: ${COLOURS.primary}40; // Use the primary color at 25% opacity
  */
 
 export const COLOURS = {
@@ -38,6 +44,12 @@ export const TYPE_SCALE = {
 };
 
 export const FONT_FAMILIES = {
-  sans:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"'
+  sans: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`
+};
+
+export const Z_INDEXES = {
+  beneath: -1,
+  base: 1,
+  modal: 2,
+  skipLink: 3
 };
