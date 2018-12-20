@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import AccordionContext from './AccordionContext';
 import styled from '@emotion/styled';
@@ -39,20 +39,20 @@ const TitleButton = styled.button`
   }
 `;
 
-const AccordionItemTitle = ({ children }) => (
-  <AccordionContext.Consumer>
-    {({ expanded, onClick }) => (
-      <h2 className="title">
-        <TitleButton
-          aria-expanded={expanded ? 'true' : 'false'}
-          onClick={onClick}
-        >
-          {children}
-        </TitleButton>
-      </h2>
-    )}
-  </AccordionContext.Consumer>
-);
+const AccordionItemTitle = ({ children }) => {
+  const { expanded, onClick } = useContext(AccordionContext);
+
+  return (
+    <h2 className="title">
+      <TitleButton
+        aria-expanded={expanded ? 'true' : 'false'}
+        onClick={onClick}
+      >
+        {children}
+      </TitleButton>
+    </h2>
+  );
+};
 
 AccordionItemTitle.propTypes = propTypes;
 

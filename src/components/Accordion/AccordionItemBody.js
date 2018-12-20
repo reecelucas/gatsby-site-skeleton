@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import AccordionContext from './AccordionContext';
 import styled from '@emotion/styled';
@@ -15,11 +15,11 @@ const Body = styled.div`
   padding: ${SPACING.small};
 `;
 
-const AccordionItemBody = ({ children }) => (
-  <AccordionContext.Consumer>
-    {({ expanded }) => <Body hidden={!expanded}>{children}</Body>}
-  </AccordionContext.Consumer>
-);
+const AccordionItemBody = ({ children }) => {
+  const { expanded } = useContext(AccordionContext);
+
+  return <Body hidden={!expanded}>{children}</Body>;
+};
 
 AccordionItemBody.propTypes = propTypes;
 
