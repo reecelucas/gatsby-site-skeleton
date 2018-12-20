@@ -1,47 +1,22 @@
-const themeColour = '#fff';
-
 module.exports = {
-    siteMetadata: {
-        title: 'Static Site Skeleton',
-        description: 'Lorem Ipsum Dolor Sit Amet',
-        href: 'http://static-site-skeleton.com/',
-        imageUrl: '/',
-        imageAlt: 'Lorem ispum dolor amet',
-        themeColour: themeColour
+  siteMetadata: {
+    title: 'Gatsby Static Site Skeleton',
+    description: 'A project skeleton for building static PWAs using Gatsby JS'
+  },
+  plugins: [
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: 'gatsby-static-site-skeleton',
+        short_name: 'sss',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#fff',
+        display: 'minimal-ui',
+        icon: 'src/images/gastby-icon.png' // This path is relative to the root of the site.
+      }
     },
-    plugins: [
-        /**
-         * `gatsby-plugin-react-next` means we can use React v16
-         * in Gatsby v1. When Gatsby v2 is released it will ship
-         * with React v16 by default, and this plugin can be removed
-         */
-        'gatsby-plugin-react-next',
-        'gatsby-plugin-sass',
-        'gatsby-plugin-typescript',
-        {
-            resolve: 'gatsby-plugin-manifest',
-            options: {
-                name: 'Static Site Skeleton',
-                short_name: 'SSS',
-                start_url: '/',
-                icons: [
-                    {
-                        src: '/favicons/android-chrome-192x192.png',
-                        sizes: '192x192',
-                        type: 'image/png'
-                    },
-                    {
-                        src: '/favicons/android-chrome-512x512.png',
-                        sizes: '512x512',
-                        type: 'image/png'
-                    }
-                ],
-                background_color: themeColour,
-                theme_color: themeColour,
-                display: 'standalone'
-            }
-        },
-        'gatsby-plugin-offline'
-    ],
-    pathPrefix: '/'
+    'gatsby-plugin-emotion'
+  ]
 };
