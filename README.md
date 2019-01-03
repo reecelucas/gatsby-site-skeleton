@@ -13,4 +13,4 @@ yarn develop
 
 ## TODO
 
-1. Font loading
+1. Font loading via <https://www.zachleat.com/web-fonts/demos/critical-foft-preload-fallback-optional.html>
