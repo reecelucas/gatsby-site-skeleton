@@ -1,7 +1,9 @@
 import * as React from 'react';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import getAttributeProps from '../../helpers/getAttributeProps';
-import styled from '@emotion/styled';
+import { css } from '@emotion/core';
+import { captureInteraction } from '../../error-handling/error-handling';
 
 const propTypes = {
   href: PropTypes.string.isRequired,
@@ -11,7 +13,7 @@ const propTypes = {
   newTab: PropTypes.bool
 };
 
-const StyledAnchor = styled.a`
+const styles = css`
   display: inline-block;
   text-decoration: underline;
   overflow-wrap: break-word;
@@ -21,20 +23,26 @@ const StyledAnchor = styled.a`
 `;
 
 const Anchor = ({ children, href, title, className, newTab, ...rest }) => {
-  const attributes = getAttributeProps(rest);
+  const sharedProps = {
+    css: [styles, className],
+    title: title || null,
+    ...getAttributeProps(rest)
+  };
 
-  return (
-    <StyledAnchor
-      className={className}
-      href={href}
-      title={title || null}
-      target={newTab ? '_blank' : null}
-      rel={newTab ? 'noopener noreferrer' : null}
-      {...attributes}
-    >
+  const renderExternalLink = () => (
+    <a href={href} target="_blank" rel="noopener noreferrer" {...sharedProps}>
       {children}
-    </StyledAnchor>
+    </a>
   );
+
+  const renderInternalLink = () => (
+    // For interal links we record user interaction (for error tracking)
+    <Link to={href} onClick={captureInteraction} {...sharedProps}>
+      {children}
+    </Link>
+  );
+
+  return newTab ? renderExternalLink() : renderInternalLink();
 };
 
 Anchor.propTypes = propTypes;

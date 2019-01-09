@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { graphql, StaticQuery } from 'gatsby';
+import {
+  startErrorTracking,
+  sendErrorReport
+} from '../../error-handling/error-handling';
 
 import '../../styles/global';
 
@@ -27,9 +31,13 @@ const onFirstTabPress = event => {
 
 const Layout = ({ children }) => {
   useEffect(() => {
+    window.addEventListener('error', sendErrorReport);
     window.addEventListener('keydown', onFirstTabPress);
 
+    startErrorTracking();
+
     return () => {
+      window.removeEventListener('error', sendErrorReport);
       window.removeEventListener('keydown', onFirstTabPress);
     };
   }, []);

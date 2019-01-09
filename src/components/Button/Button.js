@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getAttributeProps from '../../helpers/getAttributeProps';
 import styled from '@emotion/styled';
+import { captureInteraction } from '../../error-handling/error-handling';
 import { css } from '@emotion/core';
 import { COLOURS, SPACING } from '../../styles/theme';
 
@@ -40,6 +41,13 @@ const StyledButton = styled.button`
 
 const Button = ({ disabled, onClick, children, className, ...rest }) => {
   const attributes = getAttributeProps(rest);
+  const clickHandler = event => {
+    captureInteraction(event);
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
 
   if (disabled) {
     attributes['aria-disabled'] = true;
@@ -49,7 +57,7 @@ const Button = ({ disabled, onClick, children, className, ...rest }) => {
   return (
     <StyledButton
       type="button"
-      onClick={onClick}
+      onClick={clickHandler}
       className={className}
       {...attributes}
     >
