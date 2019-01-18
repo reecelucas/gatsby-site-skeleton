@@ -4,7 +4,7 @@ A project skeleton (using [Gatsby.js](https://www.gatsbyjs.org/)) for building s
 
 ## Up And Running
 
-```bash
+```Bash
 git clone git@github.com:reecelucas/gatsby-site-skeleton.git
 cd gatsby-site-skeleton
 yarn
