@@ -8,7 +8,8 @@ import { COLOURS, SPACING } from '../../styles/theme';
 
 const propTypes = {
   disabled: PropTypes.bool,
-  onClick: PropTypes.func,
+  id: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
   children: PropTypes.any.isRequired
 };
@@ -39,14 +40,11 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ disabled, onClick, children, className, ...rest }) => {
+const Button = ({ id, onClick, disabled, children, className, ...rest }) => {
   const attributes = getAttributeProps(rest);
   const clickHandler = event => {
     captureInteraction(event);
-
-    if (onClick) {
-      onClick(event);
-    }
+    onClick(event);
   };
 
   if (disabled) {
@@ -59,6 +57,7 @@ const Button = ({ disabled, onClick, children, className, ...rest }) => {
       type="button"
       onClick={clickHandler}
       className={className}
+      data-interaction-id={id}
       {...attributes}
     >
       {children}

@@ -3,7 +3,7 @@
   "description": "Gatsby Static Site Skeleton",
   "version": "1.0.0",
   "authors": [
-    "Reece Lucas <reece.lucas@bbc.co.uk> (https://github.com/reecelucas)"
+    "Reece Lucas <reecelucas@sky.com> (https://github.com/reecelucas)"
   ],
   "dependencies": {
     "@emotion/core": "^10.0.5",
@@ -17,8 +17,8 @@
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-source-filesystem": "^2.0.8",
     "prop-types": "^15.6.2",
-    "react": "^16.7.0-alpha.2",
-    "react-dom": "^16.7.0-alpha.2",
+    "react": "^16.8.0-alpha.1",
+    "react-dom": "^16.8.0-alpha.1",
     "react-helmet": "^5.2.0"
   },
   "keywords": [
@@ -49,9 +49,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bbc/rd-apmm-configurator.git"
+    "url": "git+https://github.com/reecelucas/gatsby-site-skeleton.git"
   },
   "bugs": {
-    "url": "https://github.com/bbc/rd-apmm-configurator/issues"
+    "url": "https://github.com/reecelucas/gatsby-site-skeleton/issues"
   }
 }

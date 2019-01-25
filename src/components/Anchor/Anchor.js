@@ -7,6 +7,7 @@ import { captureInteraction } from '../../error-handling/error-handling';
 
 const propTypes = {
   href: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string,
   className: PropTypes.string,
   children: PropTypes.any,
@@ -22,7 +23,7 @@ const styles = css`
   hyphens: auto;
 `;
 
-const Anchor = ({ children, href, title, className, newTab, ...rest }) => {
+const Anchor = ({ children, href, id, title, className, newTab, ...rest }) => {
   const sharedProps = {
     css: [styles, className],
     title: title || null,
@@ -37,7 +38,12 @@ const Anchor = ({ children, href, title, className, newTab, ...rest }) => {
 
   const renderInternalLink = () => (
     // For interal links we record user interaction (for error tracking)
-    <Link to={href} onClick={captureInteraction} {...sharedProps}>
+    <Link
+      to={href}
+      data-interaction-id={id}
+      onClick={captureInteraction}
+      {...sharedProps}
+    >
       {children}
     </Link>
   );

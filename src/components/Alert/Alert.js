@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { setConfig } from 'react-hot-loader';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import { SPACING, TYPE_SCALE } from '../../styles/theme';
@@ -7,8 +6,6 @@ import { SPACING, TYPE_SCALE } from '../../styles/theme';
 import successIcon from '../../images/alert-icon--success.svg';
 import warningIcon from '../../images/alert-icon--warning.svg';
 import errorIcon from '../../images/alert-icon--error.svg';
-
-setConfig({ pureSFC: true });
 
 const propTypes = {
   children: PropTypes.string.isRequired,

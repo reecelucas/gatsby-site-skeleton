@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { graphql, StaticQuery } from 'gatsby';
+import { Global } from '@emotion/core';
 import {
   startErrorTracking,
   sendErrorReport
 } from '../../error-handling/error-handling';
 
-import '../../styles/global';
+import globalStyles from '../../styles/global';
 
 const propTypes = {
   children: PropTypes.oneOfType([
@@ -67,6 +68,7 @@ const Layout = ({ children }) => {
               }
             ]}
           />
+          <Global styles={globalStyles} />
           {children}
         </React.Fragment>
       )}
