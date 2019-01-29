@@ -34,23 +34,11 @@ const IndexPage = () => {
           <Spacer>
             <p>
               Dolor laborum fugiat ad adipisicing ullamco aliqua elit commodo
-              tempor elit est.{' '}
-              <Anchor
-                href="https://www.google.co.uk/"
-                title="Example link"
-                newTab
-              >
-                Open new tab here!
-              </Anchor>{' '}
-              do eiusmod dolor et labore. Eiusmod minim cillum consectetur
-              eiusmod mollit culpa ipsum dolor ut qui mollit minim ut. Ullamco
-              dolor enim labore consectetur laboris velit proident ullamco
-              ullamco in sit duis.{' '}
-              <Anchor
-                href="/"
-                title="Example link"
-                data-error-interaction-id="index-test-anchor"
-              >
+              tempor elit est. Do eiusmod dolor et labore. Eiusmod minim cillum
+              consectetur eiusmod mollit culpa ipsum dolor ut qui mollit minim
+              ut. Ullamco dolor enim labore consectetur laboris velit proident
+              ullamco ullamco in sit duis.{' '}
+              <Anchor href="/" title="Visit about" id="index-test-anchor">
                 Click me!
               </Anchor>{' '}
             </p>
@@ -87,7 +75,7 @@ const IndexPage = () => {
           </Spacer>
 
           <Button
-            data-error-id="index-button"
+            id="index-button"
             onClick={() => {
               throw new Error('Error handling test');
             }}

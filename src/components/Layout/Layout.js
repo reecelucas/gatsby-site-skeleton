@@ -5,7 +5,7 @@ import { graphql, StaticQuery } from 'gatsby';
 import { Global } from '@emotion/core';
 import {
   startErrorTracking,
-  sendErrorReport
+  logErrorReport
 } from '../../error-handling/error-handling';
 
 import globalStyles from '../../styles/global';
@@ -32,13 +32,13 @@ const onFirstTabPress = event => {
 
 const Layout = ({ children }) => {
   useEffect(() => {
-    window.addEventListener('error', sendErrorReport);
+    window.addEventListener('error', logErrorReport);
     window.addEventListener('keydown', onFirstTabPress);
 
     startErrorTracking();
 
     return () => {
-      window.removeEventListener('error', sendErrorReport);
+      window.removeEventListener('error', logErrorReport);
       window.removeEventListener('keydown', onFirstTabPress);
     };
   }, []);
@@ -52,26 +52,39 @@ const Layout = ({ children }) => {
             siteMetadata {
               title
               description
+              webfonts {
+                path
+              }
             }
           }
         }
       `}
-      render={data => (
-        <React.Fragment>
-          <Helmet
-            htmlAttributes={{ lang: 'en-GB' }}
-            title={data.site.siteMetadata.title}
-            meta={[
-              {
-                name: 'description',
-                content: data.site.siteMetadata.description
-              }
-            ]}
-          />
-          <Global styles={globalStyles} />
-          {children}
-        </React.Fragment>
-      )}
+      render={data => {
+        const { siteMetadata } = data.site;
+
+        return (
+          <React.Fragment>
+            <Helmet htmlAttributes={{ lang: 'en-GB' }}>
+              <title>{siteMetadata.title}</title>
+              <meta name="description" content={siteMetadata.description} />
+
+              {siteMetadata.webfonts &&
+                siteMetadata.webfonts.map(({ path }) => (
+                  <link
+                    key={path}
+                    rel="preload"
+                    href={path}
+                    as="font"
+                    type="font/woff2"
+                    crossOrigin="anonymous"
+                  />
+                ))}
+            </Helmet>
+            <Global styles={globalStyles} />
+            {children}
+          </React.Fragment>
+        );
+      }}
     />
   );
 };

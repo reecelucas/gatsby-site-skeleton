@@ -1,7 +1,28 @@
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Static Site Skeleton',
-    description: 'A project skeleton for building static PWAs using Gatsby JS'
+    description: 'A project skeleton for building static PWAs using Gatsby JS',
+    webfonts: [
+      {
+        name: 'Open Sans',
+        path: '/fonts/open-sans-regular.woff2',
+        urls: [
+          "url(/fonts/open-sans-regular.woff2) format('woff2')",
+          "url(/fonts/open-sans-regular.woff) format('woff')"
+        ],
+        meta: { weight: '400' }
+      },
+      {
+        name: 'Open Sans',
+        path: '/fonts/open-sans-700.woff2',
+        urls: [
+          "url(/fonts/open-sans-700.woff2) format('woff2')",
+          "url(/fonts/open-sans-700.woff) format('woff')"
+        ],
+        meta: { weight: '700' }
+      }
+    ],
+    webfontLoadedClass: 'fonts-loaded'
   },
   plugins: [
     'gatsby-plugin-react-helmet',

@@ -44,7 +44,8 @@ export const TYPE_SCALE = {
 };
 
 export const FONT_FAMILIES = {
-  sans: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`
+  fallback: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+  primary: '"Open Sans", sans-serif'
 };
 
 export const Z_INDEXES = {
