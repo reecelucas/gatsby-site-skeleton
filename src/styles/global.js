@@ -7,6 +7,7 @@ export default css`
   ${generic.normalize};
   ${generic.reset};
   ${generic.shared};
+  ${generic.focusManagement};
   ${generic.fonts};
 
   ${elements.page};

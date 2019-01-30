@@ -1,23 +1,28 @@
 const localStorage = require('./helpers/local-storage');
 
 module.exports = (webfonts, loadedClass) => {
-  const addLoadedClass = () => {
-    document.documentElement.className += ` ${loadedClass}`;
-  };
+  // Only load webfonts in browsers that support the Font Loading API
+  if (!('fonts' in document)) return;
 
   if (localStorage.fetch(loadedClass)) {
     /**
-     * Note: if the font is never cached, or the user clears their cache (but
-     * not their local storage), this check will still pass and the `fonts-loaded`
-     * styling will be added before the webfont is available. This feels very "edge-casey"
-     * so is probably not worth guarding against.
+     * We use a flag in localStorage to infer whether the webfonts are cached.
+     * This is obviously not bulletproof because if the font is never cached,
+     * or the user clears their cache (but not their local storage), this check
+     * will still pass and the `fonts-loaded` class will be applied before the webfont
+     * is downloaded. Unfortunatelty, until the Cache API has better support there isn't
+     * a lot that can be done about this.
      */
-    addLoadedClass();
-  } else if ('fonts' in document) {
+    document.documentElement.classList.add(loadedClass);
+  } else {
     const fonts = webfonts.map(webfont => {
       // Omit the `path` property from the `webfont` object
-      const { path, ...rest } = webfont; // eslint-disable-line
-      return new FontFace(...Object.values(rest));
+      const { path, ...webfontCleaned } = webfont; // eslint-disable-line
+      const values = Object.keys(webfontCleaned).map(
+        key => webfontCleaned[key]
+      );
+
+      return new FontFace(...values);
     });
 
     Promise.all(fonts.map(font => font.load()))
@@ -26,18 +31,13 @@ module.exports = (webfonts, loadedClass) => {
           document.fonts.add(font);
         });
 
-        addLoadedClass();
+        document.documentElement.classList.add(loadedClass);
         localStorage.save({
           key: loadedClass,
           value: true,
-          expirationDays: 364 // Font files are cached for a year (see `static/_headers`)
+          expirationDays: 7
         });
       })
       .catch(console.warn);
-  } else {
-    /**
-     * TODO: figure out how to provide a font loading fallback
-     * for browsers that don't support the native FontFace API.
-     */
   }
 };

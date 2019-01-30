@@ -17,12 +17,4 @@ export default css`
   pre {
     margin-bottom: ${theme.SPACING.base};
   }
-
-  body:not(.user-is-tabbing) a:focus,
-  body:not(.user-is-tabbing) button:focus,
-  body:not(.user-is-tabbing) input:focus,
-  body:not(.user-is-tabbing) select:focus,
-  body:not(.user-is-tabbing) textarea:focus {
-    outline: none;
-  }
 `;
