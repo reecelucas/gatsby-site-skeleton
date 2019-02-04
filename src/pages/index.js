@@ -31,17 +31,15 @@ const IndexPage = () => {
             </Alert>
           </Spacer>
 
-          <Spacer>
-            <p>
-              Dolor laborum fugiat ad adipisicing ullamco aliqua elit commodo
-              tempor elit est. Do eiusmod dolor et labore. Eiusmod minim cillum
-              consectetur eiusmod mollit culpa ipsum dolor ut qui mollit minim
-              ut. Ullamco dolor enim labore consectetur laboris velit proident
-              ullamco ullamco in sit duis.{' '}
-              <Anchor href="/" title="Visit about" id="index-test-anchor">
-                Click me!
-              </Anchor>{' '}
-            </p>
+          <Spacer as="p">
+            Dolor laborum fugiat ad adipisicing ullamco aliqua elit commodo
+            tempor elit est. Do eiusmod dolor et labore. Eiusmod minim cillum
+            consectetur eiusmod mollit culpa ipsum dolor ut qui mollit minim ut.
+            Ullamco dolor enim labore consectetur laboris velit proident ullamco
+            ullamco in sit duis.{' '}
+            <Anchor href="/" title="Visit about" id="index-test-anchor">
+              Click me!
+            </Anchor>{' '}
           </Spacer>
 
           <Spacer size="large">
