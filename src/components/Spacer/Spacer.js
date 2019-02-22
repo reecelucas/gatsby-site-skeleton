@@ -10,7 +10,7 @@ const propTypes = {
 };
 
 const StyledSpacer = styled.div`
-  margin-bottom: ${props => SPACING[props.size] || SPACING.base};
+  margin-bottom: ${({ size }) => SPACING[size] || SPACING.base};
 `;
 
 const Spacer = ({ children, size, as }) => (

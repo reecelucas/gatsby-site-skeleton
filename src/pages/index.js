@@ -26,7 +26,7 @@ const IndexPage = () => {
       <main id="content">
         <Wrapper>
           <Spacer>
-            <Alert theme={isOnline ? 'success' : 'warning'}>
+            <Alert appearance={isOnline ? 'success' : 'warning'}>
               {`You are currently ${isOnline ? 'online' : 'offline'}`}
             </Alert>
           </Spacer>

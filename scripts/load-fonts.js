@@ -10,7 +10,7 @@ module.exports = (webfonts, loadedClass) => {
      * This is obviously not bulletproof because if the font is never cached,
      * or the user clears their cache (but not their local storage), this check
      * will still pass and the `fonts-loaded` class will be applied before the webfont
-     * is downloaded. Unfortunatelty, until the Cache API has better support there isn't
+     * is downloaded. Unfortunately, until the Cache API has better support there isn't
      * a lot that can be done about this.
      */
     document.documentElement.classList.add(loadedClass);

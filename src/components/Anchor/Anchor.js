@@ -1,55 +1,61 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import getAttributeProps from '../../helpers/getAttributeProps';
-import { css } from '@emotion/core';
 import { captureInteraction } from '../../error-handling/error-handling';
+import getAttributeProps from '../../helpers/getAttributeProps';
 
 const propTypes = {
+  children: PropTypes.any.isRequired,
   href: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.any,
+  onClick: PropTypes.func,
   newTab: PropTypes.bool
 };
 
-const styles = css`
-  display: inline-block;
-  text-decoration: underline;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-`;
+const Anchor = React.forwardRef(function Anchor(props, ref) {
+  const { children, href, id, title, onClick, newTab, ...rest } = props;
 
-const Anchor = ({ children, href, id, title, className, newTab, ...rest }) => {
   const sharedProps = {
-    css: [styles, className],
     title: title || null,
     ...getAttributeProps(rest)
   };
 
+  // Any internal link will start with one slash
+  const internal = /^\/(?!\/)/.test(href);
+  const onLinkClick = event => {
+    // For interal links we record user interaction for error tracking
+    captureInteraction(event);
+    onClick(event);
+  };
+
   const renderExternalLink = () => (
-    <a href={href} target="_blank" rel="noopener noreferrer" {...sharedProps}>
+    <a
+      href={href}
+      target={newTab ? '_blank' : null}
+      rel={newTab ? 'noopener noreferrer' : null}
+      onClick={onClick}
+      ref={ref}
+      {...sharedProps}
+    >
       {children}
     </a>
   );
 
   const renderInternalLink = () => (
-    // For interal links we record user interaction (for error tracking)
     <Link
       to={href}
       data-interaction-id={id}
-      onClick={captureInteraction}
+      onClick={onLinkClick}
+      ref={ref}
       {...sharedProps}
     >
       {children}
     </Link>
   );
 
-  return newTab ? renderExternalLink() : renderInternalLink();
-};
+  return internal ? renderInternalLink() : renderExternalLink();
+});
 
 Anchor.propTypes = propTypes;
 

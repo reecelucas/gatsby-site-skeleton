@@ -40,7 +40,9 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ id, onClick, disabled, children, className, ...rest }) => {
+const Button = React.forwardRef(function Button(props, ref) {
+  const { id, onClick, disabled, children, className, ...rest } = props;
+
   const attributes = getAttributeProps(rest);
   const clickHandler = event => {
     captureInteraction(event);
@@ -58,13 +60,14 @@ const Button = ({ id, onClick, disabled, children, className, ...rest }) => {
       onClick={clickHandler}
       className={className}
       data-interaction-id={id}
+      ref={ref}
       {...attributes}
     >
       {children}
     </StyledButton>
   );
-};
+});
 
 Button.propTypes = propTypes;
 
-export default React.memo(Button);
+export default Button;

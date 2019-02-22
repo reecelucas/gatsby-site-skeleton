@@ -1,4 +1,4 @@
-const whiteListAttributePatterns = /^(aria-|data-|role|name)/;
+const whiteListAttributePatterns = /^(aria-|data-|role|name|id|className)/;
 
 export default (props = {}) =>
   Object.keys(props)

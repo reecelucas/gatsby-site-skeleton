@@ -3,14 +3,6 @@ import { useState, useEffect } from 'react';
 export default () => {
   const [isOnline, setIsOnline] = useState(null);
 
-  const goOnline = () => {
-    setIsOnline(true);
-  };
-
-  const goOffline = () => {
-    setIsOnline(false);
-  };
-
   useEffect(() => {
     setIsOnline(
       typeof navigator.onLine === 'boolean' ? navigator.onLine : true
@@ -24,6 +16,14 @@ export default () => {
       window.removeEventListener('offline', goOffline);
     };
   }, []);
+
+  const goOnline = () => {
+    setIsOnline(true);
+  };
+
+  const goOffline = () => {
+    setIsOnline(false);
+  };
 
   return isOnline;
 };

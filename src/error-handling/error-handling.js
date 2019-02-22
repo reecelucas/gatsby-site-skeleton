@@ -44,12 +44,12 @@ export const logErrorReport = err => {
     ${err.message} (in ${err.filename} ${err.lineno}:${err.colno})
   `;
 
-  window.__ERROR__ = error;
+  if (process.env.NODE_ENV !== 'production') {
+    window.__ERROR__ = error;
 
-  console.group('Configurator');
-  log.red('Error occured', error);
-  log.yellow(
-    'Tip: type "copy(__ERROR__)" to copy the error object to the clipboard'
-  );
-  console.groupEnd('Configurator');
+    log.red('Error occured', error);
+    log.yellow(
+      'Tip: type "copy(__ERROR__)" to copy the error object to the clipboard'
+    );
+  }
 };
