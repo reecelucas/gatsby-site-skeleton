@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     title: 'Gatsby Static Site Skeleton',
     description: 'A project skeleton for building static PWAs using Gatsby JS',
+    siteUrl: 'http://localhost:8000',
     webfonts: [
       {
         name: 'Open Sans',
@@ -39,6 +40,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-emotion'
+    'gatsby-plugin-emotion',
+    'gatsby-plugin-sitemap'
   ]
 };

@@ -16,7 +16,10 @@ export const startErrorTracking = () => {
 };
 
 export const captureInteraction = event => {
-  if (!event.target || !(event.target instanceof HTMLElement)) {
+  if (
+    !event.target ||
+    !(event.target instanceof SVGElement || event.target instanceof HTMLElement)
+  ) {
     log.red('You must pass an Event object to captureInteraction');
     return;
   }

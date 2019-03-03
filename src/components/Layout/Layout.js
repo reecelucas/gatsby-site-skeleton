@@ -52,6 +52,7 @@ const Layout = ({ children }) => {
             siteMetadata {
               title
               description
+              siteUrl
               webfonts {
                 path
               }
@@ -67,6 +68,7 @@ const Layout = ({ children }) => {
             <Helmet htmlAttributes={{ lang: 'en-GB' }}>
               <title>{siteMetadata.title}</title>
               <meta name="description" content={siteMetadata.description} />
+              <link rel="canonical" href={siteMetadata.siteUrl} />
 
               {siteMetadata.webfonts &&
                 siteMetadata.webfonts.map(({ path }) => (

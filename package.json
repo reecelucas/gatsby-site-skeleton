@@ -16,6 +16,7 @@
     "gatsby-plugin-offline": "^2.0.20",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-plugin-sitemap": "^2.0.6",
     "prop-types": "^15.6.2",
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0-alpha.1",
