@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 /**
  * Usage:
- *
  * useClickOutside(myRef, event => {
  *   console.log(`${event.target} is outside of ${myRef.current}`);
  * });
