@@ -1,6 +1,0 @@
-# This file is the Netlify equivilent to a .htaccess
-
-# Override Netlify's default caching approach for fonts, which change very infrequently
-
-/fonts/*
-  Cache-Control: public, max-age=31557600 # 1 year

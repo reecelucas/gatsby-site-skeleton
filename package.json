@@ -15,8 +15,8 @@
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-offline": "^2.0.20",
     "gatsby-plugin-react-helmet": "^3.0.2",
-    "gatsby-source-filesystem": "^2.0.8",
     "gatsby-plugin-sitemap": "^2.0.6",
+    "gatsby-source-filesystem": "^2.0.8",
     "prop-types": "^15.6.2",
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0-alpha.1",
@@ -45,6 +45,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-hooks": "^0.0.0",
+    "husky": "^2.1.0",
     "prettier": "^1.15.2",
     "rimraf": "^2.6.2"
   },
@@ -54,5 +55,10 @@
   },
   "bugs": {
     "url": "https://github.com/reecelucas/gatsby-site-skeleton/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run lint"
+    }
   }
 }
