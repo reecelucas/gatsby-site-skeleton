@@ -11,16 +11,16 @@ export default (debounceDuration = 100) => {
   const [windowWidth, setWindowWidth] = useState(initialState);
 
   useEffect(() => {
+    const onResize = debounce(debounceDuration, () => {
+      setWindowWidth(window.innerWidth);
+    });
+
     window.addEventListener('resize', onResize);
 
     return () => {
       window.removeEventListener('resize', onResize);
     };
-  }, []);
-
-  const onResize = debounce(debounceDuration, () => {
-    setWindowWidth(window.innerWidth);
-  });
+  }, [debounceDuration]);
 
   return windowWidth;
 };
