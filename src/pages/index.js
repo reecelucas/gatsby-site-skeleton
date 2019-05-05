@@ -1,4 +1,5 @@
 import React from 'react';
+import * as yup from 'yup';
 
 import Layout from '../components/Layout/Layout';
 import Spacer from '../components/Spacer/Spacer';
@@ -7,6 +8,7 @@ import Alert from '../components/Alert/Alert';
 import Button from '../components/Button/Button';
 import Anchor from '../components/Anchor/Anchor';
 import SkipLink from '../components/SkipLink/SkipLink';
+import { Form, Field } from '../components/Form';
 import {
   Accordion,
   AccordionItem,
@@ -16,8 +18,21 @@ import {
 
 import useNetworkStatus from '../hooks/useNetworkStatus';
 
+const validationSchema = yup.object().shape({
+  name: yup.string().required('Please provide a name'),
+  email: yup
+    .string()
+    .email()
+    .required('Please provide a valid email')
+});
+
 const IndexPage = () => {
   const isOnline = useNetworkStatus();
+
+  const onFormSubmit = ({ values, setSubmitting }) => {
+    console.log('onSubmit value', values);
+    setSubmitting(false);
+  };
 
   return (
     <Layout>
@@ -70,6 +85,47 @@ const IndexPage = () => {
                 </AccordionItemBody>
               </AccordionItem>
             </Accordion>
+          </Spacer>
+
+          <Spacer>
+            <Form
+              initialValues={{
+                name: '',
+                email: '',
+                message: ''
+              }}
+              handleSubmit={onFormSubmit}
+              validationSchema={validationSchema}
+            >
+              {({ handleSubmit, errors }) => (
+                <form onSubmit={handleSubmit} noValidate>
+                  <label>
+                    Name
+                    <Field component="input" type="text" name="name" />
+                  </label>
+                  {errors.name && <p>{errors.name}</p>}
+                  <label>
+                    Email
+                    <Field component="input" type="email" name="email" />
+                  </label>
+                  <label>
+                    Pets
+                    <Field component="select" name="pets">
+                      <option value="">--Select an option--</option>
+                      <option value="dog">Dog</option>
+                      <option value="cat">Cat</option>
+                      <option value="other">Other</option>
+                    </Field>
+                  </label>
+                  <label>
+                    Message
+                    <Field component="textarea" name="message" />
+                  </label>
+                  {errors.email && <p>{errors.email}</p>}
+                  <button type="submit">Submit</button>
+                </form>
+              )}
+            </Form>
           </Spacer>
 
           <Button
