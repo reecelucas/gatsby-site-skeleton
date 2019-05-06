@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import FormContext from './FormContext';
 import Field from './Field';
+import Label from './Label';
+import Error from './Error';
 
 const propTypes = {
   initialValues: PropTypes.objectOf(PropTypes.string).isRequired,
@@ -92,4 +94,4 @@ const Form = ({ initialValues, handleSubmit, validationSchema, children }) => {
 
 Form.propTypes = propTypes;
 
-export { Form, Field };
+export { Form, Field, Label, Error };

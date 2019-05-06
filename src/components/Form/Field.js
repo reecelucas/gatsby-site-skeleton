@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import FormContext from './FormContext';
+import { COLOURS, SPACING, TYPE_SCALE } from '../../styles/theme';
 
 const FIELD_TYPES = {
   input: 'input',
@@ -14,40 +17,68 @@ const propTypes = {
   children: PropTypes.node
 };
 
+const baseStyles = css`
+  appearance: none;
+  background-color: ${COLOURS.base};
+  border: 1px solid ${COLOURS.accent};
+  border-radius: 2px;
+  color: ${COLOURS.primary};
+  display: block;
+  font-family: inherit;
+  font-size: ${TYPE_SCALE[16]};
+  padding: ${SPACING.tiny};
+  vertical-align: top;
+  width: 100%;
+
+  &:focus,
+  &:focus {
+    background-color: ${COLOURS.base};
+  }
+`;
+
+const StyledInput = styled.input`
+  ${baseStyles}
+`;
+
+const StyledTextarea = styled.textarea`
+  ${baseStyles};
+  min-height: 200px;
+  overflow: auto;
+  resize: vertical;
+`;
+
+const StyledSelect = styled.select`
+  ${baseStyles};
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  background-position: right 12px top 50%;
+  background-repeat: no-repeat;
+  background-size: 12px auto;
+
+  &:-ms-expand {
+    display: none;
+  }
+`;
+
 const Field = ({ name, component = FIELD_TYPES.input, children, ...props }) => {
-  const { handleChange, values } = useContext(FormContext);
+  const { handleChange, values, errors } = useContext(FormContext);
 
-  const renderInput = () => (
-    <input
-      name={name}
-      onChange={handleChange}
-      value={values[name]}
-      {...props}
-    />
-  );
-
-  const renderTextarea = () => (
-    <textarea
-      name={name}
-      onChange={handleChange}
-      value={values[name]}
-      {...props}
-    />
-  );
-
-  const renderSelect = () => (
-    <select name={name} onChange={handleChange} value={values[name]} {...props}>
-      {children}
-    </select>
-  );
-
-  const renderField = {
-    [FIELD_TYPES.input]: renderInput,
-    [FIELD_TYPES.textarea]: renderTextarea,
-    [FIELD_TYPES.select]: renderSelect
+  const fieldProps = {
+    name,
+    onChange: handleChange,
+    value: values[name],
+    'aria-invalid': !!errors[name],
+    ...props
   };
 
-  return renderField[component]();
+  const fields = {
+    [FIELD_TYPES.input]: <StyledInput {...fieldProps} />,
+    [FIELD_TYPES.textarea]: <StyledTextarea {...fieldProps} />,
+    [FIELD_TYPES.select]: (
+      <StyledSelect {...fieldProps}>{children}</StyledSelect>
+    )
+  };
+
+  return fields[component];
 };
 
 Field.propTypes = propTypes;

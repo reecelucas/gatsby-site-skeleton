@@ -14,7 +14,8 @@ export const BREAKPOINTS = {
 export const COLOURS = {
   base: '#ffffff',
   primary: '#272b3b',
-  accent: '#c6fdec'
+  accent: '#c6fdec',
+  error: '#ed2939'
 };
 
 // Spacing hierarchy taken from AirBnb's style "language"

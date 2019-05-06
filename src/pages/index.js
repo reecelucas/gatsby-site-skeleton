@@ -8,7 +8,7 @@ import Alert from '../components/Alert/Alert';
 import Button from '../components/Button/Button';
 import Anchor from '../components/Anchor/Anchor';
 import SkipLink from '../components/SkipLink/SkipLink';
-import { Form, Field } from '../components/Form';
+import { Form, Field, Label, Error } from '../components/Form';
 import {
   Accordion,
   AccordionItem,
@@ -99,29 +99,30 @@ const IndexPage = () => {
             >
               {({ handleSubmit, errors }) => (
                 <form onSubmit={handleSubmit} noValidate>
-                  <label>
-                    Name
-                    <Field component="input" type="text" name="name" />
-                  </label>
-                  {errors.name && <p>{errors.name}</p>}
-                  <label>
-                    Email
-                    <Field component="input" type="email" name="email" />
-                  </label>
-                  <label>
-                    Pets
-                    <Field component="select" name="pets">
-                      <option value="">--Select an option--</option>
-                      <option value="dog">Dog</option>
-                      <option value="cat">Cat</option>
-                      <option value="other">Other</option>
-                    </Field>
-                  </label>
-                  <label>
-                    Message
-                    <Field component="textarea" name="message" />
-                  </label>
-                  {errors.email && <p>{errors.email}</p>}
+                  <Label htmlFor="name">Name</Label>
+                  <Field id="name" name="name" component="input" type="text" />
+                  <Error error={errors.name} />
+
+                  <Label htmlFor="email">Email</Label>
+                  <Field
+                    id="email"
+                    name="email"
+                    component="input"
+                    type="email"
+                  />
+                  <Error error={errors.email} />
+
+                  <Label htmlFor="pets">Pets</Label>
+                  <Field id="pets" name="pets" component="select">
+                    <option value="">--Select an option--</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="other">Other</option>
+                  </Field>
+
+                  <Label htmlFor="message">Message</Label>
+                  <Field id="message" name="message" component="textarea" />
+
                   <button type="submit">Submit</button>
                 </form>
               )}
