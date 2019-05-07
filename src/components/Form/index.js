@@ -73,7 +73,8 @@ const Form = ({ initialValues, handleSubmit, validationSchema, children }) => {
 
   const getContextProps = () => ({
     handleChange: onChange,
-    values
+    values,
+    errors
   });
 
   const getRenderProps = () => ({
