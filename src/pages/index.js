@@ -6,7 +6,7 @@ import Spacer from '../components/Spacer/Spacer';
 import Wrapper from '../components/Wrapper/Wrapper';
 import Alert from '../components/Alert/Alert';
 import Button from '../components/Button/Button';
-import Anchor from '../components/Anchor/Anchor';
+import Link from '../components/Link/Link';
 import SkipLink from '../components/SkipLink/SkipLink';
 import { Form, Field, Label, Error } from '../components/Form';
 import {
@@ -52,9 +52,9 @@ const IndexPage = () => {
             consectetur eiusmod mollit culpa ipsum dolor ut qui mollit minim ut.
             Ullamco dolor enim labore consectetur laboris velit proident ullamco
             ullamco in sit duis.{' '}
-            <Anchor href="/" title="Visit about" id="index-test-anchor">
+            <Link href="/" title="Visit about" id="index-test-link">
               Click me!
-            </Anchor>{' '}
+            </Link>
           </Spacer>
 
           <Spacer size="large">
@@ -132,7 +132,7 @@ const IndexPage = () => {
           <Button
             id="index-button"
             onClick={() => {
-              throw new Error('Error handling test');
+              throw new Error('Error handling test!');
             }}
           >
             Click me!

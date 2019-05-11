@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Anchor from '../Anchor/Anchor';
+import Link from '../Link/Link';
 import { COLOURS, SPACING, TYPE_SCALE, Z_INDEXES } from '../../styles/theme';
 
 const transitionTiming = 'cubic-bezier(0.18, 0.89, 0.32, 1.28)';
 const borderRadius = '8px';
 
-const StyledLink = styled(Anchor)`
+const StyledLink = styled(Link)`
   clip: rect(1px, 1px, 1px, 1px);
   font-size: ${TYPE_SCALE[16]};
   font-weight: 700;
