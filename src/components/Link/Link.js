@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as GatsbyLink } from 'gatsby';
 import { captureInteraction } from '../../error-handling/error-handling';
-import getAttributeProps from '../../helpers/getAttributeProps';
+import getHtmlAttributes from '../../helpers/getHtmlAttributes';
 
 const propTypes = {
   children: PropTypes.any.isRequired,
@@ -25,7 +25,7 @@ const Link = React.forwardRef(function Link(props, ref) {
       rel={newTab ? 'noopener noreferrer' : null}
       onClick={onClick}
       ref={ref}
-      {...getAttributeProps(rest)}
+      {...getHtmlAttributes(rest)}
     >
       {children}
     </a>
@@ -40,7 +40,7 @@ const Link = React.forwardRef(function Link(props, ref) {
       }}
       ref={ref}
       data-interaction-id={id}
-      {...getAttributeProps(rest)}
+      {...getHtmlAttributes(rest)}
     >
       {children}
     </GatsbyLink>

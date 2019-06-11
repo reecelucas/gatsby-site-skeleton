@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getAttributeProps from '../../helpers/getAttributeProps';
+import getHtmlAttributes from '../../helpers/getHtmlAttributes';
 import { captureInteraction } from '../../error-handling/error-handling';
 import styled from '@emotion/styled';
 import Link from '../Link/Link';
@@ -53,7 +53,7 @@ const StyledLink = styled(Link)`
 const Button = React.forwardRef(function Button(props, ref) {
   const { id, onClick, disabled, children, href, newTab, ...rest } = props;
 
-  const attributes = getAttributeProps(rest);
+  const attributes = getHtmlAttributes(rest);
 
   if (disabled) {
     attributes['aria-disabled'] = true;
