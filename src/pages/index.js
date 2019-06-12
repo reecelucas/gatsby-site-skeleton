@@ -59,8 +59,10 @@ const IndexPage = () => {
 
           <Spacer size="large">
             <Accordion>
-              <AccordionItem expanded>
-                <AccordionItemTitle>Title One</AccordionItemTitle>
+              <AccordionItem initialOpen>
+                <AccordionItemTitle>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                </AccordionItemTitle>
                 <AccordionItemBody>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.

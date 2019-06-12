@@ -1,28 +1,32 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import AccordionContext from './AccordionContext';
+import AccordionItemContext from './AccordionItemContext';
+import getHtmlAttributes from '../../helpers/getHtmlAttributes';
 
 const propTypes = {
   children: PropTypes.any.isRequired,
-  expanded: PropTypes.bool
+  initialOpen: PropTypes.bool
 };
 
-const AccordionItem = ({ children, expanded }) => {
-  const [isExpanded, setIsExpanded] = useState(expanded || false);
+const AccordionItem = ({ children, initialOpen, ...props }) => {
+  const ref = useRef();
+  const [isOpen, setIsOpen] = useState(initialOpen || false);
 
-  const toggleVisibility = () => {
-    setIsExpanded(isExpanded => !isExpanded);
+  const onToggle = () => {
+    setIsOpen(ref.current && ref.current.open);
   };
 
   return (
-    <AccordionContext.Provider
-      value={{
-        expanded: isExpanded,
-        onClick: toggleVisibility
-      }}
-    >
-      {children}
-    </AccordionContext.Provider>
+    <AccordionItemContext.Provider value={{ isOpen }}>
+      <details
+        ref={ref}
+        open={isOpen}
+        onToggle={onToggle}
+        {...getHtmlAttributes(props)}
+      >
+        {children}
+      </details>
+    </AccordionItemContext.Provider>
   );
 };
 
