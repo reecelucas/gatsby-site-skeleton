@@ -8,7 +8,15 @@ import Alert from '../components/Alert/Alert';
 import Button from '../components/Button/Button';
 import Link from '../components/Link/Link';
 import SkipLink from '../components/SkipLink/SkipLink';
-import { Form, Field, Label, Error } from '../components/Form';
+import {
+  Form,
+  Field,
+  TextInput,
+  Textarea,
+  Select,
+  Label,
+  FieldFeedback
+} from '../components/Form';
 import {
   Accordion,
   AccordionItem,
@@ -29,9 +37,10 @@ const validationSchema = yup.object().shape({
 const IndexPage = () => {
   const isOnline = useNetworkStatus();
 
-  const onFormSubmit = ({ values, setSubmitting }) => {
+  const onFormSubmit = ({ values, handleReset, setSubmitting }) => {
     console.log('onSubmit value', values);
     setSubmitting(false);
+    handleReset();
   };
 
   return (
@@ -94,40 +103,40 @@ const IndexPage = () => {
               initialValues={{
                 name: '',
                 email: '',
+                pets: '',
                 message: ''
               }}
               handleSubmit={onFormSubmit}
               validationSchema={validationSchema}
             >
-              {({ handleSubmit, errors }) => (
-                <form onSubmit={handleSubmit} noValidate>
-                  <Label htmlFor="name">Name</Label>
-                  <Field id="name" name="name" component="input" type="text" />
-                  <Error error={errors.name} />
+              <Field name="name">
+                <Label>Name</Label>
+                <TextInput />
+                <FieldFeedback />
+              </Field>
 
-                  <Label htmlFor="email">Email</Label>
-                  <Field
-                    id="email"
-                    name="email"
-                    component="input"
-                    type="email"
-                  />
-                  <Error error={errors.email} />
+              <Field name="email">
+                <Label>Email</Label>
+                <TextInput type="email" />
+                <FieldFeedback />
+              </Field>
 
-                  <Label htmlFor="pets">Pets</Label>
-                  <Field id="pets" name="pets" component="select">
-                    <option value="">--Select an option--</option>
-                    <option value="dog">Dog</option>
-                    <option value="cat">Cat</option>
-                    <option value="other">Other</option>
-                  </Field>
+              <Field name="pets">
+                <Label>Pets</Label>
+                <Select>
+                  <option value="">--Select an option--</option>
+                  <option value="dog">Dog</option>
+                  <option value="cat">Cat</option>
+                  <option value="other">Other</option>
+                </Select>
+              </Field>
 
-                  <Label htmlFor="message">Message</Label>
-                  <Field id="message" name="message" component="textarea" />
+              <Field name="message">
+                <Label>Message</Label>
+                <Textarea />
+              </Field>
 
-                  <button type="submit">Submit</button>
-                </form>
-              )}
+              <button type="submit">Submit</button>
             </Form>
           </Spacer>
 

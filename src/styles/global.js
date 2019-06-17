@@ -11,6 +11,7 @@ export default css`
   ${generic.fonts};
 
   ${elements.page};
+  ${elements.forms};
   ${elements.headings};
   ${elements.images};
 `;
